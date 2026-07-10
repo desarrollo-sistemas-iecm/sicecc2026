@@ -1,0 +1,192 @@
+/* =====================================================
+   SISEC CC 2026 — Estilos globales — Identidad IECM
+   ===================================================== */
+
+/* Importar Inter desde Google Fonts (respaldo si CDN falla) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Variables CSS IECM ────────────────────────────── */
+:root {
+  --iecm-morado:        #6B2D8B;
+  --iecm-morado-oscuro: #4A1F6B;
+  --iecm-morado-claro:  #9B59C8;
+  --iecm-dorado:        #F5A623;
+  --iecm-gris:          #F4F4F6;
+  --iecm-texto:         #4A4A4A;
+  --iecm-borde:         #E0E0E0;
+
+  color-scheme: light;
+}
+
+.dark {
+  --iecm-texto:         #E2E8F0; /* slate-200 */
+  --iecm-gris:          #0F172A; /* slate-900 */
+  --iecm-borde:         #1E293B; /* slate-800 */
+  color-scheme: dark;
+}
+
+/* ── Base ─────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  color: var(--iecm-texto);
+  background-color: var(--iecm-gris);
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Scrollbar personalizada ──────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #c4b4d4;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--iecm-morado);
+}
+
+/* ── Transiciones de ruta (Vue Transition) ────────── */
+.vista-enter-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.vista-leave-active {
+  transition: opacity 0.15s ease;
+}
+.vista-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.vista-leave-to {
+  opacity: 0;
+}
+
+/* ── Focus visible global ─────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--iecm-morado);
+  outline-offset: 2px;
+}
+
+/* ── Utilidades personalizadas ────────────────────── */
+@layer utilities {
+  /* Truncar texto a N líneas */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Gradiente morado IECM */
+  .bg-gradient-iecm {
+    background: linear-gradient(135deg, #4A1F6B 0%, #6B2D8B 60%, #9B59C8 100%);
+  }
+
+  /* Sombra morada IECM */
+  .shadow-iecm {
+    box-shadow: 0 4px 16px 0 rgba(107, 45, 139, 0.15);
+  }
+}
+
+/* ── Componentes reutilizables ────────────────────── */
+@layer components {
+  /* Input / Select base */
+  .input-iecm {
+    @apply w-full rounded-lg border border-iecm-gris-200 bg-white px-3 py-2 text-sm text-iecm-texto
+           placeholder:text-gray-400
+           focus:border-iecm-morado focus:outline-none focus:ring-2 focus:ring-iecm-morado-100
+           transition-colors duration-150
+           dark:bg-slate-900 dark:border-white/10 dark:text-slate-200 dark:focus:ring-iecm-morado-600/35;
+  }
+
+  /* Label base */
+  .label-iecm {
+    @apply block text-xs font-semibold uppercase tracking-wide text-iecm-texto-suave mb-1;
+  }
+
+  /* Botón primario */
+  .btn-primario {
+    @apply inline-flex items-center gap-2 rounded-lg bg-iecm-morado px-4 py-2 text-sm font-semibold text-white
+           shadow-iecm-sm hover:bg-iecm-morado-800 active:scale-95 transition-all duration-150
+           disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  /* Botón secundario */
+  .btn-secundario {
+    @apply inline-flex items-center gap-2 rounded-lg border border-iecm-gris-200 bg-white px-4 py-2 text-sm font-medium text-iecm-texto
+           hover:border-iecm-morado hover:text-iecm-morado active:scale-95 transition-all duration-150
+           dark:bg-slate-800 dark:border-white/10 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white;
+  }
+
+  /* Card base */
+  .card-iecm {
+    @apply rounded-xl bg-white border border-iecm-gris-200 shadow-iecm-sm
+           dark:bg-slate-900 dark:border-white/10 dark:shadow-none;
+  }
+}
+
+/* ── SweetAlert2 Dark Mode Overrides ────────────────── */
+.dark .swal2-popup {
+  background-color: #0f172a !important; /* slate-900 */
+  color: #e2e8f0 !important; /* slate-200 */
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.5) !important;
+}
+.dark .swal2-title {
+  color: #ffffff !important;
+}
+.dark .swal2-html-container {
+  color: #cbd5e1 !important; /* slate-300 */
+}
+.dark .swal2-input,
+.dark .swal2-select,
+.dark .swal2-textarea,
+.dark .swal2-html-container input,
+.dark .swal2-html-container select,
+.dark .swal2-html-container textarea {
+  background-color: #1e293b !important; /* slate-800 */
+  color: #f8fafc !important; /* slate-50 */
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+.dark .swal2-input:focus,
+.dark .swal2-select:focus,
+.dark .swal2-textarea:focus,
+.dark .swal2-html-container input:focus,
+.dark .swal2-html-container select:focus,
+.dark .swal2-html-container textarea:focus {
+  border-color: var(--iecm-morado) !important;
+  box-shadow: 0 0 0 2px rgba(107, 45, 139, 0.4) !important;
+  outline: none !important;
+}
+.dark .swal2-close {
+  color: #94a3b8 !important;
+}
+.dark .swal2-close:hover {
+  color: #f1f5f9 !important;
+}
+.dark .swal2-validation-message {
+  background-color: #1e293b !important;
+  color: #f87171 !important;
+}
+
