@@ -1,13 +1,13 @@
-# 📦 SISEC CC 2026 — Referencia Técnica Oficial
+#  SISEC CC 2026 — Referencia Técnica Oficial
 
-### 🏛️ Instituto Electoral de la Ciudad de México (IECM)
+### Instituto Electoral de la Ciudad de México (IECM)
 * **Área Responsable:** Dirección Ejecutiva de Educación Cívica y Construcción de Ciudadanía (DEECyCC) / Unidad Técnica de Servicios Informáticos (UTSI)
 * **Versión Actual:** `1.0.0`
 * **Stack Tecnológico:** Node.js (Express) + Vue 3 (Vite, Pinia, Vue Router) + SQL Server + Tailwind CSS + GSAP
 
 ---
 
-## 📋 Tabla de Contenidos
+##  Tabla de Contenidos
 1. [Descripción General](#-descripción-general)
 2. [Stack Tecnológico](#-stack-tecnológico)
 3. [Arquitectura y Estructura del Proyecto](#-arquitectura-y-estructura-del-proyecto)
@@ -21,7 +21,7 @@
 
 ---
 
-## 📝 Descripción General
+##  Descripción General
 
 **SISEC CC 2026** (Sistema de Información de Servicio Social y Educación Cívica 2026) es la plataforma tecnológica oficial del **Instituto Electoral de la Ciudad de México (IECM)** diseñada para planificar, registrar, controlar y auditar las actividades de Servicio Social, Talleres de Formación Ciudadana e Intervenciones Educativas, así como el vínculo institucional con las Demarcaciones Territoriales de la Ciudad de México.
 
@@ -65,7 +65,7 @@ El sistema funciona bajo un esquema centralizado que permite a los operadores de
 
 ---
 
-## 🏛️ Arquitectura y Estructura del Proyecto
+##  Arquitectura y Estructura del Proyecto
 
 El proyecto se divide físicamente en dos directorios independientes (`backend` y `frontend`), lo que facilita la modularidad, el despliegue desacoplado y el mantenimiento autónomo de las capas de datos y visualización.
 
@@ -109,7 +109,7 @@ sicec_2026/
 
 ---
 
-## 🗄️ Modelo de Datos y Base de Datos
+##  Modelo de Datos y Base de Datos
 
 La base de datos utiliza Microsoft SQL Server. Se conecta principalmente a la base de datos configurada en las variables de entorno, y realiza consultas directas o cruzadas (mediante nombres de objetos calificados de base de datos) a la base de datos histórica `sisecycc2024` para conservar catálogos y registros agregados.
 
@@ -202,9 +202,9 @@ El acceso a los recursos y APIs del sistema está protegido bajo un esquema híb
 
 ---
 
-## 🚀 Flujos de Operación y Reglas de Negocio
+##  Flujos de Operación y Reglas de Negocio
 
-### 📅 Control de Fechas y Excepciones
+###  Control de Fechas y Excepciones
 El sistema restringe la creación y modificación de registros en base a reglas de calendario:
 * Antes de guardar una programación o captura, el backend evalúa mediante `isFechaHabilitada` en `configFechasModel.js` si la fecha actual está comprendida dentro de algún periodo autorizado.
 * **Flujo de Excepción:** Si un Órgano Distrital requiere capturar de forma extemporánea, utiliza el botón "Solicitar Habilitación de Fecha" en su interfaz. Esto genera una notificación de tipo `solicitud_fecha` en la bandeja del SuperAdmin.
@@ -441,3 +441,6 @@ Ejemplos de registros en bitácora:
 #### 3. Error en la Descarga de Reportes Excel
 * **Causa:** La base de datos cruzada `sisecycc2024` no contiene los registros esperados o falta alguna columna en los catálogos.
 * **Solución:** Verifica que el modelo del reporte en `reporteModel.js` corresponda exactamente con la estructura de tablas de la base de datos de producción. Puedes consultar las consultas SQL integradas directamente en [models/reporteModel.js](file:///c:/xampp/htdocs/2026/sicec_2026/backend/src/models/reporteModel.js#L148-L612).
+
+
+*Generado por Bruno Corona Ing. especializado en desarrollo de aplicaciones web.*
