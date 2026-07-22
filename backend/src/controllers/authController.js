@@ -1,7 +1,7 @@
 // Auth controller for SISEC CC 2026
 import jwt from 'jsonwebtoken'
 import { env } from '../config/env.js'
-import { logger } from '../config/logger.js'
+import { logger, logSession, logWarn, userTag, getPerfilName } from '../config/logger.js'
 import { verifyCredentials } from '../models/authModel.js'
 import { getPool } from '../config/db.js'
 
@@ -11,7 +11,7 @@ export const login = async (req, res, next) => {
     const user = await verifyCredentials(usuario, contrasena)
 
     if (!user) {
-      logger.info(`[AUTH]    ❌ Login fallido — Usuario: ${usuario} (credenciales incorrectas)`) 
+      logWarn(`[AUTH]    ❌ Login fallido — Usuario: ${usuario} (credenciales incorrectas)`) 
       return res.status(401).json({ success: false, message: 'Credenciales incorrectas' })
     }
 
@@ -55,7 +55,8 @@ export const login = async (req, res, next) => {
       logger.error(`[AUTH_WARN] Error al consultar alerta_login en BD: ${dbError.message}`)
     }
 
-    logger.info(`[AUTH]    ✅ Login exitoso — Usuario: ${user.nombre} | Sede: ${user.idsede} | Permiso: ${user.permiso}`)
+    const ip = req.ip || req.headers['x-forwarded-for'] || '::1'
+    logSession(`🟢 LOGIN ➜ ${user.nombre} (${usuario}) — ${getPerfilName(user.permiso)} | Sede=${user.idsede} — IP: ${ip}`)
     
     return res.json({ success: true, token, user: payload, mostrarAlertaLogin })
   } catch (error) {
@@ -65,7 +66,8 @@ export const login = async (req, res, next) => {
 
 
 export const logout = (req, res) => {
-  const usuario = req.user?.nombre ?? 'desconocido'
-  logger.info(`[AUTH]    🔒 Sesión cerrada — Usuario: ${usuario}`)
+  const ip = req.ip || req.headers['x-forwarded-for'] || '::1'
+  const nombre = req.user?.nombre || 'desconocido'
+  logSession(`🔴 LOGOUT ➜ ${nombre} — IP: ${ip}`)
   return res.json({ success: true })
 }

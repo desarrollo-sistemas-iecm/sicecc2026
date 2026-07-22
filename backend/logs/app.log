@@ -3443,3 +3443,18 @@
 [2026-07-10 16:47:27] [AUTH]    ✅ Login exitoso — Usuario: SUPERADMIN | Sede: 1 | Permiso: 3
 [2026-07-10 16:47:51] [AUTH]    ✅ Login exitoso — Usuario: SUB01 | Sede: 1 | Permiso: 1
 [2026-07-10 16:48:07] [AUTH]    ✅ Login exitoso — Usuario: SUPERADMIN | Sede: 1 | Permiso: 3
+[2026-07-20 18:04:53] [INFO]    ✅ App inicializada
+[2026-07-20 18:04:53] ╔══════════════════════════════════════╗
+[2026-07-20 18:04:53] ║     SISEC CC 2026 — Backend API      ║
+[2026-07-20 18:04:53] ╚══════════════════════════════════════╝
+[2026-07-20 18:04:53] 🌐 Ambiente     : development
+[2026-07-20 18:04:53] 🚀 Servidor     : http://localhost:3005
+[2026-07-20 18:04:53] 📦 Base de datos: sisecycc2024 @ 145.0.40.72
+[2026-07-20 18:04:53] ✅ Conexión BD  : Exitosa
+[2026-07-20 18:04:53] 📋 Versión API  : v1
+[2026-07-20 18:04:53] ⏰ Inicio       : 2026-07-21 00:04:53
+[2026-07-20 18:04:53] ══════════════════════════════════════════
+[2026-07-20 18:04:53] [INFO]    🚀 Servidor escuchando en 3005
+[2026-07-20 18:05:10] [AUTH]    ✅ Login exitoso — Usuario: SUB01 | Sede: 1 | Permiso: 1
+[2026-07-20 18:08:00] [AUTH]    ✅ Login exitoso — Usuario: SUPERADMIN | Sede: 1 | Permiso: 3
+[2026-07-20 18:08:23] [AUTH]    ✅ Login exitoso — Usuario: SUB01 | Sede: 1 | Permiso: 1

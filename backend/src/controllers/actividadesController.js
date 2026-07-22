@@ -6,9 +6,10 @@ import {
   eliminarActividad as updateEliminar,
   getArchivosActuales,
   getDashboardMetrics,
-  getAdminDashboardMetrics
+  getAdminDashboardMetrics,
+  getActividadContext
 } from '../models/actividadModel.js'
-import { logger } from '../config/logger.js'
+import { logger, logAction, logQuery, userTag } from '../config/logger.js'
 
 export const getAdminStats = async (req, res, next) => {
   try {
@@ -31,7 +32,7 @@ export const getDashboardStats = async (req, res, next) => {
 export const listActividades = async (req, res, next) => {
   try {
     const data = await listActividadesBySede(req.user.idsede)
-    logger.info(`[ACTION]  📋 Actividades cargadas — Sede: ${req.user.idsede} | Total: ${data.length}`)
+    logQuery(`📋 ACTIVIDADES CARGADAS ➜ Sede: ${req.user.idsede} | Total: ${data.length} — ${userTag(req.user)}`)
     return res.json({ success: true, data })
   } catch (error) {
     return next(error)
@@ -74,8 +75,11 @@ export const marcarRealizada = async (req, res, next) => {
       nombre_archivo3: imagen
     }
 
+    const ctx = await getActividadContext(idcurso)
+    const subType = ctx && ctx.idtipo === 4 ? 'intervenciones' : 'talleres'
+
     await updateRealizada(idcurso, payload)
-    logger.info(`[ACTION]  ✔️  Actividad realizada — ID: ${idcurso} | Usuario: ${req.user.nombre}`)
+    logAction(`✔️ ACT COMPLETA ➜ Actividad realizada — ID: ${idcurso} — ${userTag(req.user)}`, subType)
 
     return res.json({
       success: true,
@@ -103,7 +107,7 @@ export const marcarNoRealizada = async (req, res, next) => {
       })
     }
     await updateNoRealizada(idcurso, motivo)
-    logger.info(`[ACTION]  ❌ Actividad no realizada — ID: ${idcurso} | Motivo: ${motivo}`)
+    logAction(`❌ ACT NO COMPLETA ➜ Actividad no realizada — ID: ${idcurso} | Motivo: ${motivo} — ${userTag(req.user)}`)
     return res.json({ success: true, message: 'Actividad actualizada' })
   } catch (error) {
     return next(error)
@@ -115,7 +119,7 @@ export const reprogramarActividad = async (req, res, next) => {
     const idcurso = Number(req.params.id)
     const hora = req.body.hora_programada ?? req.body.hora
     await updateReprogramar(idcurso, req.body.fecha, hora)
-    logger.info(`[ACTION]  📅 Actividad reprogramada — ID: ${idcurso} | Nueva fecha: ${req.body.fecha} ${hora}`)
+    logAction(`📅 ACT REPROGRAMADA ➜ Actividad reprogramada — ID: ${idcurso} a ${req.body.fecha} ${hora} — ${userTag(req.user)}`)
     return res.json({ success: true, message: 'Actividad actualizada' })
   } catch (error) {
     return next(error)
@@ -126,6 +130,7 @@ export const eliminarActividad = async (req, res, next) => {
   try {
     const idcurso = Number(req.params.id)
     await updateEliminar(idcurso)
+    logAction(`🗑️ ACT ELIMINADA ➜ Actividad eliminada — ID: ${idcurso} — ${userTag(req.user)}`)
     return res.json({ success: true })
   } catch (error) {
     return next(error)

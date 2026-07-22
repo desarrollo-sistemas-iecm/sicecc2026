@@ -2,7 +2,7 @@
 import { getCatalogosReportes } from '../models/catalogoModel.js'
 import { ejecutarReporte } from '../models/reporteModel.js'
 import { generarXLSX } from '../services/reporteGenerator.js'
-import { logger } from '../config/logger.js'
+import { logger, logQuery, logWarn, userTag } from '../config/logger.js'
 
 // Tipos exclusivos para administrador (permiso 2)
 const TIPOS_SOLO_ADMIN = [10, 11, 12, 13]
@@ -23,7 +23,7 @@ export const generarReporte = async (req, res, next) => {
 
     // Guard: tipos exclusivos de admin
     if (TIPOS_SOLO_ADMIN.includes(tipo) && permiso !== 2) {
-      logger.warn(`[REPORT]  🚫 Acceso denegado — Tipo: ${tipo} | Usuario: ${req.user.nombre} | Permiso: ${permiso}`)
+      logWarn(`🚫 ACCESO DENEGADO ➜ Reporte no autorizado — Tipo: ${tipo} — ${userTag(req.user)}`)
       return res.status(403).json({
         success: false,
         message: 'No tienes permiso para generar este tipo de reporte.'
@@ -47,7 +47,7 @@ export const generarReporte = async (req, res, next) => {
     const { titulo, columnas, filas, summaryRows = 0 } = await ejecutarReporte(filtros)
 
     if (!filas || filas.length === 0) {
-      logger.warn(`[REPORT]  ⚠️  Sin resultados — Tipo: ${tipo} | Usuario: ${req.user.nombre}`)
+      logWarn(`⚠️ REPORTE VACÍO ➜ Sin resultados — Tipo: ${tipo} — ${userTag(req.user)}`)
       return res.status(404).json({
         success: false,
         message: 'Sin resultados para los filtros seleccionados'
@@ -68,8 +68,8 @@ export const generarReporte = async (req, res, next) => {
     const yyyy = hoy.getFullYear()
     const fileName = `SISEC_${tipo}_${dd}-${mm}-${yyyy}.xlsx`
 
-    logger.info(
-      `[REPORT]  📊 Reporte generado — Tipo: ${tipo} | Usuario: ${req.user.nombre} | Registros: ${filas.length}`
+    logQuery(
+      `📊 REPORTE GENERADO ➜ Tipo: ${tipo} | Registros: ${filas.length} — ${userTag(req.user)}`
     )
 
     res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')

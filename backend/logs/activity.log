@@ -1,0 +1,467 @@
+2026-07-22 16:14:00 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:14:00 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:14:00 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:14:00 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:14:00 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:14:00 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:14:00 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:14:00 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:14:00 [INFO] 📋 Versión API  : v1
+2026-07-22 16:14:00 [INFO] ⏰ Inicio       : 2026-07-22 22:14:00
+2026-07-22 16:14:00 [INFO] ══════════════════════════════════════════
+2026-07-22 16:14:00 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:14:09 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:14:09 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:14:09 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:14:09 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:14:09 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:14:09 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:14:09 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:14:09 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:14:09 [INFO] 📋 Versión API  : v1
+2026-07-22 16:14:09 [INFO] ⏰ Inicio       : 2026-07-22 22:14:09
+2026-07-22 16:14:09 [INFO] ══════════════════════════════════════════
+2026-07-22 16:14:09 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:16:49 [SESSION] Inicio de sesión de prueba — [id=99 | Usuario Prueba Logger | Administrador | Sede=5]
+2026-07-22 16:16:49 [ACTION] Guardado de actividad de prueba — [id=99 | Usuario Prueba Logger | Administrador | Sede=5]
+2026-07-22 16:16:49 [QUERY] Generación de reporte de prueba — [id=99 | Usuario Prueba Logger | Administrador | Sede=5]
+2026-07-22 16:16:49 [WARN] Alerta de Advertencia de Prueba (Contraseña: ***, Host: [db_host]) — [id=99 | Usuario Prueba Logger | Administrador | Sede=5]
+2026-07-22 16:16:49 [ERROR] Error en consulta SQL (DB User: ***, Servidor: [db_host])
+   Error: Error en consulta SQL (DB User: ***, Servidor: [db_host])
+    at marcarRealizada ([workspace]/backend/src/controllers/actividadesController.js:77:11)
+    at async startServer ([workspace]/backend/src/server.js:9:5)
+2026-07-22 16:17:04 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:17:04 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:17:04 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:17:04 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:17:04 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:17:04 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:17:04 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:17:04 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:17:04 [INFO] 📋 Versión API  : v1
+2026-07-22 16:17:04 [INFO] ⏰ Inicio       : 2026-07-22 22:17:04
+2026-07-22 16:17:04 [INFO] ══════════════════════════════════════════
+2026-07-22 16:17:04 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:17:23 [SESSION] Inicio de sesión de prueba — [id=99 | Usuario Prueba Logger | Administrador | Sede=5]
+2026-07-22 16:17:23 [ACTION] Guardado de actividad de prueba — [id=99 | Usuario Prueba Logger | Administrador | Sede=5]
+2026-07-22 16:17:23 [QUERY] Generación de reporte de prueba — [id=99 | Usuario Prueba Logger | Administrador | Sede=5]
+2026-07-22 16:17:23 [WARN] Alerta de Advertencia de Prueba (Contraseña: ***, Host: [db_host]) — [id=99 | Usuario Prueba Logger | Administrador | Sede=5]
+2026-07-22 16:17:23 [ERROR] Error en consulta SQL (DB User: ***, Servidor: [db_host])
+   Error: Error en consulta SQL (DB User: ***, Servidor: [db_host])
+    at marcarRealizada ([workspace]/backend/src/controllers/actividadesController.js:77:11)
+    at async startServer ([workspace]/backend/src/server.js:9:5)
+2026-07-22 16:17:38 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:17:38 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:17:38 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:17:38 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:17:38 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:17:38 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:17:38 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:17:38 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:17:38 [INFO] 📋 Versión API  : v1
+2026-07-22 16:17:38 [INFO] ⏰ Inicio       : 2026-07-22 22:17:38
+2026-07-22 16:17:38 [INFO] ══════════════════════════════════════════
+2026-07-22 16:17:38 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:18:57 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:18:57 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:18:57 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:18:57 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:18:57 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:18:57 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:18:57 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:18:57 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:18:57 [INFO] 📋 Versión API  : v1
+2026-07-22 16:18:57 [INFO] ⏰ Inicio       : 2026-07-22 22:18:57
+2026-07-22 16:18:57 [INFO] ══════════════════════════════════════════
+2026-07-22 16:18:57 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:19:03 [SESSION] [AUTH]    ✅ Login exitoso — Usuario: SUB01 | Sede: 1 | Permiso: 1 — [id=1 | SUB01 | Operador | Sede=1]
+2026-07-22 16:19:22 [SESSION] [AUTH]    ✅ Login exitoso — Usuario: SUB01 | Sede: 1 | Permiso: 1 — [id=1 | SUB01 | Operador | Sede=1]
+2026-07-22 16:30:32 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:30:32 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:30:32 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:30:32 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:30:32 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:30:32 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:30:32 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:30:32 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:30:32 [INFO] 📋 Versión API  : v1
+2026-07-22 16:30:32 [INFO] ⏰ Inicio       : 2026-07-22 22:30:32
+2026-07-22 16:30:32 [INFO] ══════════════════════════════════════════
+2026-07-22 16:30:32 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:30:32 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:30:32 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:30:32 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:30:32 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:30:32 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:30:32 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:30:32 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:30:32 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:30:32 [INFO] 📋 Versión API  : v1
+2026-07-22 16:30:32 [INFO] ⏰ Inicio       : 2026-07-22 22:30:32
+2026-07-22 16:30:32 [INFO] ══════════════════════════════════════════
+2026-07-22 16:30:32 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:30:40 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:30:40 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:30:40 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:30:40 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:30:40 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:30:40 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:30:40 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:30:40 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:30:40 [INFO] 📋 Versión API  : v1
+2026-07-22 16:30:40 [INFO] ⏰ Inicio       : 2026-07-22 22:30:40
+2026-07-22 16:30:40 [INFO] ══════════════════════════════════════════
+2026-07-22 16:30:40 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:30:40 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:30:41 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:30:41 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:30:41 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:30:41 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:30:41 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:30:41 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:30:41 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:30:41 [INFO] 📋 Versión API  : v1
+2026-07-22 16:30:41 [INFO] ⏰ Inicio       : 2026-07-22 22:30:41
+2026-07-22 16:30:41 [INFO] ══════════════════════════════════════════
+2026-07-22 16:30:41 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:30:51 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:30:51 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:30:51 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:30:51 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:30:51 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:30:51 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:30:51 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:30:51 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:30:51 [INFO] 📋 Versión API  : v1
+2026-07-22 16:30:51 [INFO] ⏰ Inicio       : 2026-07-22 22:30:51
+2026-07-22 16:30:51 [INFO] ══════════════════════════════════════════
+2026-07-22 16:30:51 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:30:51 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:30:51 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:30:51 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:30:51 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:30:51 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:30:51 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:30:51 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:30:51 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:30:51 [INFO] 📋 Versión API  : v1
+2026-07-22 16:30:51 [INFO] ⏰ Inicio       : 2026-07-22 22:30:51
+2026-07-22 16:30:51 [INFO] ══════════════════════════════════════════
+2026-07-22 16:30:51 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:30:58 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:30:58 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:30:58 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:30:58 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:30:58 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:30:58 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:30:58 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:30:58 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:30:58 [INFO] 📋 Versión API  : v1
+2026-07-22 16:30:58 [INFO] ⏰ Inicio       : 2026-07-22 22:30:58
+2026-07-22 16:30:58 [INFO] ══════════════════════════════════════════
+2026-07-22 16:30:58 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:30:58 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:30:59 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:30:59 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:30:59 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:30:59 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:30:59 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:30:59 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:30:59 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:30:59 [INFO] 📋 Versión API  : v1
+2026-07-22 16:30:59 [INFO] ⏰ Inicio       : 2026-07-22 22:30:59
+2026-07-22 16:30:59 [INFO] ══════════════════════════════════════════
+2026-07-22 16:30:59 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:31:05 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:31:05 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:31:05 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:31:05 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:31:05 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:31:05 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:31:05 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:31:05 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:31:05 [INFO] 📋 Versión API  : v1
+2026-07-22 16:31:05 [INFO] ⏰ Inicio       : 2026-07-22 22:31:05
+2026-07-22 16:31:05 [INFO] ══════════════════════════════════════════
+2026-07-22 16:31:05 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:31:05 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:31:05 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:31:05 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:31:05 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:31:05 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:31:05 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:31:05 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:31:05 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:31:05 [INFO] 📋 Versión API  : v1
+2026-07-22 16:31:05 [INFO] ⏰ Inicio       : 2026-07-22 22:31:05
+2026-07-22 16:31:05 [INFO] ══════════════════════════════════════════
+2026-07-22 16:31:05 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:31:11 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:31:11 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:31:11 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:31:11 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:31:11 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:31:11 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:31:11 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:31:11 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:31:11 [INFO] 📋 Versión API  : v1
+2026-07-22 16:31:11 [INFO] ⏰ Inicio       : 2026-07-22 22:31:11
+2026-07-22 16:31:11 [INFO] ══════════════════════════════════════════
+2026-07-22 16:31:11 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:31:11 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:31:11 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:31:11 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:31:11 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:31:11 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:31:11 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:31:11 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:31:11 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:31:11 [INFO] 📋 Versión API  : v1
+2026-07-22 16:31:11 [INFO] ⏰ Inicio       : 2026-07-22 22:31:11
+2026-07-22 16:31:11 [INFO] ══════════════════════════════════════════
+2026-07-22 16:31:11 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:31:18 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:31:18 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:31:18 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:31:18 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:31:18 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:31:18 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:31:18 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:31:18 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:31:18 [INFO] 📋 Versión API  : v1
+2026-07-22 16:31:18 [INFO] ⏰ Inicio       : 2026-07-22 22:31:18
+2026-07-22 16:31:18 [INFO] ══════════════════════════════════════════
+2026-07-22 16:31:18 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:31:18 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:31:18 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:31:18 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:31:18 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:31:18 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:31:18 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:31:18 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:31:18 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:31:18 [INFO] 📋 Versión API  : v1
+2026-07-22 16:31:18 [INFO] ⏰ Inicio       : 2026-07-22 22:31:18
+2026-07-22 16:31:18 [INFO] ══════════════════════════════════════════
+2026-07-22 16:31:18 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:31:24 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:31:24 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:31:24 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:31:24 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:31:24 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:31:24 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:31:24 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:31:24 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:31:24 [INFO] 📋 Versión API  : v1
+2026-07-22 16:31:24 [INFO] ⏰ Inicio       : 2026-07-22 22:31:24
+2026-07-22 16:31:24 [INFO] ══════════════════════════════════════════
+2026-07-22 16:31:24 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:31:24 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:31:24 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:31:24 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:31:24 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:31:24 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:31:24 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:31:24 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:31:24 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:31:24 [INFO] 📋 Versión API  : v1
+2026-07-22 16:31:24 [INFO] ⏰ Inicio       : 2026-07-22 22:31:24
+2026-07-22 16:31:24 [INFO] ══════════════════════════════════════════
+2026-07-22 16:31:24 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:31:30 [SESSION] 🔴 LOGOUT ➜ Usuario Prueba 1 — IP: ::1
+2026-07-22 16:31:30 [SESSION] 🟢 LOGIN ➜ Usuario Prueba 2 (test2) — Operador | Sede=2 — IP: ::1
+2026-07-22 16:31:30 [SESSION] 🔴 LOGOUT ➜ Usuario Prueba 3 — IP: ::1
+2026-07-22 16:31:30 [SESSION] 🟢 LOGIN ➜ Usuario Prueba 4 (test4) — Operador | Sede=4 — IP: ::1
+2026-07-22 16:31:30 [SESSION] 🔴 LOGOUT ➜ Usuario Prueba 5 — IP: ::1
+2026-07-22 16:31:30 [SESSION] 🟢 LOGIN ➜ Usuario Prueba 6 (test6) — Operador | Sede=6 — IP: ::1
+2026-07-22 16:31:30 [SESSION] 🔴 LOGOUT ➜ Usuario Prueba 7 — IP: ::1
+2026-07-22 16:31:30 [SESSION] 🟢 LOGIN ➜ Usuario Prueba 8 (test8) — Operador | Sede=8 — IP: ::1
+2026-07-22 16:31:30 [SESSION] 🔴 LOGOUT ➜ Usuario Prueba 9 — IP: ::1
+2026-07-22 16:31:30 [SESSION] 🟢 LOGIN ➜ Usuario Prueba 10 (test10) — Operador | Sede=10 — IP: ::1
+2026-07-22 16:31:30 [SESSION] 🔴 LOGOUT ➜ Usuario Prueba 11 — IP: ::1
+2026-07-22 16:31:30 [SESSION] 🟢 LOGIN ➜ Usuario Prueba 12 (test12) — Operador | Sede=12 — IP: ::1
+2026-07-22 16:31:30 [SESSION] 🔴 LOGOUT ➜ Usuario Prueba 13 — IP: ::1
+2026-07-22 16:31:30 [SESSION] 🟢 LOGIN ➜ Usuario Prueba 14 (test14) — Operador | Sede=14 — IP: ::1
+2026-07-22 16:31:30 [SESSION] 🔴 LOGOUT ➜ Usuario Prueba 15 — IP: ::1
+2026-07-22 16:31:30 [SESSION] 🟢 LOGIN ➜ Usuario Prueba 16 (test16) — Operador | Sede=16 — IP: ::1
+2026-07-22 16:31:30 [SESSION] 🔴 LOGOUT ➜ Usuario Prueba 17 — IP: ::1
+2026-07-22 16:31:30 [SESSION] 🟢 LOGIN ➜ Usuario Prueba 18 (test18) — Operador | Sede=18 — IP: ::1
+2026-07-22 16:31:30 [ACTION] ✔️ ACT COMPLETA ➜ Actividad realizada — ID: 101 — [id=99 | Bruno | Administrador]
+2026-07-22 16:31:30 [QUERY] 📊 REPORTE GENERADO ➜ Tipo: 2 | Registros: 45 — [id=99 | Bruno | Administrador]
+2026-07-22 16:31:59 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:32:00 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:32:00 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:32:00 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:32:00 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:32:00 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:32:00 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:32:00 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:32:00 [INFO] 📋 Versión API  : v1
+2026-07-22 16:32:00 [INFO] ⏰ Inicio       : 2026-07-22 22:32:00
+2026-07-22 16:32:00 [INFO] ══════════════════════════════════════════
+2026-07-22 16:32:00 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:32:00 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:32:00 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:32:00 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:32:00 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:32:00 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:32:00 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:32:00 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:32:00 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:32:00 [INFO] 📋 Versión API  : v1
+2026-07-22 16:32:00 [INFO] ⏰ Inicio       : 2026-07-22 22:32:00
+2026-07-22 16:32:00 [INFO] ══════════════════════════════════════════
+2026-07-22 16:32:00 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:35:14 [SESSION] 🟢 LOGIN ➜ SUPERADMIN (SUPERADMIN) — Perfil 3 | Sede=1 — IP: ::1
+2026-07-22 16:44:12 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:44:13 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:44:13 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:44:13 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:44:13 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:44:13 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:44:13 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:44:13 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:44:13 [INFO] 📋 Versión API  : v1
+2026-07-22 16:44:13 [INFO] ⏰ Inicio       : 2026-07-22 22:44:13
+2026-07-22 16:44:13 [INFO] ══════════════════════════════════════════
+2026-07-22 16:44:13 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:44:13 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:44:13 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:44:13 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:44:13 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:44:13 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:44:13 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:44:13 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:44:13 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:44:13 [INFO] 📋 Versión API  : v1
+2026-07-22 16:44:13 [INFO] ⏰ Inicio       : 2026-07-22 22:44:13
+2026-07-22 16:44:13 [INFO] ══════════════════════════════════════════
+2026-07-22 16:44:13 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:44:24 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:44:24 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:44:24 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:44:24 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:44:24 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:44:24 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:44:24 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:44:24 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:44:24 [INFO] 📋 Versión API  : v1
+2026-07-22 16:44:24 [INFO] ⏰ Inicio       : 2026-07-22 22:44:24
+2026-07-22 16:44:24 [INFO] ══════════════════════════════════════════
+2026-07-22 16:44:24 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:44:24 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:44:24 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:44:24 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:44:24 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:44:24 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:44:24 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:44:24 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:44:24 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:44:24 [INFO] 📋 Versión API  : v1
+2026-07-22 16:44:24 [INFO] ⏰ Inicio       : 2026-07-22 22:44:24
+2026-07-22 16:44:24 [INFO] ══════════════════════════════════════════
+2026-07-22 16:44:24 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:44:38 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:44:38 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:44:38 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:44:38 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:44:38 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:44:38 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:44:38 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:44:38 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:44:38 [INFO] 📋 Versión API  : v1
+2026-07-22 16:44:38 [INFO] ⏰ Inicio       : 2026-07-22 22:44:38
+2026-07-22 16:44:38 [INFO] ══════════════════════════════════════════
+2026-07-22 16:44:38 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:44:38 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:44:38 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:44:38 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:44:38 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:44:38 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:44:38 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:44:38 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:44:38 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:44:38 [INFO] 📋 Versión API  : v1
+2026-07-22 16:44:38 [INFO] ⏰ Inicio       : 2026-07-22 22:44:38
+2026-07-22 16:44:38 [INFO] ══════════════════════════════════════════
+2026-07-22 16:44:38 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:44:46 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:44:47 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:44:47 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:44:47 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:44:47 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:44:47 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:44:47 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:44:47 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:44:47 [INFO] 📋 Versión API  : v1
+2026-07-22 16:44:47 [INFO] ⏰ Inicio       : 2026-07-22 22:44:47
+2026-07-22 16:44:47 [INFO] ══════════════════════════════════════════
+2026-07-22 16:44:47 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:44:47 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:44:47 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:44:47 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:44:47 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:44:47 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:44:47 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:44:47 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:44:47 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:44:47 [INFO] 📋 Versión API  : v1
+2026-07-22 16:44:47 [INFO] ⏰ Inicio       : 2026-07-22 22:44:47
+2026-07-22 16:44:47 [INFO] ══════════════════════════════════════════
+2026-07-22 16:44:47 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:44:56 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:44:57 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:44:57 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:44:57 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:44:57 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:44:57 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:44:57 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:44:57 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:44:57 [INFO] 📋 Versión API  : v1
+2026-07-22 16:44:57 [INFO] ⏰ Inicio       : 2026-07-22 22:44:57
+2026-07-22 16:44:57 [INFO] ══════════════════════════════════════════
+2026-07-22 16:44:57 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:44:57 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:44:57 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:44:57 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:44:57 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:44:57 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:44:57 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:44:57 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:44:57 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:44:57 [INFO] 📋 Versión API  : v1
+2026-07-22 16:44:57 [INFO] ⏰ Inicio       : 2026-07-22 22:44:57
+2026-07-22 16:44:57 [INFO] ══════════════════════════════════════════
+2026-07-22 16:44:57 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:45:03 [SESSION] 🟢 LOGIN ➜ Bruno Corona (bruno) — Administrador | Sede=3 — IP: ::1
+2026-07-22 16:45:03 [SESSION] 🟢 LOGIN ➜ Juan Perez (juan) — Operador | Sede=5 — IP: ::1
+2026-07-22 16:45:03 [SESSION] 🔴 LOGOUT ➜ Bruno Corona — IP: ::1
+2026-07-22 16:45:03 [ACTION] ✔️ ACT COMPLETA ➜ Actividad realizada — ID: 201 — [id=12 | Bruno]
+2026-07-22 16:45:03 [ACTION] ✔️ ACT COMPLETA ➜ Actividad realizada — ID: 202 — [id=12 | Bruno]
+2026-07-22 16:45:03 [ACTION] 📝 ENCUESTA GUARDADA ➜ Folio: 010001I26 — [id=12 | Bruno]
+2026-07-22 16:45:03 [ACTION] 📝 ENCUESTA GUARDADA ➜ Folio: 010002I26 — [id=12 | Bruno]
+2026-07-22 16:45:03 [QUERY] 📊 REPORTE GENERADO ➜ Tipo: 2 | Registros: 10 — [id=12 | Bruno]
+2026-07-22 16:47:33 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:47:33 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:47:33 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:47:33 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:47:33 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:47:33 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:47:33 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:47:33 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:47:33 [INFO] 📋 Versión API  : v1
+2026-07-22 16:47:33 [INFO] ⏰ Inicio       : 2026-07-22 22:47:33
+2026-07-22 16:47:33 [INFO] ══════════════════════════════════════════
+2026-07-22 16:47:33 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-22 16:47:33 [INFO] [INFO]    ✅ App inicializada
+2026-07-22 16:47:33 [INFO] ╔══════════════════════════════════════╗
+2026-07-22 16:47:33 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-22 16:47:33 [INFO] ╚══════════════════════════════════════╝
+2026-07-22 16:47:33 [INFO] 🌐 Ambiente     : development
+2026-07-22 16:47:33 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-22 16:47:33 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-22 16:47:33 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-22 16:47:33 [INFO] 📋 Versión API  : v1
+2026-07-22 16:47:33 [INFO] ⏰ Inicio       : 2026-07-22 22:47:33
+2026-07-22 16:47:33 [INFO] ══════════════════════════════════════════
+2026-07-22 16:47:33 [INFO] [INFO]    🚀 Servidor escuchando en 3005

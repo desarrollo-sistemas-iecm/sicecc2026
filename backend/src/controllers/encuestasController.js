@@ -5,7 +5,7 @@ import {
   getNumEncuesta,
   insertarEncuesta
 } from '../models/encuestaModel.js'
-import { logger } from '../config/logger.js'
+import { logger, logAction, logWarn, logError, userTag } from '../config/logger.js'
 
 const buildFolio = (distrito, consecutivo, sufijo) => {
   const dist = String(distrito).padStart(2, '0')
@@ -50,7 +50,7 @@ export const crearEncuesta = async (req, res, next) => {
     }
 
     if (await folioExiste(folio)) {
-      logger.warn(`[ACTION]  ⚠️  Folio duplicado detectado — ${folio} | Recalculando...`)
+      logWarn(`⚠️ FOLIO DUPLICADO ➜ Detectado — ${folio} | Recalculando... — ${userTag(req.user)}`)
       const sufijo = folio.slice(-3)
       const consecutivo = await getConsecutivoFolio(distrito, sufijo)
       const nuevoFolio = buildFolio(distrito, consecutivo, sufijo)
@@ -63,7 +63,7 @@ export const crearEncuesta = async (req, res, next) => {
       }
 
       folio = nuevoFolio
-      logger.info(`[ACTION]  📝 Folio recalculado — ${folio}`)
+      logAction(`📝 FOLIO RECALCULADO ➜ ${folio} — ${userTag(req.user)}`)
     }
 
     const payload = {
@@ -85,7 +85,7 @@ export const crearEncuesta = async (req, res, next) => {
     }
 
     await insertarEncuesta(payload)
-    logger.info(`[ACTION]  📝 Encuesta guardada — Folio: ${folio} | Usuario: ${req.user.nombre} | Distrito: ${distrito}`)
+    logAction(`📝 ENCUESTA GUARDADA ➜ Folio: ${folio} — ${userTag(req.user)}`, 'encuestas')
 
     return res.status(201).json({
       success: true,
@@ -93,7 +93,7 @@ export const crearEncuesta = async (req, res, next) => {
       folio_encuesta: folio
     })
   } catch (error) {
-    logger.error(`[ERROR]   💥 Error en POST /api/encuestas — ${error.message}`)
+    logError(`[ERROR]   💥 Error en POST /api/encuestas — ${error.message} — ${userTag(req.user)}`)
     return next(error)
   }
 }

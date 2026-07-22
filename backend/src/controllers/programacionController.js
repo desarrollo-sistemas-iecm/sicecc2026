@@ -1,6 +1,6 @@
 // Programacion controller for SISEC CC 2026
 import { listProgramacionBySede, createProgramacion as createProgramacionModel } from '../models/programacionModel.js'
-import { logger } from '../config/logger.js'
+import { logger, logAction, userTag } from '../config/logger.js'
 
 export const listProgramacion = async (req, res, next) => {
   try {
@@ -50,7 +50,7 @@ export const createProgramacion = async (req, res, next) => {
     }
 
     const idcurso = await createProgramacionModel(payload)
-    logger.info(`[ACTION]  📋 Programación creada — Usuario: ${req.user.nombre} | Curso: ${payload.idcatcurso} | Sede: ${req.user.idsede}`)
+    logAction(`📋 PROGRAMA NUEVO ➜ Programación creada — Curso: ${payload.idcatcurso} — ${userTag(req.user)}`)
 
     return res.status(201).json({ success: true, idcurso })
   } catch (error) {

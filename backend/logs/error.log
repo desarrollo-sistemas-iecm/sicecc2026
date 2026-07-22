@@ -1,0 +1,8 @@
+2026-07-22 16:16:49 [ERROR] Error en consulta SQL (DB User: ***, Servidor: [db_host])
+   Error: Error en consulta SQL (DB User: ***, Servidor: [db_host])
+    at marcarRealizada ([workspace]/backend/src/controllers/actividadesController.js:77:11)
+    at async startServer ([workspace]/backend/src/server.js:9:5)
+2026-07-22 16:17:23 [ERROR] Error en consulta SQL (DB User: ***, Servidor: [db_host])
+   Error: Error en consulta SQL (DB User: ***, Servidor: [db_host])
+    at marcarRealizada ([workspace]/backend/src/controllers/actividadesController.js:77:11)
+    at async startServer ([workspace]/backend/src/server.js:9:5)

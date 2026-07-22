@@ -44,5 +44,10 @@ export const env = {
   },
   corsOrigin: process.env.CORS_ORIGIN,
   logLevel: process.env.LOG_LEVEL || 'info',
-  uploadPath: process.env.UPLOAD_PATH || './uploads'
+  uploadPath: process.env.UPLOAD_PATH || './uploads',
+  telegram: {
+    botToken: process.env.TELEGRAM_BOT_TOKEN,
+    chatId: process.env.TELEGRAM_CHAT_ID
+  }
 }
+
