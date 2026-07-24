@@ -2,7 +2,7 @@ import { Router } from 'express'
 import { auth } from '../middlewares/auth.js'
 import multer from 'multer'
 import { listConfigFechas, saveConfigFechas, requestFechaExcepcion, getManualConfig, saveManualConfig, getAlertaLoginConfig, saveAlertaLoginConfig, getUltimaActualizacionConfig, saveUltimaActualizacionConfig } from '../controllers/adminController.js'
-import { getUsuarios, postUsuario, putUsuario, delUsuario } from '../controllers/usuariosController.js'
+import { getUsuarios, postUsuario, putUsuario, delUsuario, desconectarUsuarioEndpoint } from '../controllers/usuariosController.js'
 import { getArchivosTree, deleteArchivo, replaceArchivo } from '../controllers/archivosController.js'
 import { listAdminFormatos, uploadAdminFormato, deleteAdminFormato } from '../controllers/adminFormatosController.js'
 
@@ -44,6 +44,7 @@ router.get('/usuarios', auth, isSuperAdmin, getUsuarios)
 router.post('/usuarios', auth, isSuperAdmin, postUsuario)
 router.put('/usuarios/:id', auth, isSuperAdmin, putUsuario)
 router.delete('/usuarios/:id', auth, isSuperAdmin, delUsuario)
+router.put('/usuarios/:id/desconectar', auth, isSuperAdmin, desconectarUsuarioEndpoint)
 
 // Rutas de Archivos
 router.get('/archivos', auth, isSuperAdmin, getArchivosTree)

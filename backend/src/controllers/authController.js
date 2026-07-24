@@ -1,9 +1,11 @@
 // Auth controller for SISEC CC 2026
 import jwt from 'jsonwebtoken'
+import crypto from 'crypto'
 import { env } from '../config/env.js'
 import { logger, logSession, logWarn, userTag, getPerfilName } from '../config/logger.js'
 import { verifyCredentials } from '../models/authModel.js'
-import { getPool } from '../config/db.js'
+import { getPool, sql } from '../config/db.js'
+import { desconectarUsuario } from '../socket.js'
 
 export const login = async (req, res, next) => {
   try {
@@ -15,11 +17,24 @@ export const login = async (req, res, next) => {
       return res.status(401).json({ success: false, message: 'Credenciales incorrectas' })
     }
 
+    const sesionId = crypto.randomUUID()
+
+    // Si ya existe un socket activo para este usuario, desconectarlo forzosamente
+    desconectarUsuario(user.idUsuario, 'Tu cuenta ha sido cerrada porque se inició sesión en otro dispositivo.')
+
+    // Actualizar sesion_id en la base de datos
+    const pool = await getPool()
+    await pool.request()
+      .input('sesionId', sql.VarChar(50), sesionId)
+      .input('idusuario', sql.Int, user.idUsuario)
+      .query('UPDATE sisec_usuarios SET sesion_id = @sesionId WHERE idusuario = @idusuario')
+
     const payload = {
       idUsuario: user.idUsuario,
       nombre: user.nombre,
       idsede: user.idsede,
-      permiso: user.permiso
+      permiso: user.permiso,
+      sesionId
     }
 
     const token = jwt.sign(payload, env.jwt.secret, { expiresIn: env.jwt.expiresIn })
@@ -27,7 +42,6 @@ export const login = async (req, res, next) => {
     // Validar si la alerta del manual de usuario en el login está habilitada
     let mostrarAlertaLogin = false
     try {
-      const pool = await getPool()
       const alertResult = await pool.request().query(`
         SELECT habilitado, fecha_fin 
         FROM sisec_config_fechas 
@@ -65,9 +79,26 @@ export const login = async (req, res, next) => {
 }
 
 
-export const logout = (req, res) => {
-  const ip = req.ip || req.headers['x-forwarded-for'] || '::1'
-  const nombre = req.user?.nombre || 'desconocido'
-  logSession(`🔴 LOGOUT ➜ ${nombre} — IP: ${ip}`)
-  return res.json({ success: true })
+export const logout = async (req, res, next) => {
+  try {
+    const ip = req.ip || req.headers['x-forwarded-for'] || '::1'
+    const nombre = req.user?.nombre || 'desconocido'
+    const idUsuario = req.user?.idUsuario
+
+    if (idUsuario) {
+      // Remover sesion_id en la base de datos
+      const pool = await getPool()
+      await pool.request()
+        .input('idusuario', sql.Int, idUsuario)
+        .query('UPDATE sisec_usuarios SET sesion_id = NULL WHERE idusuario = @idusuario')
+
+      // Desconectar el socket
+      desconectarUsuario(idUsuario, 'Has cerrado tu sesión.')
+    }
+
+    logSession(`🔴 LOGOUT ➜ ${nombre} — IP: ${ip}`)
+    return res.json({ success: true })
+  } catch (error) {
+    return next(error)
+  }
 }

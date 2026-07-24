@@ -1,8 +1,10 @@
 <script setup>
-import { ref, onMounted, computed, reactive } from 'vue'
-import { Users, UserPlus, Edit, Trash2, Shield, Search, CalendarRange } from '@lucide/vue'
+import { ref, onMounted, onUnmounted, computed, reactive, nextTick, watch } from 'vue'
+import { Users, UserPlus, Edit, Trash2, Shield, Search, CalendarRange, Zap } from '@lucide/vue'
 import api from '../../services/api'
 import Swal from 'sweetalert2'
+import { useAuthStore } from '../../stores/authStore.js'
+import { gsap } from 'gsap'
 import AppCard from '../../components/ui/AppCard.vue'
 import AppInput from '../../components/ui/AppInput.vue'
 import AppSelect from '../../components/ui/AppSelect.vue'
@@ -10,6 +12,7 @@ import AppButton from '../../components/ui/AppButton.vue'
 import AppBadge from '../../components/ui/AppBadge.vue'
 import AppTable from '../../components/ui/AppTable.vue'
 
+const authStore = useAuthStore()
 const usuarios = ref([])
 const loading = ref(true)
 const search = ref('')
@@ -32,12 +35,54 @@ const permisos = [
   { id: 3, nombre: 'Super Administrador' }
 ]
 
+// --- KPIs de Conexión y Animación GSAP ---
+const circleConectados = ref(null)
+const circleDesconectados = ref(null)
+
+const totalConectados = computed(() => usuarios.value.filter(u => u.conectado).length)
+const totalDesconectados = computed(() => usuarios.value.length - totalConectados.value)
+
+const pctConectados = computed(() => {
+  if (usuarios.value.length === 0) return 0
+  return (totalConectados.value / usuarios.value.length) * 100
+})
+
+const pctDesconectados = computed(() => {
+  if (usuarios.value.length === 0) return 0
+  return (totalDesconectados.value / usuarios.value.length) * 100
+})
+
+const animarConexiones = () => {
+  nextTick(() => {
+    const circ = 2 * Math.PI * 54
+    if (circleConectados.value) {
+      const offset = circ - (pctConectados.value / 100) * circ
+      gsap.fromTo(circleConectados.value,
+        { strokeDashoffset: circ },
+        { strokeDashoffset: offset, duration: 1.2, ease: 'power3.out' }
+      )
+    }
+    if (circleDesconectados.value) {
+      const offset = circ - (pctDesconectados.value / 100) * circ
+      gsap.fromTo(circleDesconectados.value,
+        { strokeDashoffset: circ },
+        { strokeDashoffset: offset, duration: 1.2, ease: 'power3.out' }
+      )
+    }
+  })
+}
+
+watch([pctConectados, pctDesconectados], () => {
+  animarConexiones()
+})
+
 const loadUsuarios = async () => {
   loading.value = true
   try {
     const { data } = await api.get('/admin/usuarios')
     if (data.success) {
       usuarios.value = data.data
+      animarConexiones()
     }
   } catch (error) {
     console.error('Error fetching usuarios:', error)
@@ -102,6 +147,29 @@ const deleteUser = async (id) => {
   }
 }
 
+const forceDisconnect = async (user) => {
+  const result = await Swal.fire({
+    title: `¿Desconectar a ${user.usuario}?`,
+    text: "Se cerrará su sesión de inmediato en todos sus dispositivos en tiempo real.",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#ef4444',
+    cancelButtonColor: '#64748b',
+    confirmButtonText: 'Sí, desconectar',
+    cancelButtonText: 'Cancelar'
+  })
+
+  if (result.isConfirmed) {
+    try {
+      await api.put(`/admin/usuarios/${user.idusuario}/desconectar`)
+      Swal.fire('Desconectado', 'El usuario ha sido desconectado.', 'success')
+      await loadUsuarios()
+    } catch (error) {
+      Swal.fire('Error', 'No se pudo desconectar al usuario.', 'error')
+    }
+  }
+}
+
 const habilitarFechas = async (user) => {
   const { value: formValues } = await Swal.fire({
     title: `Habilitar Fechas para Distrito ${user.idsede}`,
@@ -149,7 +217,6 @@ const habilitarFechas = async (user) => {
   }
 }
 
-
 const onSubmit = async () => {
   saving.value = true
   try {
@@ -186,6 +253,19 @@ const onSubmit = async () => {
 
 onMounted(() => {
   loadUsuarios()
+
+  // Escuchar actualizaciones de presencia del WebSocket
+  authStore.socket?.on('usuarios:estado', (conectadosList) => {
+    usuarios.value = usuarios.value.map(u => ({
+      ...u,
+      conectado: conectadosList.includes(Number(u.idusuario))
+    }))
+    animarConexiones()
+  })
+})
+
+onUnmounted(() => {
+  authStore.socket?.off('usuarios:estado')
 })
 </script>
 
@@ -236,6 +316,113 @@ onMounted(() => {
       </form>
     </AppCard>
 
+    <!-- Resumen de Conexiones (Radiales) -->
+    <AppCard class="mb-6">
+      <template #header>
+        <h3 class="text-slate-900 dark:text-white text-sm font-semibold tracking-wide">
+          Resumen de Conexiones
+        </h3>
+      </template>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-16 py-4">
+        
+        <!-- Radial Conectados -->
+        <div class="flex flex-col items-center">
+          <div class="relative flex items-center justify-center w-32 h-32">
+            <!-- Background track -->
+            <svg class="w-full h-full transform -rotate-90" viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="54" fill="none" class="stroke-emerald-100 dark:stroke-emerald-950/20" stroke-width="8" />
+            </svg>
+            <!-- Animated progress -->
+            <svg class="absolute inset-0 w-full h-full transform -rotate-90" viewBox="0 0 120 120">
+              <defs>
+                <linearGradient id="gradConectados" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#34d399" />
+                  <stop offset="100%" stop-color="#10b981" />
+                </linearGradient>
+              </defs>
+              <circle
+                ref="circleConectados"
+                cx="60" cy="60" r="54"
+                fill="none"
+                stroke="url(#gradConectados)"
+                stroke-width="8"
+                stroke-linecap="round"
+                stroke-dasharray="339.292"
+                stroke-dashoffset="339.292"
+                style="filter: drop-shadow(0 0 8px rgba(52,211,153,0.35));"
+              />
+            </svg>
+            <!-- Center Text -->
+            <div class="absolute flex flex-col items-center justify-center">
+              <span class="text-xl font-extrabold text-emerald-600 dark:text-emerald-400 tracking-tighter">
+                {{ Math.round(pctConectados) }}%
+              </span>
+              <span class="text-[9px] text-slate-400 dark:text-white/40 font-semibold uppercase tracking-wider mt-0.5">
+                Conectados
+              </span>
+            </div>
+          </div>
+          <!-- Label -->
+          <div class="mt-3 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.5)] animate-pulse"></span>
+            <span class="text-sm font-bold text-slate-700 dark:text-white/80">{{ totalConectados }}</span>
+            <span class="text-xs text-slate-400 dark:text-white/40">En línea</span>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="hidden sm:block w-px h-24 bg-slate-200 dark:bg-white/10"></div>
+
+        <!-- Radial Desconectados -->
+        <div class="flex flex-col items-center">
+          <div class="relative flex items-center justify-center w-32 h-32">
+            <!-- Background track -->
+            <svg class="w-full h-full transform -rotate-90" viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="54" fill="none" class="stroke-slate-200 dark:stroke-white/5" stroke-width="8" />
+            </svg>
+            <!-- Animated progress -->
+            <svg class="absolute inset-0 w-full h-full transform -rotate-90" viewBox="0 0 120 120">
+              <defs>
+                <linearGradient id="gradDesconectados" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#94a3b8" />
+                  <stop offset="100%" stop-color="#475569" />
+                </linearGradient>
+              </defs>
+              <circle
+                ref="circleDesconectados"
+                cx="60" cy="60" r="54"
+                fill="none"
+                stroke="url(#gradDesconectados)"
+                stroke-width="8"
+                stroke-linecap="round"
+                stroke-dasharray="339.292"
+                stroke-dashoffset="339.292"
+                style="filter: drop-shadow(0 0 8px rgba(148,163,184,0.35));"
+              />
+            </svg>
+            <!-- Center Text -->
+            <div class="absolute flex flex-col items-center justify-center">
+              <span class="text-xl font-extrabold text-slate-650 dark:text-slate-400 tracking-tighter">
+                {{ Math.round(pctDesconectados) }}%
+              </span>
+              <span class="text-[9px] text-slate-400 dark:text-white/40 font-semibold uppercase tracking-wider mt-0.5">
+                Desconectados
+              </span>
+            </div>
+          </div>
+          <!-- Label -->
+          <div class="mt-3 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-slate-400 shadow-[0_0_6px_rgba(148,163,184,0.5)]"></span>
+            <span class="text-sm font-bold text-slate-700 dark:text-white/80">{{ totalDesconectados }}</span>
+            <span class="text-xs text-slate-400 dark:text-white/40">Desconectados</span>
+          </div>
+        </div>
+      </div>
+      <div class="text-center text-xs text-slate-400 dark:text-slate-500 pb-3">
+        Total Usuarios: {{ usuarios.length }} | Conectados: {{ totalConectados }} | Desconectados: {{ totalDesconectados }}
+      </div>
+    </AppCard>
+
     <AppCard>
       <template #header>
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
@@ -253,6 +440,7 @@ onMounted(() => {
           <th class="px-6 py-3 text-left">Usuario</th>
           <th class="px-6 py-3 text-left">Sede / Distrito</th>
           <th class="px-6 py-3 text-left">Nivel de Permiso</th>
+          <th class="px-6 py-3 text-left">Estado</th>
           <th class="px-6 py-3 text-left">Fecha Registro</th>
           <th class="px-6 py-3 text-right">Acciones</th>
         </template>
@@ -266,6 +454,12 @@ onMounted(() => {
             <td class="px-6 py-4">
               <AppBadge :variant="getPermisoColor(row.idpermiso)">{{ getPermisoName(row.idpermiso) }}</AppBadge>
             </td>
+            <td class="px-6 py-4">
+              <AppBadge :variant="row.conectado ? 'success' : 'gray'">
+                <span class="inline-block w-1.5 h-1.5 rounded-full mr-1.5" :class="row.conectado ? 'bg-emerald-500 animate-pulse' : 'bg-slate-400'"></span>
+                {{ row.conectado ? 'Conectado' : 'Desconectado' }}
+              </AppBadge>
+            </td>
             <td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-sm">{{ row.fecha_registro }}</td>
             <td class="px-6 py-4 text-right">
               <div class="flex justify-end gap-2">
@@ -274,6 +468,9 @@ onMounted(() => {
                     <CalendarRange class="w-4 h-4" />
                   </button>
                 </template>
+                <button v-if="row.conectado && row.idusuario !== authStore.user?.idUsuario" @click="forceDisconnect(row)" class="p-1.5 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-950/30 rounded-lg transition-colors" title="Desconectar Forzosamente">
+                  <Zap class="w-4 h-4" />
+                </button>
                 <button @click="editUser(row)" class="p-1.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" title="Editar">
                   <Edit class="w-4 h-4" />
                 </button>

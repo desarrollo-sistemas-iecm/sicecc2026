@@ -1,12 +1,18 @@
 // Server bootstrap for SISEC CC 2026
+import { createServer } from 'http'
 import app from './app.js'
 import { env } from './config/env.js'
 import { connectDb } from './config/db.js'
 import { logger } from './config/logger.js'
+import { initSocket } from './socket.js'
 
 const startServer = async () => {
+  let server = null
   try {
     await connectDb()
+
+    // Importar e inicializar el servicio de Telegram al arranque para arrancar programadores periódicos
+    await import('./services/telegram.service.js')
 
     let serverUrl = `http://localhost:${env.port}`
     if (env.nodeEnv === 'production') {
@@ -33,7 +39,10 @@ const startServer = async () => {
     logger.error('   >> Revisa tus variables de entorno y acceso al servidor SQL.')
   }
 
-  app.listen(env.port, () => {
+  server = createServer(app)
+  initSocket(server)
+
+  server.listen(env.port, () => {
     logger.info(`[INFO]    🚀 Servidor escuchando en ${env.port}`)
   })
 }

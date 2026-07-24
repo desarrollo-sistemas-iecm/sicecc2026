@@ -21,6 +21,13 @@ const detallesLogouts = [];
 // Map en memoria para deduplicar alertas de errores (5 minutos)
 const recentErrors = new Map();
 
+function escapeHtml(texto) {
+  return String(texto ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 export function registrarEvento(tipo, detail = null) {
   if (tipo === 'sesiones') {
     if (detail) {
@@ -56,19 +63,19 @@ export async function enviarResumenSesiones() {
   const formatLista = (lista) => {
     if (lista.length === 0) return '  Ninguno';
     const limite = 15;
-    let res = lista.slice(0, limite).map(s => `  • ${s.split('➜ ').slice(1).join('➜ ') || s}`).join('\n');
+    let res = lista.slice(0, limite).map(s => `  • ${escapeHtml(s.split('➜ ').slice(1).join('➜ ') || s)}`).join('\n');
     if (lista.length > limite) {
       res += `\n  ... y ${lista.length - limite} más`;
     }
     return res;
   };
 
-  const mensaje = `${emoji} *[${ambiente.toUpperCase()}]*\n` +
-    `👥 *Resumen de Sesiones - SICEC CC*\n` +
+  const mensaje = `${emoji} <b>[${ambiente.toUpperCase()}]</b>\n` +
+    `👥 <b>Resumen de Sesiones - SICEC CC</b>\n` +
     `🕐 Periodo (10 min): ${rangeStr}\n\n` +
-    `🟢 *Sesiones iniciadas: ${detallesLogins.length}*\n` +
+    `🟢 <b>Sesiones iniciadas: ${detallesLogins.length}</b>\n` +
     `${formatLista(detallesLogins)}\n\n` +
-    `🔴 *Sesiones cerradas: ${detallesLogouts.length}*\n` +
+    `🔴 <b>Sesiones cerradas: ${detallesLogouts.length}</b>\n` +
     `${formatLista(detallesLogouts)}`;
 
   try {
@@ -78,7 +85,9 @@ export async function enviarResumenSesiones() {
     detallesLogins.length = 0;
     detallesLogouts.length = 0;
   } catch (err) {
-    console.error('Error enviando resumen de sesiones a Telegram:', err.message);
+    import('../config/logger.js').then(({ logger }) => {
+      logger.error(`[TELEGRAM_ERROR] Error enviando resumen de sesiones: ${err.message}`);
+    }).catch(() => {});
   }
 }
 
@@ -98,8 +107,8 @@ export async function enviarResumenActividad() {
   const formatTime = (d) => d.toTimeString().split(' ')[0].slice(0, 8); // HH:mm:ss
   const rangeStr = `${formatTime(start)} - ${formatTime(now)}`;
 
-  const mensaje = `${emoji} *[${ambiente.toUpperCase()}]*\n` +
-    `📊 *Resumen de Actividad - SICEC CC*\n` +
+  const mensaje = `${emoji} <b>[${ambiente.toUpperCase()}]</b>\n` +
+    `📊 <b>Resumen de Actividad - SICEC CC</b>\n` +
     `🕐 Periodo (2 min): ${rangeStr}\n\n` +
     `✅ Actividades realizadas: ${contadores.actividades_realizadas}\n` +
     `📚 Talleres: ${contadores.talleres}\n` +
@@ -117,12 +126,42 @@ export async function enviarResumenActividad() {
     contadores.encuestas = 0;
     contadores.consultas = 0;
   } catch (err) {
-    console.error('Error enviando resumen de actividad a Telegram:', err.message);
+    import('../config/logger.js').then(({ logger }) => {
+      logger.error(`[TELEGRAM_ERROR] Error enviando resumen de actividad: ${err.message}`);
+    }).catch(() => {});
   }
 }
 
 // 1. Iniciar el temporizador para enviar resumen de actividad cada 2 minutos
 setInterval(enviarResumenActividad, 2 * 60 * 1000);
+
+export async function enviarResumenHistorico() {
+  try {
+    const { getAdminDashboardMetrics } = await import('../models/actividadModel.js');
+    const metrics = await getAdminDashboardMetrics();
+
+    const ambiente = env.nodeEnv || 'desconocido';
+    const emoji = AMBIENTE_EMOJI[ambiente] || '⚙️';
+    const timestamp = new Date().toISOString().replace('T', ' ').slice(0, 19);
+
+    const mensaje = `${emoji} <b>[${ambiente.toUpperCase()}]</b>\n` +
+      `📈 <b>Acumulado Histórico Global - SICEC CC</b>\n` +
+      `🕐 Corte: ${timestamp}\n\n` +
+      `✅ Actividades realizadas: ${metrics.actividades_realizadas}\n` +
+      `📚 Talleres: ${metrics.total_talleres}\n` +
+      `👥 Intervenciones: ${metrics.total_intervenciones}\n` +
+      `📝 Encuestas: ${metrics.total_encuestas}`;
+
+    await enviarMensajeTelegram(mensaje);
+  } catch (err) {
+    import('../config/logger.js').then(({ logger }) => {
+      logger.error(`[TELEGRAM_ERROR] Error enviando resumen histórico: ${err.message}`);
+    }).catch(() => {});
+  }
+}
+
+// 3. Iniciar el temporizador para enviar el acumulado histórico cada 15 minutos
+setInterval(enviarResumenHistorico, 15 * 60 * 1000);
 
 // 2. Iniciar el temporizador para enviar resumen de sesiones cada 10 minutos exactos
 function iniciarCronSesiones() {
@@ -151,10 +190,10 @@ export async function enviarAlertaWarn(message) {
   const emoji = AMBIENTE_EMOJI[ambiente] || '⚙️';
   const timestamp = new Date().toISOString().replace('T', ' ').slice(0, 19);
 
-  const mensaje = `${emoji} *[${ambiente.toUpperCase()}]*\n` +
-    `⚠️ *Aviso / Advertencia - SICEC CC*\n` +
+  const mensaje = `${emoji} <b>[${ambiente.toUpperCase()}]</b>\n` +
+    `⚠️ <b>Aviso / Advertencia - SICEC CC</b>\n` +
     `🕐 ${timestamp}\n\n` +
-    `\`\`\`text\n${message}\n\`\`\``;
+    `<pre>${escapeHtml(message)}</pre>`;
 
   await enviarMensajeTelegram(mensaje);
 }
@@ -177,10 +216,10 @@ export async function enviarAlertaError(message) {
 
   const timestamp = new Date().toISOString().replace('T', ' ').slice(0, 19);
   
-  const mensaje = `${emoji} *[${ambiente.toUpperCase()}]*\n` +
-    `🔴 *Error de Servidor - SICEC CC*\n` +
+  const mensaje = `${emoji} <b>[${ambiente.toUpperCase()}]</b>\n` +
+    `🔴 <b>Error de Servidor - SICEC CC</b>\n` +
     `🕐 ${timestamp}\n\n` +
-    `\`\`\`text\n${message}\n\`\`\``;
+    `<pre>${escapeHtml(message)}</pre>`;
 
   await enviarMensajeTelegram(mensaje);
 }
@@ -194,9 +233,15 @@ export async function enviarMensajeTelegram(text) {
     await axios.post(`https://api.telegram.org/bot${token}/sendMessage`, {
       chat_id: chatId,
       text,
-      parse_mode: 'Markdown'
+      parse_mode: 'HTML'
     });
+
+    import('../config/logger.js').then(({ logger }) => {
+      logger.info('[TELEGRAM] Mensaje enviado correctamente');
+    }).catch(() => {});
   } catch (err) {
-    console.error('Error enviando mensaje a Telegram:', err.message);
+    import('../config/logger.js').then(({ logger }) => {
+      logger.error(`[TELEGRAM_ERROR] Error enviando a la API de Telegram: ${err.message}`);
+    }).catch(() => {});
   }
 }
