@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import { auth } from '../middlewares/auth.js'
 import multer from 'multer'
-import { listConfigFechas, saveConfigFechas, requestFechaExcepcion, getManualConfig, saveManualConfig, getAlertaLoginConfig, saveAlertaLoginConfig, getUltimaActualizacionConfig, saveUltimaActualizacionConfig } from '../controllers/adminController.js'
+import { listConfigFechas, saveConfigFechas, requestFechaExcepcion, getManualConfig, saveManualConfig, getAlertaLoginConfig, saveAlertaLoginConfig, getUltimaActualizacionConfig, saveUltimaActualizacionConfig, listCursosAdmin, updateCursoColor } from '../controllers/adminController.js'
 import { getUsuarios, postUsuario, putUsuario, delUsuario, desconectarUsuarioEndpoint } from '../controllers/usuariosController.js'
 import { getArchivosTree, deleteArchivo, replaceArchivo } from '../controllers/archivosController.js'
 import { listAdminFormatos, uploadAdminFormato, deleteAdminFormato } from '../controllers/adminFormatosController.js'
@@ -81,5 +81,9 @@ router.post('/archivos/solicitar', auth, upload.fields([{ name: 'archivo', maxCo
 router.get('/formatos', auth, isSuperAdmin, listAdminFormatos)
 router.post('/formatos/subir', auth, isSuperAdmin, upload.fields([{ name: 'archivo', maxCount: 1 }]), uploadAdminFormato)
 router.delete('/formatos/:archivo', auth, isSuperAdmin, deleteAdminFormato)
+
+// Rutas de Catálogo de Cursos (Admin)
+router.get('/cursos', auth, isSuperAdmin, listCursosAdmin)
+router.put('/cursos/:id/color', auth, isSuperAdmin, updateCursoColor)
 
 export default router

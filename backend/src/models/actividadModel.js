@@ -24,6 +24,11 @@ const findFolderForFile = async (baseDir, filename) => {
   return null
 }
 
+function colorDesdeId(idcatcurso) {
+  const hue = (idcatcurso * 137.5) % 360;
+  return `hsl(${hue}, 65%, 55%)`;
+}
+
 export const listActividadesBySede = async (idsede) => {
   const pool = await getPool()
   const request = pool.request()
@@ -48,6 +53,7 @@ export const listActividadesBySede = async (idsede) => {
         ti.phombres1, ti.phombres2, ti.phombres3, ti.phombres4,
         ti.phombres5, ti.phombres6, ti.phombres7, ti.phombres8,
         ti.nombre_archivo, ti.nombre_archivo2, ti.nombre_archivo3,
+        cc.color,
         u.idsede
     FROM sisecycc2024.dbo.sisec_talleres_intervenciones ti
       LEFT JOIN sisecycc2024.dbo.sisec_cat_cursos cc ON ti.idcatcurso = cc.idcurso
@@ -62,7 +68,8 @@ export const listActividadesBySede = async (idsede) => {
     result.recordset.map(async (row) => {
       const target = row.nombre_archivo || row.nombre_archivo2 || row.nombre_archivo3
       const carpeta = await findFolderForFile(baseDir, target)
-      return { ...row, carpeta }
+      const color = row.color || colorDesdeId(row.idcatcurso || 0)
+      return { ...row, carpeta, color }
     })
   )
 }

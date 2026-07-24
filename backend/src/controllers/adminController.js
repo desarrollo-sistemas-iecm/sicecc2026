@@ -230,5 +230,38 @@ export const saveUltimaActualizacionConfig = async (req, res, next) => {
   }
 }
 
+export const listCursosAdmin = async (req, res, next) => {
+  try {
+    const pool = await getPool()
+    const result = await pool.request().query(`
+      SELECT idcurso, descripcion, idtipo, estatus, color
+      FROM sisecycc2024.dbo.sisec_cat_cursos
+      ORDER BY idtipo, descripcion
+    `)
+    return res.json({ success: true, data: result.recordset })
+  } catch (error) {
+    return next(error)
+  }
+}
+
+export const updateCursoColor = async (req, res, next) => {
+  try {
+    const idcurso = Number(req.params.id)
+    const { color } = req.body
+    const pool = await getPool()
+    await pool.request()
+      .input('color', sql.VarChar(7), color || null)
+      .input('idcurso', sql.Int, idcurso)
+      .query(`
+        UPDATE sisecycc2024.dbo.sisec_cat_cursos
+        SET color = @color
+        WHERE idcurso = @idcurso
+      `)
+    return res.json({ success: true, message: 'Color del curso actualizado con éxito' })
+  } catch (error) {
+    return next(error)
+  }
+}
+
 
 

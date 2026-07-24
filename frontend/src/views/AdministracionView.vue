@@ -1,6 +1,6 @@
 <script setup>
 import { useRoute } from 'vue-router'
-import { Users, CalendarRange, FolderOpen, FileText } from '@lucide/vue'
+import { Users, CalendarRange, FolderOpen, FileText, BookOpen } from '@lucide/vue'
 
 const route = useRoute()
 
@@ -8,7 +8,8 @@ const tabs = [
   { name: 'Gestión de Usuarios', path: '/administracion/usuarios', icon: Users },
   { name: 'Restricciones de Fechas', path: '/administracion/restricciones', icon: CalendarRange },
   { name: 'Explorador de Archivos', path: '/administracion/archivos', icon: FolderOpen },
-  { name: 'Formatos Oficiales', path: '/administracion/formatos', icon: FileText }
+  { name: 'Formatos Oficiales', path: '/administracion/formatos', icon: FileText },
+  { name: 'Catálogo de Cursos', path: '/administracion/cursos', icon: BookOpen }
 ]
 </script>
 

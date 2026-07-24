@@ -22,7 +22,7 @@ const buildConvenioFilter = (convenio) => {
 const buildCriterioFilter = (criterio) => {
   if (criterio === 'dto') return ' AND ti.id_distrito = @distrito'
   if (criterio === 'del')
-    return ' AND u.idsede IN (SELECT idsede FROM sisec_sedes WHERE iddelegacion = @delegacion)'
+    return ' AND u.idsede IN (SELECT idsede FROM sisecycc2024.dbo.sisec_sedes WHERE iddelegacion = @delegacion)'
   return ''
 }
 
@@ -36,21 +36,44 @@ const buildPermisoFilter = (permiso) => {
 
 // ─── Columnas comunes para tipos 1, 2, 3 ─────────────────────────────────────
 const COLS_DETALLE = [
-  'Distrito', 'Curso', 'Institucion', 'Tipo Inst.',
-  'Muj 0-12', 'Muj 13-16', 'Muj 17-20', 'Muj 21-30',
-  'Muj 31-40', 'Muj 41-50', 'Muj 51-61', 'Muj +62',
-  'Hom 0-12', 'Hom 13-16', 'Hom 17-20', 'Hom 21-30',
-  'Hom 31-40', 'Hom 41-50', 'Hom 51-61', 'Hom +62',
-  'Total Muj', 'Total Hom', 'TOTAL',
-  'Dur. Hrs', 'Dur. Min', 'Fecha', 'Comentarios', 'Convenio', 'Modalidad'
+  'Num', 'Distrito', 'ID', 'Taller o Intervención', 'Presencial', 'Virtual', 'Institución', 'Género',
+  '0-12', '13-16', '17-20', '21-30', '31-40', '41-50', '51-61', '>62', 'TOTAL',
+  'Duración', 'Fecha', 'Comentarios', 'Convenio'
 ]
 
-// Índices de las columnas de edad en COLS_DETALLE
-// [4..11] = pmujeres1-8  |  [12..19] = phombres1-8
-// [20]    = Total Muj    |  [21]     = Total Hom    |  [22] = TOTAL
+function hslToHex(h, s, l) {
+  l /= 100
+  const a = (s * Math.min(l, 1 - l)) / 100
+  const f = (n) => {
+    const k = (n + h / 30) % 12
+    const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1)
+    return Math.round(255 * color).toString(16).padStart(2, '0')
+  }
+  return `${f(0)}${f(8)}${f(4)}`.toUpperCase()
+}
 
-const mapRowDetalle = (row) => {
-  const muj = [
+function colorDesdeId(idcatcurso) {
+  const hue = (idcatcurso * 137.5) % 360
+  return hslToHex(hue, 65, 55)
+}
+
+function formatColorToARGB(colorStr, idcatcurso) {
+  if (!colorStr) {
+    return 'FF' + colorDesdeId(idcatcurso)
+  }
+  const clean = colorStr.replace('#', '').trim()
+  if (clean.length === 6) {
+    return 'FF' + clean.toUpperCase()
+  }
+  if (clean.length === 8) {
+    return clean.toUpperCase()
+  }
+  return 'FF' + colorDesdeId(idcatcurso)
+}
+
+const mapRowDetalle = (row, index) => {
+  const num = index + 1
+  const m = [
     row.pmujeres1 || 0, row.pmujeres2 || 0, row.pmujeres3 || 0, row.pmujeres4 || 0,
     row.pmujeres5 || 0, row.pmujeres6 || 0, row.pmujeres7 || 0, row.pmujeres8 || 0,
   ]
@@ -58,61 +81,108 @@ const mapRowDetalle = (row) => {
     row.phombres1 || 0, row.phombres2 || 0, row.phombres3 || 0, row.phombres4 || 0,
     row.phombres5 || 0, row.phombres6 || 0, row.phombres7 || 0, row.phombres8 || 0,
   ]
-  const totalMuj = muj.reduce((a, b) => a + b, 0)
-  const totalHom = hom.reduce((a, b) => a + b, 0)
-  return [
-    row.idsede,      row.curso,       row.institucion, row.tipoinstitucion,
-    ...muj, ...hom,
-    totalMuj,        totalHom,        totalMuj + totalHom,
-    row.duracionhrs, row.duracionmin, row.fecha,        row.comentarios,
-    row.convenio,    row.modalidad,
+  const totalM = m.reduce((a, b) => a + b, 0)
+  const totalH = hom.reduce((a, b) => a + b, 0)
+  
+  const duracion = `${row.duracionhrs || 0}:${String(row.duracionmin || 0).padStart(2, '0')}`
+  const presencial = row.modalidad === 0 ? 'SI' : ''
+  const virtual = row.modalidad === 1 ? 'SI' : ''
+  const convenio = row.convenio === 1 ? 'SI' : 'NO'
+  
+  const argbColor = formatColorToARGB(row.color, row.idcatcurso)
+
+  const rowM = [
+    num,
+    row.idsede,
+    row.idcurso,
+    row.curso,
+    presencial,
+    virtual,
+    row.institucion,
+    'M',
+    ...m,
+    totalM,
+    duracion,
+    row.fecha,
+    row.comentarios,
+    convenio,
+    argbColor // Elemento extra para pasar color a exceljs
   ]
+  
+  const rowH = [
+    num,
+    row.idsede,
+    row.idcurso,
+    row.curso,
+    presencial,
+    virtual,
+    row.institucion,
+    'H',
+    ...hom,
+    totalH,
+    duracion,
+    row.fecha,
+    row.comentarios,
+    convenio,
+    argbColor // Elemento extra para pasar color a exceljs
+  ]
+  
+  return [rowM, rowH]
 }
 
-/**
- * Genera la fila de totales (suma de todas las columnas numéricas de edad y totales).
- * Cols 0-3 son texto → se etiquetan. Cols 4-22 son numéricos → se suman.
- * Cols 23-28 son metadata (fecha, etc.) → vacíos.
- */
-const buildSummaryRow = (filas) => {
-  const sums = new Array(19).fill(0)   // índices 4..22 → 19 columnas numéricas
+const computeFilasDetalle = (recordset) => {
+  const filas = []
+  recordset.forEach((row, idx) => {
+    const [rowM, rowH] = mapRowDetalle(row, idx)
+    filas.push(rowM)
+    filas.push(rowH)
+  })
+
+  // Fila de Totales Generales al final de la tabla (columnas de edad y total de edad: de índice 8 a 16)
+  const sums = new Array(9).fill(0) // 8 rangos de edad + 1 total
   filas.forEach((fila) => {
-    for (let i = 0; i < 19; i++) {
-      sums[i] += Number(fila[4 + i]) || 0
+    for (let i = 0; i < 9; i++) {
+      sums[i] += Number(fila[8 + i]) || 0
     }
   })
-  return [
-    'TOTALES', `${filas.length} registros`, '', '',
-    ...sums,
-    '', '', '', '', '', '',   // Dur.Hrs, Dur.Min, Fecha, Comentarios, Convenio, Modalidad
-  ]
-}
 
-/**
- * Devuelve las filas de detalle + la fila de totales,
- * más el conteo de filas de resumen para que el generador las estile.
- */
-const computeFilasDetalle = (recordset) => {
-  const filas = recordset.map(mapRowDetalle)
-  filas.push(buildSummaryRow(filas))
+  const summaryRow = [
+    'TOTALES',
+    '',
+    '',
+    `${recordset.length} registros`,
+    '',
+    '',
+    '',
+    '',
+    ...sums,
+    '', // Duración
+    '', // Fecha
+    '', // Comentarios
+    '',  // Convenio
+    null // color
+  ]
+  filas.push(summaryRow)
   return { filas, summaryRows: 1 }
 }
 
 // ─── SELECT base de detalle (tipos 1, 2, 3) ──────────────────────────────────
 const SELECT_DETALLE = `
   SELECT u.idsede,
+         ti.idcurso,
          cat.descripcion AS curso,
+         cat.color,
+         cat.idcurso AS idcatcurso,
          ti.lugar AS institucion,
-         CASE WHEN ti.tipoinstitucion = 1 THEN 'Publica' ELSE 'Privada' END AS tipoinstitucion,
          ti.pmujeres1, ti.pmujeres2, ti.pmujeres3, ti.pmujeres4,
          ti.pmujeres5, ti.pmujeres6, ti.pmujeres7, ti.pmujeres8,
          ti.phombres1, ti.phombres2, ti.phombres3, ti.phombres4,
          ti.phombres5, ti.phombres6, ti.phombres7, ti.phombres8,
          ti.duracionhrs, ti.duracionmin,
          ti.fecha, ti.comentarios, ti.convenio,
-         CASE WHEN ti.modalidad = 1 THEN 'Presencial' ELSE 'Virtual' END AS modalidad
+         ti.modalidad
   FROM sisecycc2024.dbo.sisec_talleres_intervenciones ti
-  JOIN sisec_usuarios u ON ti.idusuario = u.idusuario
+  JOIN sisecycc2024.dbo.sisec_usuarios u ON ti.idusuario = u.idusuario
   JOIN sisecycc2024.dbo.sisec_cat_cursos cat ON ti.idcatcurso = cat.idcurso
 `
 
@@ -128,9 +198,9 @@ const SELECT_GRUPOS_EDAD = `
     SUM(ti.phombres4) + SUM(ti.phombres5) + SUM(ti.phombres6) + SUM(ti.phombres7) AS h3,
     SUM(ti.phombres8) AS h4
   FROM sisecycc2024.dbo.sisec_talleres_intervenciones ti
-  JOIN sisec_usuarios u ON ti.idusuario = u.idusuario
+  JOIN sisecycc2024.dbo.sisec_usuarios u ON ti.idusuario = u.idusuario
   JOIN sisecycc2024.dbo.sisec_cat_cursos cat ON ti.idcatcurso = cat.idcurso
-  JOIN sisec_tipos_cursos_y_talleres tip ON cat.idtipo = tip.idtipo
+  JOIN sisecycc2024.dbo.sisec_tipos_cursos_y_talleres tip ON cat.idtipo = tip.idtipo
 `
 
 const buildFilasEdad = (row) => {
@@ -212,7 +282,7 @@ export const ejecutarReporte = async (filters) => {
       `
       const result = await request.query(sqlQuery)
       const colsInt = [...COLS_DETALLE]
-      colsInt[1] = 'Intervencion'
+      colsInt[3] = 'Intervención'
       const { filas, summaryRows } = computeFilasDetalle(result.recordset)
       return {
         titulo: 'Intervenciones educativas',
@@ -225,82 +295,26 @@ export const ejecutarReporte = async (filters) => {
     // ── TIPO 3: Talleres + Intervenciones (todos) ───────────────────────────
     case 3: {
       const sqlQuery = `
-        SELECT u.idsede,
-               cat.descripcion AS curso,
-               tip.descripcion AS vertiente,
-               ti.lugar AS institucion,
-               CASE WHEN ti.tipoinstitucion = 1 THEN 'Publica' ELSE 'Privada' END AS tipoinstitucion,
-               ti.pmujeres1, ti.pmujeres2, ti.pmujeres3, ti.pmujeres4,
-               ti.pmujeres5, ti.pmujeres6, ti.pmujeres7, ti.pmujeres8,
-               ti.phombres1, ti.phombres2, ti.phombres3, ti.phombres4,
-               ti.phombres5, ti.phombres6, ti.phombres7, ti.phombres8,
-               ti.duracionhrs, ti.duracionmin,
-               ti.fecha, ti.comentarios, ti.convenio,
-               CASE WHEN ti.modalidad = 1 THEN 'Presencial' ELSE 'Virtual' END AS modalidad
-        FROM sisecycc2024.dbo.sisec_talleres_intervenciones ti
-        JOIN sisec_usuarios u ON ti.idusuario = u.idusuario
-        JOIN sisecycc2024.dbo.sisec_cat_cursos cat ON ti.idcatcurso = cat.idcurso
-        JOIN sisec_tipos_cursos_y_talleres tip ON cat.idtipo = tip.idtipo
+        ${SELECT_DETALLE}
         WHERE ti.status = 3
           ${convenioFilter}
           ${criterioFilter}
           ${permisoFilter}
           ${fechaFilter}
-        ORDER BY u.idsede, tip.idtipo, ti.fecha
+        ORDER BY u.idsede, ti.fecha
       `
       const result = await request.query(sqlQuery)
-
-      // Tipo 3 tiene una columna extra (Vertiente) en pos. 2, ajustar helper inline
-      const COLS3 = [
-        'Distrito', 'Curso', 'Vertiente', 'Institucion', 'Tipo Inst.',
-        'Muj 0-12', 'Muj 13-16', 'Muj 17-20', 'Muj 21-30',
-        'Muj 31-40', 'Muj 41-50', 'Muj 51-61', 'Muj +62',
-        'Hom 0-12', 'Hom 13-16', 'Hom 17-20', 'Hom 21-30',
-        'Hom 31-40', 'Hom 41-50', 'Hom 51-61', 'Hom +62',
-        'Total Muj', 'Total Hom', 'TOTAL',
-        'Dur. Hrs', 'Dur. Min', 'Fecha', 'Comentarios', 'Convenio', 'Modalidad'
-      ]
-
-      const filas3 = result.recordset.map((row) => {
-        const muj = [
-          row.pmujeres1||0, row.pmujeres2||0, row.pmujeres3||0, row.pmujeres4||0,
-          row.pmujeres5||0, row.pmujeres6||0, row.pmujeres7||0, row.pmujeres8||0,
-        ]
-        const hom = [
-          row.phombres1||0, row.phombres2||0, row.phombres3||0, row.phombres4||0,
-          row.phombres5||0, row.phombres6||0, row.phombres7||0, row.phombres8||0,
-        ]
-        const totalMuj = muj.reduce((a, b) => a + b, 0)
-        const totalHom = hom.reduce((a, b) => a + b, 0)
-        return [
-          row.idsede, row.curso, row.vertiente, row.institucion, row.tipoinstitucion,
-          ...muj, ...hom,
-          totalMuj, totalHom, totalMuj + totalHom,
-          row.duracionhrs, row.duracionmin, row.fecha, row.comentarios,
-          row.convenio, row.modalidad,
-        ]
-      })
-
-      // Fila de totales: cols 0-4 texto, cols 5-23 numéricos (19 valores)
-      const sums3 = new Array(19).fill(0)
-      filas3.forEach((f) => { for (let i = 0; i < 19; i++) sums3[i] += Number(f[5 + i]) || 0 })
-      filas3.push([
-        'TOTALES', `${filas3.length} registros`, '', '', '',
-        ...sums3,
-        '', '', '', '', '', '',
-      ])
-
+      const { filas, summaryRows } = computeFilasDetalle(result.recordset)
       return {
-        titulo: 'Talleres e intervenciones (todos)',
-        columnas: COLS3,
-        filas: filas3,
-        summaryRows: 1
+        titulo: 'Reporte de Talleres e Intervenciones Educativas',
+        columnas: COLS_DETALLE,
+        filas,
+        summaryRows
       }
     }
 
     // ── TIPO 4: Encuestas de satisfacción (sin fechas, sin criterio) ────────
     case 4: {
-      // Usa request separado porque no necesita @fechaInic / @fechaFin
       const reqEnc = pool.request()
       reqEnc.input('idsede', sql.Int, filters.idsede)
 
@@ -309,7 +323,6 @@ export const ejecutarReporte = async (filters) => {
                enc.folio_encuesta,
                enc.edad,
                enc.genero,
-               enc.etiqueta2,
                enc.etiqueta3,
                enc.etiqueta4,
                enc.etiqueta5,
@@ -322,12 +335,20 @@ export const ejecutarReporte = async (filters) => {
       `
       const result = await reqEnc.query(sqlQuery)
       return {
-        titulo: 'Encuestas de satisfaccion',
-        columnas: ['Distrito', 'Folio', 'Edad', 'Genero', 'P3', 'P4', 'P5', 'P6', 'P7', 'P8', 'Fecha alta'],
+        titulo: 'Reporte de encuestas aplicadas',
+        columnas: ['Distrito', 'Folio', 'Edad', 'Género', 'P3', 'P4', 'P5', 'P6', 'P7', 'P8', 'Fecha de captura'],
         filas: result.recordset.map((row) => [
-          row.id_distrito, row.folio_encuesta, row.edad,      row.genero,
-          row.etiqueta2,   row.etiqueta3,      row.etiqueta4, row.etiqueta5,
-          row.etiqueta6,   row.etiqueta7,      row.fecha_alta
+          row.id_distrito, 
+          row.folio_encuesta, 
+          row.edad,      
+          row.genero,
+          row.etiqueta3,   
+          row.etiqueta4,      
+          row.etiqueta5, 
+          row.etiqueta6,
+          row.etiqueta7,   
+          null, // etiqueta8 (no existente en tabla local)
+          row.fecha_alta
         ])
       }
     }
@@ -380,9 +401,9 @@ export const ejecutarReporte = async (filters) => {
                  ELSE 'Pendiente'
                END AS estatus
         FROM sisecycc2024.dbo.sisec_talleres_intervenciones ti
-        JOIN sisec_usuarios u ON ti.idusuario = u.idusuario
+        JOIN sisecycc2024.dbo.sisec_usuarios u ON ti.idusuario = u.idusuario
         JOIN sisecycc2024.dbo.sisec_cat_cursos cat ON ti.idcatcurso = cat.idcurso
-        JOIN sisec_tipos_cursos_y_talleres tip ON cat.idtipo = tip.idtipo
+        JOIN sisecycc2024.dbo.sisec_tipos_cursos_y_talleres tip ON cat.idtipo = tip.idtipo
         WHERE ti.status != 3
           ${criterioFilter}
           ${permisoFilter}
@@ -412,15 +433,15 @@ export const ejecutarReporte = async (filters) => {
                 ti.pmujeres5 + ti.pmujeres6 + ti.pmujeres7 + ti.pmujeres8) AS total_mujeres,
                (ti.phombres1 + ti.phombres2 + ti.phombres3 + ti.phombres4 +
                 ti.phombres5 + ti.phombres6 + ti.phombres7 + ti.phombres8) AS total_hombres
-        FROM sisecycc2024.dbo.sisec_talleres_intervenciones ti
-        JOIN sisec_usuarios u ON ti.idusuario = u.idusuario
-        JOIN sisecycc2024.dbo.sisec_cat_cursos cat ON ti.idcatcurso = cat.idcurso
-        JOIN sisec_tipos_cursos_y_talleres tip ON cat.idtipo = tip.idtipo
-        WHERE ti.status = 3
-          ${criterioFilter}
-          ${permisoFilter}
-          ${fechaFilter}
-        ORDER BY u.idsede, tip.idtipo, ti.fecha
+         FROM sisecycc2024.dbo.sisec_talleres_intervenciones ti
+         JOIN sisecycc2024.dbo.sisec_usuarios u ON ti.idusuario = u.idusuario
+         JOIN sisecycc2024.dbo.sisec_cat_cursos cat ON ti.idcatcurso = cat.idcurso
+         JOIN sisecycc2024.dbo.sisec_tipos_cursos_y_talleres tip ON cat.idtipo = tip.idtipo
+         WHERE ti.status = 3
+           ${criterioFilter}
+           ${permisoFilter}
+           ${fechaFilter}
+         ORDER BY u.idsede, tip.idtipo, ti.fecha
       `
       const result = await request.query(sqlQuery)
       return {
@@ -435,7 +456,6 @@ export const ejecutarReporte = async (filters) => {
 
     // ── TIPO 9: Actividades Realizadas por Convenio (sin fechas, sin dto/del) ─
     case 9: {
-      // Sin filtro de fechas. El filtro de permiso se aplica pero NO el criterio.
       const sqlQuery = `
         SELECT
           CASE WHEN ti.convenio = 1 THEN 'Con convenio' ELSE 'Sin convenio' END AS tipo_convenio,
@@ -446,9 +466,9 @@ export const ejecutarReporte = async (filters) => {
           SUM(ti.phombres1 + ti.phombres2 + ti.phombres3 + ti.phombres4 +
               ti.phombres5 + ti.phombres6 + ti.phombres7 + ti.phombres8) AS total_hombres
         FROM sisecycc2024.dbo.sisec_talleres_intervenciones ti
-        JOIN sisec_usuarios u ON ti.idusuario = u.idusuario
+        JOIN sisecycc2024.dbo.sisec_usuarios u ON ti.idusuario = u.idusuario
         JOIN sisecycc2024.dbo.sisec_cat_cursos cat ON ti.idcatcurso = cat.idcurso
-        JOIN sisec_tipos_cursos_y_talleres tip ON cat.idtipo = tip.idtipo
+        JOIN sisecycc2024.dbo.sisec_tipos_cursos_y_talleres tip ON cat.idtipo = tip.idtipo
         WHERE ti.status = 3
           ${permisoFilter}
         GROUP BY ti.convenio, tip.idtipo, tip.descripcion
@@ -485,20 +505,42 @@ export const ejecutarReporte = async (filters) => {
       `
       const result = await request.query(sqlQuery)
       const filas = result.recordset.map((row) => {
-        const talleres = row.mujeres + row.jovenes + row.hombres + row.pob_general
-        const total = talleres + (includeIntervenciones ? row.intervenciones : 0)
+        const talleres = (row.mujeres || 0) + (row.hombres || 0) + (row.jovenes || 0) + (row.pob_general || 0)
+        const total = talleres + (includeIntervenciones ? (row.intervenciones || 0) : 0)
         const porcentaje = total ? Number(((total * 100) / 33).toFixed(2)) : 0
         return [
-          row.id_distrito, row.mujeres, row.jovenes, row.hombres, row.pob_general,
-          row.intervenciones, total, porcentaje
+          row.id_distrito, 
+          row.mujeres || 0, 
+          row.hombres || 0, 
+          row.jovenes || 0, 
+          row.pob_general || 0, 
+          talleres, 
+          row.intervenciones || 0, 
+          total, 
+          porcentaje
         ]
       })
+
+      // Fila de totales: sumamos columnas numéricas 1 a 7
+      const sums = new Array(7).fill(0)
+      filas.forEach((f) => {
+        for (let i = 0; i < 7; i++) {
+          sums[i] += Number(f[1 + i]) || 0
+        }
+      })
+      filas.push([
+        'TOTALES',
+        ...sums,
+        '' // porcentaje vacío al final
+      ])
+
       return {
         titulo: includeIntervenciones
-          ? 'Avance acumulado por distrito (con intervenciones)'
-          : 'Avance acumulado por distrito',
-        columnas: ['Distrito', 'Mujeres', 'Jovenes', 'Hombres', 'Pob. Gral.', 'Intervenciones', 'Total', '% Avance'],
-        filas
+          ? 'Reporte de Avance Acumulado por Distrito (con Intervenciones)'
+          : 'Reporte de Avance Acumulado por Distrito',
+        columnas: ['DTTO', 'Mujeres', 'Hombres', 'Jóvenes', 'Población en General', 'Total Talleres', 'Intervenciones', 'Total de Acciones', '% Avance'],
+        filas,
+        summaryRows: 1
       }
     }
 
@@ -508,16 +550,16 @@ export const ejecutarReporte = async (filters) => {
         SELECT
           del.descripcion AS delegacion,
           del.iddelegacion,
-          COUNT(ti.idcurso) AS total,
+          COUNT(ti.idcurso) AS total_acciones,
           SUM(CASE WHEN ti.convenio = 1 THEN 1 ELSE 0 END) AS con_convenio,
           SUM(CASE WHEN ti.convenio = 0 THEN 1 ELSE 0 END) AS sin_convenio,
-          SUM(ti.pmujeres1 + ti.pmujeres2 + ti.pmujeres3 + ti.pmujeres4 +
-              ti.pmujeres5 + ti.pmujeres6 + ti.pmujeres7 + ti.pmujeres8) AS total_mujeres,
-          SUM(ti.phombres1 + ti.phombres2 + ti.phombres3 + ti.phombres4 +
-              ti.phombres5 + ti.phombres6 + ti.phombres7 + ti.phombres8) AS total_hombres
-        FROM sisec_delegaciones del
-        LEFT JOIN sisec_sedes sed ON sed.iddelegacion = del.iddelegacion
-        JOIN sisec_usuarios u ON u.idsede = sed.idsede
+          SUM(ti.pmujeres1) AS m1, SUM(ti.pmujeres2) AS m2, SUM(ti.pmujeres3) AS m3, SUM(ti.pmujeres4) AS m4,
+          SUM(ti.pmujeres5) AS m5, SUM(ti.pmujeres6) AS m6, SUM(ti.pmujeres7) AS m7, SUM(ti.pmujeres8) AS m8,
+          SUM(ti.phombres1) AS h1, SUM(ti.phombres2) AS h2, SUM(ti.phombres3) AS h3, SUM(ti.phombres4) AS h4,
+          SUM(ti.phombres5) AS h5, SUM(ti.phombres6) AS h6, SUM(ti.phombres7) AS h7, SUM(ti.phombres8) AS h8
+        FROM sisecycc2024.dbo.sisec_delegaciones del
+        LEFT JOIN sisecycc2024.dbo.sisec_sedes sed ON sed.iddelegacion = del.iddelegacion
+        JOIN sisecycc2024.dbo.sisec_usuarios u ON u.idsede = sed.idsede
         JOIN sisecycc2024.dbo.sisec_talleres_intervenciones ti ON ti.idusuario = u.idusuario
         WHERE del.iddelegacion < 17
           AND ti.status = 3
@@ -526,14 +568,52 @@ export const ejecutarReporte = async (filters) => {
         ORDER BY del.iddelegacion
       `
       const result = await request.query(sqlQuery)
+      const filas = result.recordset.map((row) => {
+        const m = [
+          row.m1||0, row.m2||0, row.m3||0, row.m4||0,
+          row.m5||0, row.m6||0, row.m7||0, row.m8||0
+        ]
+        const h = [
+          row.h1||0, row.h2||0, row.h3||0, row.h4||0,
+          row.h5||0, row.h6||0, row.h7||0, row.h8||0
+        ]
+        const subM = m.reduce((a, b) => a + b, 0)
+        const subH = h.reduce((a, b) => a + b, 0)
+        return [
+          row.iddelegacion,
+          row.delegacion,
+          row.total_acciones,
+          row.con_convenio,
+          row.sin_convenio,
+          ...m,
+          subM,
+          ...h,
+          subH
+        ]
+      })
+
+      // Fila de totales: sumamos cols 2 a 22
+      const sums = new Array(21).fill(0)
+      filas.forEach((f) => {
+        for (let i = 0; i < 21; i++) {
+          sums[i] += Number(f[2 + i]) || 0
+        }
+      })
+      filas.push([
+        'TOTALES',
+        '',
+        ...sums
+      ])
+
       return {
-        titulo: 'Concentrado de talleres por demarcacion territorial',
-        columnas: ['Delegacion', 'ID Del.', 'Total', 'Con convenio', 'Sin convenio', 'Total mujeres', 'Total hombres'],
-        filas: result.recordset.map((row) => [
-          row.delegacion, row.iddelegacion, row.total,
-          row.con_convenio, row.sin_convenio,
-          row.total_mujeres, row.total_hombres
-        ])
+        titulo: 'Reporte de talleres impartidos por convenio por demarcación territorial',
+        columnas: [
+          'Clave', 'Demarcación Territorial', 'Total de acciones', 'Con convenio', 'Sin convenio',
+          'Muj 0-12', 'Muj 13-16', 'Muj 17-20', 'Muj 21-30', 'Muj 31-40', 'Muj 41-50', 'Muj 51-61', 'Muj +62', 'Subtotal Muj',
+          'Hom 0-12', 'Hom 13-16', 'Hom 17-20', 'Hom 21-30', 'Hom 31-40', 'Hom 41-50', 'Hom 51-61', 'Hom +62', 'Subtotal Hom'
+        ],
+        filas,
+        summaryRows: 1
       }
     }
 
@@ -542,8 +622,14 @@ export const ejecutarReporte = async (filters) => {
       const sqlQuery = `
         SELECT
           cat.descripcion AS curso,
-          cat.idtipo,
-          tip.descripcion AS vertiente,
+          CASE
+            WHEN cat.idtipo = 1 THEN 'Mujeres'
+            WHEN cat.idtipo = 2 THEN 'Jóvenes'
+            WHEN cat.idtipo = 3 THEN 'Hombres'
+            WHEN cat.idtipo = 4 THEN 'Intervenciones'
+            WHEN cat.idtipo = 5 THEN 'Población en General'
+          END AS vertiente,
+          COUNT(ti.idcurso) AS total_acciones,
           SUM(ti.pmujeres1) AS muj_0_12,   SUM(ti.pmujeres2) AS muj_13_16,
           SUM(ti.pmujeres3) AS muj_17_20,  SUM(ti.pmujeres4) AS muj_21_30,
           SUM(ti.pmujeres5) AS muj_31_40,  SUM(ti.pmujeres6) AS muj_41_50,
@@ -551,35 +637,61 @@ export const ejecutarReporte = async (filters) => {
           SUM(ti.phombres1) AS hom_0_12,   SUM(ti.phombres2) AS hom_13_16,
           SUM(ti.phombres3) AS hom_17_20,  SUM(ti.phombres4) AS hom_21_30,
           SUM(ti.phombres5) AS hom_31_40,  SUM(ti.phombres6) AS hom_41_50,
-          SUM(ti.phombres7) AS hom_51_61,  SUM(ti.phombres8) AS hom_mas_62,
-          COUNT(*) AS total_acciones
+          SUM(ti.phombres7) AS hom_51_61,  SUM(ti.phombres8) AS hom_mas_62
         FROM sisecycc2024.dbo.sisec_cat_cursos cat
-        JOIN sisecycc2024.dbo.sisec_talleres_intervenciones ti ON ti.idcatcurso = cat.idcurso
-        JOIN sisec_tipos_cursos_y_talleres tip ON cat.idtipo = tip.idtipo
+        INNER JOIN sisecycc2024.dbo.sisec_talleres_intervenciones ti ON ti.idcatcurso = cat.idcurso
         WHERE ti.status = 3
           ${fechaFilter}
-        GROUP BY cat.descripcion, cat.idtipo, tip.descripcion
+        GROUP BY cat.descripcion, cat.idtipo
         ORDER BY cat.idtipo, cat.descripcion
       `
       const result = await request.query(sqlQuery)
+      const filas = result.recordset.map((row, idx) => {
+        const m = [
+          row.muj_0_12||0, row.muj_13_16||0, row.muj_17_20||0, row.muj_21_30||0,
+          row.muj_31_40||0, row.muj_41_50||0, row.muj_51_61||0, row.muj_mas_62||0
+        ]
+        const h = [
+          row.hom_0_12||0, row.hom_13_16||0, row.hom_17_20||0, row.hom_21_30||0,
+          row.hom_31_40||0, row.hom_41_50||0, row.hom_51_61||0, row.hom_mas_62||0
+        ]
+        const subM = m.reduce((a, b) => a + b, 0)
+        const subH = h.reduce((a, b) => a + b, 0)
+        return [
+          idx + 1,
+          row.curso,
+          row.vertiente,
+          row.total_acciones,
+          ...m,
+          subM,
+          ...h,
+          subH
+        ]
+      })
+
+      // Fila de totales: sumamos cols 3 a 21
+      const sums = new Array(19).fill(0)
+      filas.forEach((f) => {
+        for (let i = 0; i < 19; i++) {
+          sums[i] += Number(f[3 + i]) || 0
+        }
+      })
+      filas.push([
+        'TOTALES',
+        '',
+        '',
+        ...sums
+      ])
+
       return {
-        titulo: 'Concentrado de talleres por grupos de edad',
+        titulo: 'Reporte de talleres e intervenciones por grupo de edad y género',
         columnas: [
-          'Curso', 'Vertiente',
-          'Muj 0-12',  'Muj 13-16', 'Muj 17-20', 'Muj 21-30',
-          'Muj 31-40', 'Muj 41-50', 'Muj 51-61', 'Muj +62',
-          'Hom 0-12',  'Hom 13-16', 'Hom 17-20', 'Hom 21-30',
-          'Hom 31-40', 'Hom 41-50', 'Hom 51-61', 'Hom +62',
-          'Total acciones'
+          'Num', 'Nombre de taller o intervención', 'Vertientes', 'Número de Talleres o Intervenciones',
+          'Muj 0-12', 'Muj 13-16', 'Muj 17-20', 'Muj 21-30', 'Muj 31-40', 'Muj 41-50', 'Muj 51-61', 'Muj +62', 'Total Muj',
+          'Hom 0-12', 'Hom 13-16', 'Hom 17-20', 'Hom 21-30', 'Hom 31-40', 'Hom 41-50', 'Hom 51-61', 'Hom +62', 'Total Hom'
         ],
-        filas: result.recordset.map((row) => [
-          row.curso,     row.vertiente,
-          row.muj_0_12,  row.muj_13_16, row.muj_17_20, row.muj_21_30,
-          row.muj_31_40, row.muj_41_50, row.muj_51_61, row.muj_mas_62,
-          row.hom_0_12,  row.hom_13_16, row.hom_17_20, row.hom_21_30,
-          row.hom_31_40, row.hom_41_50, row.hom_51_61, row.hom_mas_62,
-          row.total_acciones
-        ])
+        filas,
+        summaryRows: 1
       }
     }
 
@@ -587,22 +699,50 @@ export const ejecutarReporte = async (filters) => {
     case 14: {
       const sqlQuery = `
         SELECT
+          cat.idcurso,
           cat.descripcion AS curso,
           tip.descripcion AS vertiente,
-          ti.status,
-          COUNT(*) AS total
+          SUM(CASE WHEN ti.status IN (1,2,3) THEN 1 ELSE 0 END) AS programadas,
+          SUM(CASE WHEN ti.status = 3 THEN 1 ELSE 0 END) AS realizadas,
+          SUM(CASE WHEN ti.status = 2 THEN 1 ELSE 0 END) AS norealizadas
         FROM sisecycc2024.dbo.sisec_cat_cursos cat
-        LEFT JOIN sisecycc2024.dbo.sisec_talleres_intervenciones ti ON ti.idcatcurso = cat.idcurso
-        JOIN sisec_tipos_cursos_y_talleres tip ON cat.idtipo = tip.idtipo
-        WHERE ti.fecha >= @fechaInic AND ti.fecha <= @fechaFin
-        GROUP BY cat.idcurso, cat.descripcion, tip.descripcion, ti.status
-        ORDER BY cat.descripcion, ti.status
+        LEFT JOIN sisecycc2024.dbo.sisec_talleres_intervenciones ti ON cat.idcurso = ti.idcatcurso
+          AND ti.fecha >= @fechaInic AND ti.fecha <= @fechaFin
+        JOIN sisecycc2024.dbo.sisec_tipos_cursos_y_talleres tip ON cat.idtipo = tip.idtipo
+        GROUP BY cat.idcurso, cat.descripcion, tip.descripcion
+        ORDER BY cat.idcurso
       `
       const result = await request.query(sqlQuery)
+      const filas = result.recordset.map((row, idx) => [
+        idx + 1,
+        row.idcurso,
+        row.curso,
+        row.vertiente,
+        row.programadas || 0,
+        row.realizadas || 0,
+        row.norealizadas || 0
+      ])
+
+      // Fila de totales: sumamos cols 4, 5, 6
+      const sums = [0, 0, 0]
+      filas.forEach((f) => {
+        sums[0] += f[4]
+        sums[1] += f[5]
+        sums[2] += f[6]
+      })
+      filas.push([
+        'TOTAL',
+        '',
+        '',
+        '',
+        ...sums
+      ])
+
       return {
-        titulo: 'Programadas, realizadas y no realizadas',
-        columnas: ['Curso', 'Vertiente', 'Status', 'Total'],
-        filas: result.recordset.map((row) => [row.curso, row.vertiente, row.status, row.total])
+        titulo: 'Reporte de talleres programados, realizados y no realizados',
+        columnas: ['Num', 'ID', 'Nombre de taller', 'Vertientes', 'Programadas', 'Realizadas', 'No realizadas'],
+        filas,
+        summaryRows: 1
       }
     }
 

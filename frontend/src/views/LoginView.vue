@@ -210,7 +210,7 @@ onMounted(() => {
     <!-- Título Protagonista Afuera -->
     <div class="system-title relative z-10 text-center mb-6 lg:mb-10 pointer-events-none">
       <h1 class="text-4xl sm:text-5xl lg:text-[4rem] font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-[#E0E0E0] drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)]">
-        SISEC CC 2026
+        SISECyCC 2026
       </h1>
       <p class="mt-3 text-sm sm:text-base text-[#D8B4E2] tracking-[0.25em] uppercase font-medium drop-shadow-md">
         Sistema de Seguimiento y Control

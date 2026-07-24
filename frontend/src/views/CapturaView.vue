@@ -193,6 +193,7 @@ const sortedRows = computed(() => {
   const dir = sortDir.value === 'asc' ? 1 : -1
 
   const getValue = (row) => {
+    if (key === 'idcurso') return Number(row.idcurso || 0)
     if (key === 'curso') return getCurso(row)
     if (key === 'institucion') return getInstitucion(row)
     if (key === 'fecha') return row.fecha ?? ''
@@ -202,8 +203,13 @@ const sortedRows = computed(() => {
   }
 
   return [...filteredRows.value].sort((a, b) => {
-    const left = String(getValue(a)).toLowerCase()
-    const right = String(getValue(b)).toLowerCase()
+    const valA = getValue(a)
+    const valB = getValue(b)
+    if (typeof valA === 'number' && typeof valB === 'number') {
+      return (valA - valB) * dir
+    }
+    const left = String(valA).toLowerCase()
+    const right = String(valB).toLowerCase()
     if (left < right) return -1 * dir
     if (left > right) return 1 * dir
     return 0
@@ -329,7 +335,7 @@ onMounted(() => {
         <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
           <AppInput
             v-model="search"
-            placeholder="Buscar por institución, curso..."
+            placeholder="Buscar por ID, institución, curso..."
             label="Buscar"
           >
             <template #icon><Search class="w-4 h-4" /></template>
@@ -352,10 +358,17 @@ onMounted(() => {
         </div>
       </template>
 
-      <!-- Tabla -->
       <AppTable :loading="loading" :is-empty="!loading && pagedRows.length === 0" empty-message="No se encontraron actividades con los filtros aplicados.">
         <template #head>
+          <th class="w-1.5 p-0 bg-transparent"></th>
           <th class="px-6 py-3">#</th>
+          <th class="px-6 py-3 cursor-pointer hover:bg-iecm-morado-100 dark:hover:bg-slate-700/50 transition-colors" @click="toggleSort('idcurso')">
+            <div class="flex items-center gap-2">
+              ID
+              <ChevronUp v-if="sortKey === 'idcurso' && sortDir === 'asc'" class="w-3 h-3" />
+              <ChevronDown v-else-if="sortKey === 'idcurso' && sortDir === 'desc'" class="w-3 h-3" />
+            </div>
+          </th>
           <th class="px-6 py-3 cursor-pointer hover:bg-iecm-morado-100 dark:hover:bg-slate-700/50 transition-colors" @click="toggleSort('curso')">
             <div class="flex items-center gap-2">
               Curso
@@ -384,7 +397,9 @@ onMounted(() => {
 
         <template #body>
           <tr v-for="(row, index) in pagedRows" :key="row.idcurso" class="tr-row">
+            <td class="w-1.5 p-0 cursor-help" :style="{ backgroundColor: row.color }" title="Color identificador del curso"></td>
             <td class="px-6 py-4 font-medium text-slate-500 dark:text-slate-400">{{ (page - 1) * pageSize + index + 1 }}</td>
+            <td class="px-6 py-4 font-medium text-slate-500 dark:text-slate-400">{{ row.idcurso }}</td>
             <td class="px-6 py-4 font-medium text-iecm-morado-800 dark:text-iecm-morado-300">{{ getCurso(row) }}</td>
             <td class="px-6 py-4">{{ getInstitucion(row) }}</td>
             <td class="px-6 py-4">

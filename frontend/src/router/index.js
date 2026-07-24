@@ -27,7 +27,8 @@ const routes = [
       { path: 'usuarios', name: 'admin-usuarios', component: () => import('../views/admin/UsuariosView.vue') },
       { path: 'restricciones', name: 'admin-restricciones', component: () => import('../views/admin/RestriccionesView.vue') },
       { path: 'archivos', name: 'admin-archivos', component: () => import('../views/admin/ArchivosView.vue') },
-      { path: 'formatos', name: 'admin-formatos', component: () => import('../views/admin/FormatosView.vue') }
+      { path: 'formatos', name: 'admin-formatos', component: () => import('../views/admin/FormatosView.vue') },
+      { path: 'cursos', name: 'admin-cursos', component: () => import('../views/admin/CursosView.vue') }
     ]
   }
 ]
