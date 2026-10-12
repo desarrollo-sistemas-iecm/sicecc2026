@@ -179,11 +179,43 @@ export const logWarn = (message) => {
 };
 
 /** 🔴 Error */
-export const logError = (message) => {
-  const sanitizedMsg = sanitizeErrorText(message);
-  logger.error(sanitizedMsg, { category: 'error' });
+export const logError = (errorData, meta = {}) => {
+  let message = '';
+  let structuredData = null;
+
+  if (typeof errorData === 'object' && errorData !== null) {
+    message = errorData.message || errorData.error || 'Error sin mensaje';
+    const where = errorData.where || errorData.origen || meta.where || 'Módulo interno / Servidor';
+    const user = errorData.user || errorData.usuario || '';
+    const stack = errorData.stack ? `\n   ${errorData.stack.split('\n').slice(0, 4).join('\n   ')}` : '';
+
+    const consoleMsg = `❌ ${where} — ${message}${user ? ' — ' + user : ''}${stack}`;
+    const sanitizedConsoleMsg = sanitizeErrorText(consoleMsg);
+    logger.error(sanitizedConsoleMsg, { category: 'error' });
+
+    structuredData = {
+      ...errorData,
+      message: sanitizeErrorText(message),
+      where: sanitizeErrorText(where),
+      user: user ? sanitizeErrorText(user) : undefined,
+      ip: errorData.ip,
+      stack: errorData.stack ? sanitizeErrorText(errorData.stack) : undefined
+    };
+  } else {
+    message = String(errorData);
+    const sanitizedMsg = sanitizeErrorText(message);
+    logger.error(sanitizedMsg, { category: 'error' });
+    structuredData = {
+      message: sanitizedMsg,
+      where: meta.where || 'Módulo interno / Controlador',
+      user: meta.user || undefined,
+      ip: meta.ip || undefined,
+      stack: meta.stack ? sanitizeErrorText(meta.stack) : undefined
+    };
+  }
+
   import('../services/telegram.service.js')
-    .then(({ enviarAlertaError }) => enviarAlertaError(sanitizedMsg))
+    .then(({ enviarAlertaError }) => enviarAlertaError(structuredData))
     .catch(err => console.error('Error al enviar error a Telegram:', err.message));
 };
 

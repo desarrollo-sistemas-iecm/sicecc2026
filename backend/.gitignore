@@ -1,0 +1,12 @@
+# Ignore compiled frontend assets
+public/
+
+# Ignore environment config files
+.env.local
+.env.*.local
+
+# Ignore logs
+logs/
+
+# Ignore uploads
+uploads/

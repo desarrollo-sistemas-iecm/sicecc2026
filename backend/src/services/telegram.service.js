@@ -1,9 +1,11 @@
 import axios from 'axios';
 import { env } from '../config/env.js';
+import { sanitizeErrorText } from '../config/logger.js';
 
 const AMBIENTE_EMOJI = {
   local: '💻',
   development: '🧪',
+  staging: '🧪',
   production: '🚨'
 };
 
@@ -15,11 +17,6 @@ const contadores = {
   encuestas: 0,
   consultas: 0
 };
-const detallesLogins = [];
-const detallesLogouts = [];
-
-// Map en memoria para deduplicar alertas de errores (5 minutos)
-const recentErrors = new Map();
 
 function escapeHtml(texto) {
   return String(texto ?? '')
@@ -29,92 +26,42 @@ function escapeHtml(texto) {
 }
 
 export function registrarEvento(tipo, detail = null) {
+  // Las sesiones ya no se acumulan ni se resumen
   if (tipo === 'sesiones') {
-    if (detail) {
-      if (detail.includes('LOGIN')) {
-        detallesLogins.push(detail);
-      } else if (detail.includes('LOGOUT')) {
-        detallesLogouts.push(detail);
-      }
-    }
-  } else {
-    if (contadores[tipo] !== undefined) {
-      contadores[tipo]++;
-    }
-    // Si se completa un taller o intervención, se suma al general de actividades realizadas
-    if (tipo === 'intervenciones' || tipo === 'talleres') {
-      contadores.actividades_realizadas++;
-    }
+    return;
+  }
+
+  if (contadores[tipo] !== undefined) {
+    contadores[tipo]++;
+  }
+  // Si se completa un taller o intervención, se suma al general de actividades realizadas
+  if (tipo === 'intervenciones' || tipo === 'talleres') {
+    contadores.actividades_realizadas++;
   }
 }
 
-export async function enviarResumenSesiones() {
-  const total = detallesLogins.length + detallesLogouts.length;
-  if (total === 0) return; // no mandar si no hubo sesiones
-
+/**
+ * 📊 Resumen de Actividad
+ * Se dispara exclusivamente de Lunes a Viernes a las 09:00 hrs y a las 18:00 hrs (2 veces al día).
+ */
+export async function enviarResumenActividad(turno = null) {
   const ambiente = env.nodeEnv || 'desconocido';
   const emoji = AMBIENTE_EMOJI[ambiente] || '⚙️';
   
   const now = new Date();
-  const start = new Date(now.getTime() - 10 * 60 * 1000);
-  const formatTime = (d) => d.toTimeString().split(' ')[0].slice(0, 8); // HH:mm:ss
-  const rangeStr = `${formatTime(start)} - ${formatTime(now)}`;
+  const fechaStr = now.toLocaleDateString('es-MX', { timeZone: 'America/Mexico_City', year: 'numeric', month: '2-digit', day: '2-digit' });
+  const horaStr = now.toLocaleTimeString('es-MX', { timeZone: 'America/Mexico_City', hour12: false });
 
-  const formatLista = (lista) => {
-    if (lista.length === 0) return '  Ninguno';
-    const limite = 15;
-    let res = lista.slice(0, limite).map(s => `  • ${escapeHtml(s.split('➜ ').slice(1).join('➜ ') || s)}`).join('\n');
-    if (lista.length > limite) {
-      res += `\n  ... y ${lista.length - limite} más`;
-    }
-    return res;
-  };
-
-  const mensaje = `${emoji} <b>[${ambiente.toUpperCase()}]</b>\n` +
-    `👥 <b>Resumen de Sesiones - SICEC CC</b>\n` +
-    `🕐 Periodo (10 min): ${rangeStr}\n\n` +
-    `🟢 <b>Sesiones iniciadas: ${detallesLogins.length}</b>\n` +
-    `${formatLista(detallesLogins)}\n\n` +
-    `🔴 <b>Sesiones cerradas: ${detallesLogouts.length}</b>\n` +
-    `${formatLista(detallesLogouts)}`;
-
-  try {
-    await enviarMensajeTelegram(mensaje);
-    
-    // Reiniciar listas únicamente tras un envío exitoso
-    detallesLogins.length = 0;
-    detallesLogouts.length = 0;
-  } catch (err) {
-    import('../config/logger.js').then(({ logger }) => {
-      logger.error(`[TELEGRAM_ERROR] Error enviando resumen de sesiones: ${err.message}`);
-    }).catch(() => {});
-  }
-}
-
-export async function enviarResumenActividad() {
-  const total = contadores.actividades_realizadas + 
-                contadores.talleres + 
-                contadores.intervenciones + 
-                contadores.encuestas + 
-                contadores.consultas;
-  if (total === 0) return; // no mandar si no hubo actividad
-
-  const ambiente = env.nodeEnv || 'desconocido';
-  const emoji = AMBIENTE_EMOJI[ambiente] || '⚙️';
-  
-  const now = new Date();
-  const start = new Date(now.getTime() - 2 * 60 * 1000);
-  const formatTime = (d) => d.toTimeString().split(' ')[0].slice(0, 8); // HH:mm:ss
-  const rangeStr = `${formatTime(start)} - ${formatTime(now)}`;
+  const tituloTurno = turno ? `\n🏷️ <b>Corte:</b> ${escapeHtml(turno)}` : '';
 
   const mensaje = `${emoji} <b>[${ambiente.toUpperCase()}]</b>\n` +
     `📊 <b>Resumen de Actividad - SICEC CC</b>\n` +
-    `🕐 Periodo (2 min): ${rangeStr}\n\n` +
-    `✅ Actividades realizadas: ${contadores.actividades_realizadas}\n` +
-    `📚 Talleres: ${contadores.talleres}\n` +
-    `👥 Intervenciones: ${contadores.intervenciones}\n` +
-    `📝 Encuestas: ${contadores.encuestas}\n\n` +
-    `🔵 Consultas/Reportes: ${contadores.consultas}`;
+    `🕐 <b>Fecha y Hora:</b> ${fechaStr} ${horaStr}${tituloTurno}\n\n` +
+    `✅ <b>Actividades realizadas:</b> ${contadores.actividades_realizadas}\n` +
+    `📚 <b>Talleres:</b> ${contadores.talleres}\n` +
+    `👥 <b>Intervenciones:</b> ${contadores.intervenciones}\n` +
+    `📝 <b>Encuestas:</b> ${contadores.encuestas}\n\n` +
+    `🔵 <b>Consultas / Reportes:</b> ${contadores.consultas}`;
 
   try {
     await enviarMensajeTelegram(mensaje);
@@ -132,9 +79,10 @@ export async function enviarResumenActividad() {
   }
 }
 
-// 1. Iniciar el temporizador para enviar resumen de actividad cada 2 minutos
-setInterval(enviarResumenActividad, 2 * 60 * 1000);
-
+/**
+ * 📈 Acumulado Histórico Global
+ * Se dispara exclusivamente los VIERNES a las 09:00 hrs.
+ */
 export async function enviarResumenHistorico() {
   try {
     const { getAdminDashboardMetrics } = await import('../models/actividadModel.js');
@@ -142,15 +90,17 @@ export async function enviarResumenHistorico() {
 
     const ambiente = env.nodeEnv || 'desconocido';
     const emoji = AMBIENTE_EMOJI[ambiente] || '⚙️';
-    const timestamp = new Date().toISOString().replace('T', ' ').slice(0, 19);
+    const now = new Date();
+    const fechaStr = now.toLocaleDateString('es-MX', { timeZone: 'America/Mexico_City', year: 'numeric', month: '2-digit', day: '2-digit' });
+    const horaStr = now.toLocaleTimeString('es-MX', { timeZone: 'America/Mexico_City', hour12: false });
 
     const mensaje = `${emoji} <b>[${ambiente.toUpperCase()}]</b>\n` +
       `📈 <b>Acumulado Histórico Global - SICEC CC</b>\n` +
-      `🕐 Corte: ${timestamp}\n\n` +
-      `✅ Actividades realizadas: ${metrics.actividades_realizadas}\n` +
-      `📚 Talleres: ${metrics.total_talleres}\n` +
-      `👥 Intervenciones: ${metrics.total_intervenciones}\n` +
-      `📝 Encuestas: ${metrics.total_encuestas}`;
+      `🗓️ <b>Corte Semanal (Viernes):</b> ${fechaStr} ${horaStr}\n\n` +
+      `✅ <b>Actividades realizadas:</b> ${metrics.actividades_realizadas}\n` +
+      `📚 <b>Talleres:</b> ${metrics.total_talleres}\n` +
+      `👥 <b>Intervenciones:</b> ${metrics.total_intervenciones}\n` +
+      `📝 <b>Encuestas:</b> ${metrics.total_encuestas}`;
 
     await enviarMensajeTelegram(mensaje);
   } catch (err) {
@@ -160,68 +110,150 @@ export async function enviarResumenHistorico() {
   }
 }
 
-// 3. Iniciar el temporizador para enviar el acumulado histórico cada 15 minutos
-setInterval(enviarResumenHistorico, 15 * 60 * 1000);
+/**
+ * ⏰ Programador Automático de Horarios Fijos:
+ * - Resumen de Actividad: Lunes a Viernes a las 09:00 y a las 18:00 hrs.
+ * - Acumulado Histórico: Solo los Viernes a las 09:00 hrs.
+ * - Resumen de Sesiones: Removido completamente.
+ */
+const marcasEjecucion = {
+  actividad: '',
+  historico: ''
+};
 
-// 2. Iniciar el temporizador para enviar resumen de sesiones cada 10 minutos exactos
-function iniciarCronSesiones() {
+function verificarProgramadores() {
   const now = new Date();
-  const next10Min = new Date(now);
-  const minutes = Math.ceil((now.getMinutes() + 0.1) / 10) * 10;
-  next10Min.setMinutes(minutes % 60);
-  next10Min.setSeconds(0);
-  next10Min.setMilliseconds(0);
-  if (minutes >= 60) {
-    next10Min.setHours(next10Min.getHours() + 1);
+  const day = now.getDay(); // 0: Domingo, 1: Lunes, ..., 5: Viernes, 6: Sábado
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+
+  const fechaStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+  const claveHora = `${fechaStr}-${String(hours).padStart(2, '0')}`;
+
+  // 1. Resumen de Actividad: Lunes a Viernes a las 09:00 y a las 18:00
+  const esLunesAViernes = day >= 1 && day <= 5;
+  const esHoraActividad = (hours === 9 || hours === 18) && minutes === 0;
+
+  if (esLunesAViernes && esHoraActividad && marcasEjecucion.actividad !== claveHora) {
+    marcasEjecucion.actividad = claveHora;
+    const turno = hours === 9 ? '🌅 Turno Matutino (09:00 hrs)' : '🌆 Turno Vespertino (18:00 hrs)';
+    enviarResumenActividad(turno).catch(err => {
+      import('../config/logger.js').then(({ logger }) => {
+        logger.error(`[TELEGRAM_SCHEDULER] Error al enviar resumen de actividad: ${err.message}`);
+      }).catch(() => {});
+    });
   }
-  
-  const delay = next10Min.getTime() - now.getTime();
-  
-  setTimeout(() => {
-    enviarResumenSesiones();
-    setInterval(enviarResumenSesiones, 10 * 60 * 1000);
-  }, delay);
+
+  // 2. Acumulado Histórico: Solo los Viernes a las 09:00
+  const esViernes = day === 5;
+  const esHoraHistorico = hours === 9 && minutes === 0;
+
+  if (esViernes && esHoraHistorico && marcasEjecucion.historico !== claveHora) {
+    marcasEjecucion.historico = claveHora;
+    enviarResumenHistorico().catch(err => {
+      import('../config/logger.js').then(({ logger }) => {
+        logger.error(`[TELEGRAM_SCHEDULER] Error al enviar acumulado histórico: ${err.message}`);
+      }).catch(() => {});
+    });
+  }
 }
 
-iniciarCronSesiones();
+// Intervalo de comprobación cada 20 segundos
+setInterval(verificarProgramadores, 20 * 1000);
 
 export async function enviarAlertaWarn(message) {
   const ambiente = env.nodeEnv || 'desconocido';
   const emoji = AMBIENTE_EMOJI[ambiente] || '⚙️';
-  const timestamp = new Date().toISOString().replace('T', ' ').slice(0, 19);
+  const now = new Date();
+  const fechaStr = now.toLocaleDateString('es-MX', { timeZone: 'America/Mexico_City', year: 'numeric', month: '2-digit', day: '2-digit' });
+  const horaStr = now.toLocaleTimeString('es-MX', { timeZone: 'America/Mexico_City', hour12: false });
 
   const mensaje = `${emoji} <b>[${ambiente.toUpperCase()}]</b>\n` +
     `⚠️ <b>Aviso / Advertencia - SICEC CC</b>\n` +
-    `🕐 ${timestamp}\n\n` +
-    `<pre>${escapeHtml(message)}</pre>`;
+    `🕐 <b>Fecha y Hora:</b> ${fechaStr} ${horaStr}\n\n` +
+    `<pre>${escapeHtml(sanitizeErrorText(message))}</pre>`;
 
   await enviarMensajeTelegram(mensaje);
 }
 
-export async function enviarAlertaError(message) {
+/**
+ * 🚨 Alerta de Errores Críticos
+ * Se despacha INMEDIATAMENTE al ocurrir cualquier fallo (sin deduplicación).
+ * Especifica con claridad DÓNDE se originó y CUÁL ES EL ERROR EXPLÍCITAMENTE.
+ */
+export async function enviarAlertaError(errorInfo) {
   const ambiente = env.nodeEnv || 'desconocido';
-  const emoji = AMBIENTE_EMOJI[ambiente] || '⚙️';
-  
-  // Deduplicación por ambiente y mensaje de error
-  const claveDedup = `${ambiente}:${message}`;
-  const now = Date.now();
+  const emoji = AMBIENTE_EMOJI[ambiente] || '🚨';
+  const now = new Date();
+  const fechaStr = now.toLocaleDateString('es-MX', { timeZone: 'America/Mexico_City', year: 'numeric', month: '2-digit', day: '2-digit' });
+  const horaStr = now.toLocaleTimeString('es-MX', { timeZone: 'America/Mexico_City', hour12: false });
 
-  if (recentErrors.has(claveDedup)) {
-    const lastSent = recentErrors.get(claveDedup);
-    if (now - lastSent < 5 * 60 * 1000) {
-      return;
+  let mensajeError = '';
+  let donde = 'Módulo interno del servidor';
+  let usuario = null;
+  let ip = null;
+  let stack = null;
+
+  if (typeof errorInfo === 'object' && errorInfo !== null) {
+    mensajeError = errorInfo.message || errorInfo.error || JSON.stringify(errorInfo);
+    donde = errorInfo.where || errorInfo.origen || donde;
+    usuario = errorInfo.user || errorInfo.usuario || null;
+    ip = errorInfo.ip || null;
+    stack = errorInfo.stack || null;
+  } else {
+    const raw = String(errorInfo || 'Error no especificado');
+    mensajeError = raw;
+    
+    // Si viene en formato con separador "—"
+    if (raw.includes('—')) {
+      const parts = raw.split('—').map(p => p.trim());
+      if (parts.length >= 2) {
+        donde = parts[0].replace(/^[❌⚠️💥\s]+/, '').replace(/^\[ERROR\]\s*/i, '').trim();
+        mensajeError = parts[1];
+        if (parts[2]) {
+          usuario = parts[2];
+        }
+      }
     }
   }
-  recentErrors.set(claveDedup, now);
 
-  const timestamp = new Date().toISOString().replace('T', ' ').slice(0, 19);
-  
-  const mensaje = `${emoji} <b>[${ambiente.toUpperCase()}]</b>\n` +
-    `🔴 <b>Error de Servidor - SICEC CC</b>\n` +
-    `🕐 ${timestamp}\n\n` +
-    `<pre>${escapeHtml(message)}</pre>`;
+  // Sanitizar todos los datos para no comprometer credenciales ni rutas locales
+  const sanitizedMsg = sanitizeErrorText(mensajeError);
+  const sanitizedDonde = sanitizeErrorText(donde);
+  const sanitizedUser = usuario ? sanitizeErrorText(usuario) : null;
+  const sanitizedStack = stack ? sanitizeErrorText(stack) : null;
 
-  await enviarMensajeTelegram(mensaje);
+  let cuerpoMensaje = `${emoji} <b>[${ambiente.toUpperCase()}] 🚨 ERROR CRÍTICO EN SERVIDOR</b>\n` +
+    `🕐 <b>Fecha y Hora:</b> ${fechaStr} ${horaStr}\n\n` +
+    `📍 <b>¿Dónde se disparó?</b>\n` +
+    `• <b>Origen / Ruta:</b> <code>${escapeHtml(sanitizedDonde)}</code>\n`;
+
+  if (sanitizedUser) {
+    cuerpoMensaje += `• <b>Usuario:</b> ${escapeHtml(sanitizedUser)}\n`;
+  }
+  if (ip) {
+    cuerpoMensaje += `• <b>IP del Cliente:</b> <code>${escapeHtml(ip)}</code>\n`;
+  }
+
+  cuerpoMensaje += `\n💥 <b>Error explícito:</b>\n` +
+    `<pre>${escapeHtml(sanitizedMsg)}</pre>`;
+
+  if (sanitizedStack) {
+    const stackLines = sanitizedStack
+      .split('\n')
+      .map(l => l.trim())
+      .filter(l => l.length > 0 && !l.includes('node:internal') && !l.includes('node_modules'))
+      .slice(0, 4)
+      .join('\n');
+
+    if (stackLines) {
+      cuerpoMensaje += `\n\n📋 <b>Ubicación en código (Stack):</b>\n` +
+        `<pre>${escapeHtml(stackLines)}</pre>`;
+    }
+  }
+
+  // Envío inmediato a la API de Telegram
+  await enviarMensajeTelegram(cuerpoMensaje);
 }
 
 export async function enviarMensajeTelegram(text) {
