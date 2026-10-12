@@ -819,3 +819,671 @@
 2026-07-24 12:21:37 [INFO] [TELEGRAM] Mensaje enviado correctamente
 2026-07-24 12:36:37 [INFO] [TELEGRAM] Mensaje enviado correctamente
 2026-07-24 12:51:37 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 13:04:08 [INFO] [WS]       🔌 Usuario desconectado: SUPERADMIN — Socket: FTEzjNgNR-EHWVvFAAAD
+2026-07-24 13:06:37 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 13:21:37 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 13:36:37 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 13:44:12 [SESSION] 🟢 LOGIN ➜ SUPERADMIN (SUPERADMIN) — Perfil 3 | Sede=1 — IP: ::1
+2026-07-24 13:44:12 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: 7KJnBuZ3fgOFWOZgAAAH
+2026-07-24 13:50:00 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 13:51:37 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 13:56:46 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 22 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 13:58:37 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 14:06:37 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 14:21:37 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 14:30:32 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: ysTjx_FbOJuuUCB5AAAF
+2026-07-24 14:34:01 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 22 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 14:34:37 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 14:36:37 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 14:38:32 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 22 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 14:38:37 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 14:51:37 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 14:53:51 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 14:53:51 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 14:53:51 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 14:53:51 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 14:53:51 [INFO] 🌐 Ambiente     : development
+2026-07-24 14:53:51 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 14:53:51 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 14:53:51 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 14:53:51 [INFO] 📋 Versión API  : v1
+2026-07-24 14:53:51 [INFO] ⏰ Inicio       : 2026-07-24 20:53:51
+2026-07-24 14:53:51 [INFO] ══════════════════════════════════════════
+2026-07-24 14:53:51 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 14:53:51 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 14:53:51 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: mkOhlNLzNpTaPLmbAAAB
+2026-07-24 14:55:22 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 14:55:22 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 14:55:22 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 14:55:22 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 14:55:22 [INFO] 🌐 Ambiente     : development
+2026-07-24 14:55:22 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 14:55:22 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 14:55:22 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 14:55:22 [INFO] 📋 Versión API  : v1
+2026-07-24 14:55:22 [INFO] ⏰ Inicio       : 2026-07-24 20:55:22
+2026-07-24 14:55:22 [INFO] ══════════════════════════════════════════
+2026-07-24 14:55:22 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 14:55:22 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 14:55:22 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: GcU-2N3ZfTo62G3kAAAB
+2026-07-24 14:56:46 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 14:56:46 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 14:56:46 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 14:56:46 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 14:56:46 [INFO] 🌐 Ambiente     : development
+2026-07-24 14:56:46 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 14:56:46 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 14:56:46 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 14:56:46 [INFO] 📋 Versión API  : v1
+2026-07-24 14:56:46 [INFO] ⏰ Inicio       : 2026-07-24 20:56:46
+2026-07-24 14:56:46 [INFO] ══════════════════════════════════════════
+2026-07-24 14:56:46 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 14:56:46 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 14:56:47 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: uWD-zcgxNYx5Q7KsAAAB
+2026-07-24 15:03:52 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:03:52 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:03:52 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:03:52 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:03:52 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:03:52 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:03:52 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:03:52 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:03:52 [INFO] 📋 Versión API  : v1
+2026-07-24 15:03:52 [INFO] ⏰ Inicio       : 2026-07-24 21:03:52
+2026-07-24 15:03:52 [INFO] ══════════════════════════════════════════
+2026-07-24 15:03:52 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:03:52 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:03:53 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: Bn4VNrFHwyTyRtzGAAAB
+2026-07-24 15:04:07 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:04:07 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:04:07 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:04:07 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:04:07 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:04:07 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:04:07 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:04:07 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:04:07 [INFO] 📋 Versión API  : v1
+2026-07-24 15:04:07 [INFO] ⏰ Inicio       : 2026-07-24 21:04:07
+2026-07-24 15:04:07 [INFO] ══════════════════════════════════════════
+2026-07-24 15:04:07 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:04:07 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:04:08 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: IAJDAsxfaYmATI_KAAAB
+2026-07-24 15:04:30 [INFO] [WS]       🔌 Usuario desconectado: SUPERADMIN — Socket: IAJDAsxfaYmATI_KAAAB
+2026-07-24 15:04:31 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: npb9lwX9YWksu3TTAAAD
+2026-07-24 15:06:48 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 22 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 15:07:30 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 22 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 15:08:07 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 15:08:38 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 22 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 15:10:07 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 15:14:01 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 22 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 15:14:07 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 15:14:20 [ERROR] ❌ [POST] /api/reportes/generar — Invalid object name 'sisec_tipos_cursos_y_talleres'. — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+   RequestError: Invalid object name 'sisec_tipos_cursos_y_talleres'.
+        at handleError (./node_modules/.pnpm/mssql@12.5.4_@azure+core-client@1.10.1/node_modules/mssql/lib/tedious/request.js:411:15)
+        at Connection.emit (node:events:509:28)
+        at Connection.emit (./node_modules/.pnpm/tedious@19.2.1_@azure+core-client@1.10.1/node_modules/tedious/lib/connection.js:1013:18)
+2026-07-24 15:14:21 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 15:17:57 [ERROR] ❌ [POST] /api/reportes/generar — Invalid object name 'sisec_tipos_cursos_y_talleres'. — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+   RequestError: Invalid object name 'sisec_tipos_cursos_y_talleres'.
+        at handleError (./node_modules/.pnpm/mssql@12.5.4_@azure+core-client@1.10.1/node_modules/mssql/lib/tedious/request.js:411:15)
+        at Connection.emit (node:events:509:28)
+        at Connection.emit (./node_modules/.pnpm/tedious@19.2.1_@azure+core-client@1.10.1/node_modules/tedious/lib/connection.js:1013:18)
+2026-07-24 15:19:07 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 15:23:29 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:23:29 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:23:29 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:23:29 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:23:29 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:23:29 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:23:29 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:23:29 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:23:29 [INFO] 📋 Versión API  : v1
+2026-07-24 15:23:29 [INFO] ⏰ Inicio       : 2026-07-24 21:23:29
+2026-07-24 15:23:29 [INFO] ══════════════════════════════════════════
+2026-07-24 15:23:29 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:23:29 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:23:30 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: hN7otzVuOk9kU2EKAAAB
+2026-07-24 15:23:46 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:23:46 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:23:46 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:23:46 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:23:46 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:23:46 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:23:46 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:23:46 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:23:46 [INFO] 📋 Versión API  : v1
+2026-07-24 15:23:46 [INFO] ⏰ Inicio       : 2026-07-24 21:23:46
+2026-07-24 15:23:46 [INFO] ══════════════════════════════════════════
+2026-07-24 15:23:46 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:23:46 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:23:46 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: WGWazIEGnUoy8qX2AAAB
+2026-07-24 15:24:33 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:24:34 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:24:34 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:24:34 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:24:34 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:24:34 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:24:34 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:24:34 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:24:34 [INFO] 📋 Versión API  : v1
+2026-07-24 15:24:34 [INFO] ⏰ Inicio       : 2026-07-24 21:24:34
+2026-07-24 15:24:34 [INFO] ══════════════════════════════════════════
+2026-07-24 15:24:34 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:24:34 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:24:34 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: j7Uft_3Uo35c6_cIAAAB
+2026-07-24 15:25:17 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:25:17 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:25:17 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:25:17 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:25:17 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:25:17 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:25:17 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:25:17 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:25:17 [INFO] 📋 Versión API  : v1
+2026-07-24 15:25:17 [INFO] ⏰ Inicio       : 2026-07-24 21:25:17
+2026-07-24 15:25:17 [INFO] ══════════════════════════════════════════
+2026-07-24 15:25:17 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:25:17 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:25:18 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: Dj-LjHeBExKaAHUMAAAB
+2026-07-24 15:25:28 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:25:28 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:25:28 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:25:28 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:25:28 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:25:28 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:25:28 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:25:28 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:25:28 [INFO] 📋 Versión API  : v1
+2026-07-24 15:25:28 [INFO] ⏰ Inicio       : 2026-07-24 21:25:28
+2026-07-24 15:25:28 [INFO] ══════════════════════════════════════════
+2026-07-24 15:25:28 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:25:28 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:25:28 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: m71O0vW0buiqHZ9NAAAB
+2026-07-24 15:26:09 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:26:09 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:26:09 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:26:09 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:26:09 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:26:09 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:26:09 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:26:09 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:26:09 [INFO] 📋 Versión API  : v1
+2026-07-24 15:26:09 [INFO] ⏰ Inicio       : 2026-07-24 21:26:09
+2026-07-24 15:26:09 [INFO] ══════════════════════════════════════════
+2026-07-24 15:26:09 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:26:09 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:26:09 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: 5_rvmE0rrz0bkrl9AAAB
+2026-07-24 15:26:23 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:26:23 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:26:23 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:26:23 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:26:23 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:26:23 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:26:23 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:26:23 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:26:23 [INFO] 📋 Versión API  : v1
+2026-07-24 15:26:23 [INFO] ⏰ Inicio       : 2026-07-24 21:26:23
+2026-07-24 15:26:23 [INFO] ══════════════════════════════════════════
+2026-07-24 15:26:23 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:26:23 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:26:23 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: H_E5Ybb-Y3J86lrEAAAB
+2026-07-24 15:28:51 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:28:51 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:28:51 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:28:51 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:28:51 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:28:51 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:28:51 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:28:51 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:28:51 [INFO] 📋 Versión API  : v1
+2026-07-24 15:28:51 [INFO] ⏰ Inicio       : 2026-07-24 21:28:51
+2026-07-24 15:28:51 [INFO] ══════════════════════════════════════════
+2026-07-24 15:28:51 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:28:51 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:28:52 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: UHmGnxQVd0tBjzMkAAAB
+2026-07-24 15:30:28 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:30:28 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:30:28 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:30:28 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:30:28 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:30:28 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:30:28 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:30:28 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:30:28 [INFO] 📋 Versión API  : v1
+2026-07-24 15:30:28 [INFO] ⏰ Inicio       : 2026-07-24 21:30:28
+2026-07-24 15:30:28 [INFO] ══════════════════════════════════════════
+2026-07-24 15:30:28 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:30:28 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:30:28 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: iKNyyGXRdGDWUrQEAAAB
+2026-07-24 15:30:58 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:30:59 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:30:59 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:30:59 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:30:59 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:30:59 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:30:59 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:30:59 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:30:59 [INFO] 📋 Versión API  : v1
+2026-07-24 15:30:59 [INFO] ⏰ Inicio       : 2026-07-24 21:30:59
+2026-07-24 15:30:59 [INFO] ══════════════════════════════════════════
+2026-07-24 15:30:59 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:30:59 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:30:59 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: G_CrSrpbZ44f7fw-AAAB
+2026-07-24 15:31:30 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:31:30 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:31:30 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:31:30 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:31:30 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:31:30 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:31:30 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:31:30 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:31:30 [INFO] 📋 Versión API  : v1
+2026-07-24 15:31:30 [INFO] ⏰ Inicio       : 2026-07-24 21:31:30
+2026-07-24 15:31:30 [INFO] ══════════════════════════════════════════
+2026-07-24 15:31:30 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:31:30 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:31:31 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: pCEyS6NAFtUPll5sAAAB
+2026-07-24 15:32:07 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:32:07 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:32:07 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:32:07 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:32:07 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:32:07 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:32:07 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:32:07 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:32:07 [INFO] 📋 Versión API  : v1
+2026-07-24 15:32:07 [INFO] ⏰ Inicio       : 2026-07-24 21:32:07
+2026-07-24 15:32:07 [INFO] ══════════════════════════════════════════
+2026-07-24 15:32:07 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:32:07 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:32:08 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: 8aV6a2XfyFPgN72NAAAB
+2026-07-24 15:32:14 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:32:14 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:32:14 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:32:14 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:32:14 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:32:14 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:32:14 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:32:14 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:32:14 [INFO] 📋 Versión API  : v1
+2026-07-24 15:32:14 [INFO] ⏰ Inicio       : 2026-07-24 21:32:14
+2026-07-24 15:32:14 [INFO] ══════════════════════════════════════════
+2026-07-24 15:32:14 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:32:14 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:32:14 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: f33ncaHZRfsp96phAAAB
+2026-07-24 15:32:31 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:32:31 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:32:31 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:32:31 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:32:31 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:32:31 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:32:31 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:32:31 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:32:31 [INFO] 📋 Versión API  : v1
+2026-07-24 15:32:31 [INFO] ⏰ Inicio       : 2026-07-24 21:32:31
+2026-07-24 15:32:31 [INFO] ══════════════════════════════════════════
+2026-07-24 15:32:31 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:32:31 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:32:31 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: IN85DxvrGq51hkloAAAB
+2026-07-24 15:33:52 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:33:53 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:33:53 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:33:53 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:33:53 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:33:53 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:33:53 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:33:53 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:33:53 [INFO] 📋 Versión API  : v1
+2026-07-24 15:33:53 [INFO] ⏰ Inicio       : 2026-07-24 21:33:53
+2026-07-24 15:33:53 [INFO] ══════════════════════════════════════════
+2026-07-24 15:33:53 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:33:53 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:33:54 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: J4ELEH442WVViPhuAAAB
+2026-07-24 15:35:41 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:35:41 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:35:41 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:35:41 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:35:41 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:35:41 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:35:41 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:35:41 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:35:41 [INFO] 📋 Versión API  : v1
+2026-07-24 15:35:41 [INFO] ⏰ Inicio       : 2026-07-24 21:35:41
+2026-07-24 15:35:41 [INFO] ══════════════════════════════════════════
+2026-07-24 15:35:41 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:35:41 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:35:42 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: nScOMdRRdpFTnxhbAAAB
+2026-07-24 15:36:10 [INFO] [WS]       🔌 Usuario desconectado: SUPERADMIN — Socket: nScOMdRRdpFTnxhbAAAB
+2026-07-24 15:36:10 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: yU8fRzMyGACxZ_g3AAAD
+2026-07-24 15:36:24 [QUERY] 📊 REPORTE GENERADO ➜ Tipo: 3 | Registros: 7 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 15:36:58 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 22 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 15:37:42 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 15:40:40 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:40:40 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:40:40 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:40:40 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:40:40 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:40:40 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:40:40 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:40:40 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:40:40 [INFO] 📋 Versión API  : v1
+2026-07-24 15:40:40 [INFO] ⏰ Inicio       : 2026-07-24 21:40:40
+2026-07-24 15:40:40 [INFO] ══════════════════════════════════════════
+2026-07-24 15:40:40 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:40:40 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:40:40 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: SkPUWx7WEVwmt5EDAAAB
+2026-07-24 15:40:55 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:40:55 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:40:55 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:40:55 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:40:55 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:40:55 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:40:55 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:40:55 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:40:55 [INFO] 📋 Versión API  : v1
+2026-07-24 15:40:55 [INFO] ⏰ Inicio       : 2026-07-24 21:40:55
+2026-07-24 15:40:55 [INFO] ══════════════════════════════════════════
+2026-07-24 15:40:55 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:40:55 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:40:56 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: rwQ4T5THoZOYe9YhAAAB
+2026-07-24 15:42:40 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:42:40 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:42:40 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:42:40 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:42:40 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:42:40 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:42:40 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:42:40 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:42:40 [INFO] 📋 Versión API  : v1
+2026-07-24 15:42:40 [INFO] ⏰ Inicio       : 2026-07-24 21:42:40
+2026-07-24 15:42:40 [INFO] ══════════════════════════════════════════
+2026-07-24 15:42:40 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:42:40 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:42:41 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: 3KL_XMEdoXnG_xj4AAAB
+2026-07-24 15:42:57 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:42:57 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:42:57 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:42:57 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:42:57 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:42:57 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:42:57 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:42:57 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:42:57 [INFO] 📋 Versión API  : v1
+2026-07-24 15:42:57 [INFO] ⏰ Inicio       : 2026-07-24 21:42:57
+2026-07-24 15:42:57 [INFO] ══════════════════════════════════════════
+2026-07-24 15:42:57 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:42:57 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:42:58 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: y4L0o_eISBrvgnM2AAAB
+2026-07-24 15:43:54 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:43:55 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:43:55 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:43:55 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:43:55 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:43:55 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:43:55 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:43:55 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:43:55 [INFO] 📋 Versión API  : v1
+2026-07-24 15:43:55 [INFO] ⏰ Inicio       : 2026-07-24 21:43:55
+2026-07-24 15:43:55 [INFO] ══════════════════════════════════════════
+2026-07-24 15:43:55 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:43:55 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:43:55 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: sUnCNivHylcItdF8AAAB
+2026-07-24 15:44:20 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:44:20 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:44:20 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:44:20 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:44:20 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:44:20 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:44:20 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:44:20 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:44:20 [INFO] 📋 Versión API  : v1
+2026-07-24 15:44:20 [INFO] ⏰ Inicio       : 2026-07-24 21:44:20
+2026-07-24 15:44:20 [INFO] ══════════════════════════════════════════
+2026-07-24 15:44:20 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:44:20 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:44:20 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: aW2iRUuZmSJPS4ngAAAB
+2026-07-24 15:48:11 [QUERY] 📊 REPORTE GENERADO ➜ Tipo: 3 | Registros: 7 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 15:48:20 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 15:58:34 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 15:58:34 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 15:58:34 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 15:58:34 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 15:58:34 [INFO] 🌐 Ambiente     : development
+2026-07-24 15:58:34 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 15:58:34 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 15:58:34 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 15:58:34 [INFO] 📋 Versión API  : v1
+2026-07-24 15:58:34 [INFO] ⏰ Inicio       : 2026-07-24 21:58:34
+2026-07-24 15:58:34 [INFO] ══════════════════════════════════════════
+2026-07-24 15:58:34 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 15:58:34 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 15:58:34 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: _TgY2GhXoPSIzoKjAAAB
+2026-07-24 16:13:35 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 16:28:35 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 16:30:04 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 16:30:04 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 16:30:04 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 16:30:04 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 16:30:04 [INFO] 🌐 Ambiente     : development
+2026-07-24 16:30:04 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 16:30:04 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 16:30:04 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 16:30:04 [INFO] 📋 Versión API  : v1
+2026-07-24 16:30:04 [INFO] ⏰ Inicio       : 2026-07-24 22:30:04
+2026-07-24 16:30:04 [INFO] ══════════════════════════════════════════
+2026-07-24 16:30:04 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 16:30:04 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 16:30:05 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: q0BCHo9EeNx-wQNdAAAB
+2026-07-24 16:30:12 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 16:30:12 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 16:30:12 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 16:30:12 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 16:30:12 [INFO] 🌐 Ambiente     : development
+2026-07-24 16:30:12 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 16:30:12 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 16:30:12 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 16:30:12 [INFO] 📋 Versión API  : v1
+2026-07-24 16:30:12 [INFO] ⏰ Inicio       : 2026-07-24 22:30:12
+2026-07-24 16:30:12 [INFO] ══════════════════════════════════════════
+2026-07-24 16:30:12 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 16:30:12 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 16:30:13 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: ulzwoM1hoK8bq_NwAAAB
+2026-07-24 16:32:00 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 16:32:00 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 16:32:00 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 16:32:00 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 16:32:00 [INFO] 🌐 Ambiente     : development
+2026-07-24 16:32:00 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 16:32:00 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 16:32:00 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 16:32:00 [INFO] 📋 Versión API  : v1
+2026-07-24 16:32:00 [INFO] ⏰ Inicio       : 2026-07-24 22:32:00
+2026-07-24 16:32:00 [INFO] ══════════════════════════════════════════
+2026-07-24 16:32:00 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 16:32:00 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 16:32:01 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: j2Mp8BdlLNixoiAgAAAB
+2026-07-24 16:32:15 [QUERY] 📊 REPORTE GENERADO ➜ Tipo: 3 | Registros: 7 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 16:33:44 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 22 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 16:33:52 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 16:33:52 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 16:33:52 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 16:33:52 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 16:33:52 [INFO] 🌐 Ambiente     : development
+2026-07-24 16:33:52 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 16:33:52 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 16:33:52 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 16:33:52 [INFO] 📋 Versión API  : v1
+2026-07-24 16:33:52 [INFO] ⏰ Inicio       : 2026-07-24 22:33:52
+2026-07-24 16:33:52 [INFO] ══════════════════════════════════════════
+2026-07-24 16:33:52 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 16:33:52 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 16:33:52 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: 8utPCI3sflEofPD_AAAB
+2026-07-24 16:34:14 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 16:34:14 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 16:34:14 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 16:34:14 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 16:34:14 [INFO] 🌐 Ambiente     : development
+2026-07-24 16:34:14 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 16:34:14 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 16:34:14 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 16:34:14 [INFO] 📋 Versión API  : v1
+2026-07-24 16:34:14 [INFO] ⏰ Inicio       : 2026-07-24 22:34:14
+2026-07-24 16:34:14 [INFO] ══════════════════════════════════════════
+2026-07-24 16:34:14 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 16:34:14 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 16:34:14 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: VYN1cvAVhSDZqtvYAAAB
+2026-07-24 16:34:20 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 16:34:20 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 16:34:20 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 16:34:20 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 16:34:20 [INFO] 🌐 Ambiente     : development
+2026-07-24 16:34:20 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 16:34:20 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 16:34:20 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 16:34:20 [INFO] 📋 Versión API  : v1
+2026-07-24 16:34:20 [INFO] ⏰ Inicio       : 2026-07-24 22:34:20
+2026-07-24 16:34:20 [INFO] ══════════════════════════════════════════
+2026-07-24 16:34:20 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 16:34:20 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 16:34:20 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: 1kRPPEpdgvR-y9RkAAAB
+2026-07-24 16:35:39 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 16:35:39 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 16:35:39 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 16:35:39 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 16:35:39 [INFO] 🌐 Ambiente     : development
+2026-07-24 16:35:39 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 16:35:39 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 16:35:39 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 16:35:39 [INFO] 📋 Versión API  : v1
+2026-07-24 16:35:39 [INFO] ⏰ Inicio       : 2026-07-24 22:35:39
+2026-07-24 16:35:39 [INFO] ══════════════════════════════════════════
+2026-07-24 16:35:39 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 16:35:39 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 16:35:40 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: 092wQ4c5dZXIKgxzAAAB
+2026-07-24 16:36:05 [QUERY] 📊 REPORTE GENERADO ➜ Tipo: 3 | Registros: 7 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 16:36:13 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 22 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 16:37:39 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 16:37:47 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 16:37:47 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 16:37:47 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 16:37:47 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 16:37:47 [INFO] 🌐 Ambiente     : development
+2026-07-24 16:37:47 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 16:37:47 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 16:37:47 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 16:37:47 [INFO] 📋 Versión API  : v1
+2026-07-24 16:37:47 [INFO] ⏰ Inicio       : 2026-07-24 22:37:47
+2026-07-24 16:37:47 [INFO] ══════════════════════════════════════════
+2026-07-24 16:37:47 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 16:37:47 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 16:37:48 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: PY3ziYV4zNyOQEDHAAAB
+2026-07-24 16:39:20 [QUERY] 📊 REPORTE GENERADO ➜ Tipo: 3 | Registros: 7 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 16:39:47 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 16:41:44 [INFO] [INFO]    ✅ App inicializada
+2026-07-24 16:41:44 [INFO] ╔══════════════════════════════════════╗
+2026-07-24 16:41:44 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-07-24 16:41:44 [INFO] ╚══════════════════════════════════════╝
+2026-07-24 16:41:44 [INFO] 🌐 Ambiente     : development
+2026-07-24 16:41:44 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-07-24 16:41:44 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-07-24 16:41:44 [INFO] ✅ Conexión BD  : Exitosa
+2026-07-24 16:41:44 [INFO] 📋 Versión API  : v1
+2026-07-24 16:41:44 [INFO] ⏰ Inicio       : 2026-07-24 22:41:44
+2026-07-24 16:41:44 [INFO] ══════════════════════════════════════════
+2026-07-24 16:41:44 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-07-24 16:41:44 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-07-24 16:41:44 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: ahJlWn4Qd8OZyl_bAAAB
+2026-07-24 16:44:21 [QUERY] 📊 REPORTE GENERADO ➜ Tipo: 3 | Registros: 7 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 16:44:49 [QUERY] 📊 REPORTE GENERADO ➜ Tipo: 1 | Registros: 7 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 16:45:06 [QUERY] 📊 REPORTE GENERADO ➜ Tipo: 2 | Registros: 1 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 16:45:29 [QUERY] 📊 REPORTE GENERADO ➜ Tipo: 5 | Registros: 4 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 16:45:45 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 16:56:44 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 17:11:44 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 17:26:45 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 17:41:45 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 17:56:45 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 18:06:56 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 22 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 18:07:23 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 22 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 18:07:42 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 22 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-07-24 18:07:45 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-07-24 18:11:45 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-10-12 14:25:58 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 14:25:58 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 14:25:58 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 14:25:58 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 14:25:58 [INFO] 🌐 Ambiente     : development
+2026-10-12 14:25:58 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-10-12 14:25:58 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 14:25:58 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 14:25:58 [INFO] 📋 Versión API  : v1
+2026-10-12 14:25:58 [INFO] ⏰ Inicio       : 2026-10-12 20:25:58
+2026-10-12 14:25:58 [INFO] ══════════════════════════════════════════
+2026-10-12 14:25:58 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 14:25:58 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 14:26:09 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 14:26:09 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 14:26:09 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 14:26:09 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 14:26:09 [INFO] 🌐 Ambiente     : development
+2026-10-12 14:26:09 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-10-12 14:26:09 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 14:26:09 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 14:26:09 [INFO] 📋 Versión API  : v1
+2026-10-12 14:26:09 [INFO] ⏰ Inicio       : 2026-10-12 20:26:09
+2026-10-12 14:26:09 [INFO] ══════════════════════════════════════════
+2026-10-12 14:26:09 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 14:26:09 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 14:41:10 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-10-12 14:50:41 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 14:50:41 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 14:50:41 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 14:50:41 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 14:50:41 [INFO] 🌐 Ambiente     : development
+2026-10-12 14:50:41 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-10-12 14:50:41 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 14:50:41 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 14:50:41 [INFO] 📋 Versión API  : v1
+2026-10-12 14:50:41 [INFO] ⏰ Inicio       : 2026-10-12 20:50:41
+2026-10-12 14:50:41 [INFO] ══════════════════════════════════════════
+2026-10-12 14:50:41 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 14:50:41 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 14:50:58 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 14:50:58 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 14:50:58 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 14:50:58 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 14:50:58 [INFO] 🌐 Ambiente     : development
+2026-10-12 14:50:58 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-10-12 14:50:58 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 14:50:58 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 14:50:58 [INFO] 📋 Versión API  : v1
+2026-10-12 14:50:58 [INFO] ⏰ Inicio       : 2026-10-12 20:50:58
+2026-10-12 14:50:58 [INFO] ══════════════════════════════════════════
+2026-10-12 14:50:58 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 14:50:58 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 14:51:09 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 14:51:10 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 14:51:10 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 14:51:10 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 14:51:10 [INFO] 🌐 Ambiente     : development
+2026-10-12 14:51:10 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-10-12 14:51:10 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 14:51:10 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 14:51:10 [INFO] 📋 Versión API  : v1
+2026-10-12 14:51:10 [INFO] ⏰ Inicio       : 2026-10-12 20:51:10
+2026-10-12 14:51:10 [INFO] ══════════════════════════════════════════
+2026-10-12 14:51:10 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 14:51:10 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 14:51:27 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 14:51:27 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 14:51:27 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 14:51:27 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 14:51:27 [INFO] 🌐 Ambiente     : development
+2026-10-12 14:51:27 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-10-12 14:51:27 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 14:51:27 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 14:51:27 [INFO] 📋 Versión API  : v1
+2026-10-12 14:51:27 [INFO] ⏰ Inicio       : 2026-10-12 20:51:27
+2026-10-12 14:51:27 [INFO] ══════════════════════════════════════════
+2026-10-12 14:51:27 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 14:51:27 [INFO] [INFO]    🚀 Servidor escuchando en 3005
