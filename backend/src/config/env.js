@@ -22,15 +22,15 @@ const getLocalIp = () => {
 
 const ip = getLocalIp()
 
-// Si la máquina tiene la IP del servidor de desarrollo, forzamos puerto 3005
-const resolvedPort = (ip === '145.0.40.48')
-  ? 3005
-  : (parseInt(process.env.PORT, 10) || 3000)
+// Resolver puerto configurado
+const resolvedPort = parseInt(process.env.PORT, 10) || ((ip === '145.0.40.48') ? 3005 : 3000)
 
 export const env = {
   nodeEnv: envName,
   port: resolvedPort,
   ip: ip,
+  appUrl: process.env.APP_URL || 'https://aplicaciones2qa.iecm.mx/sisec_2026',
+  backendUrl: process.env.BACKEND_URL || 'https://aplicaciones2qa.iecm.mx/sisec_2026',
   db: {
     server: process.env.DB_SERVER,
     database: process.env.DB_DATABASE,

@@ -35,12 +35,7 @@ const startServer = async () => {
     // Importar e inicializar el servicio de Telegram al arranque para arrancar programadores periódicos
     await import('./services/telegram.service.js')
 
-    let serverUrl = `http://localhost:${env.port}`
-    if (env.nodeEnv === 'production') {
-      serverUrl = 'https://aplicaciones.iecm.mx/sicec_2026'
-    } else if (env.ip === '145.0.40.48') {
-      serverUrl = `http://145.0.40.48:${env.port}/sicec_2026`
-    }
+    const serverUrl = env.appUrl || `http://localhost:${env.port}`
 
     logger.info('╔══════════════════════════════════════╗')
     logger.info('║     SISEC CC 2026 — Backend API      ║')
@@ -66,7 +61,8 @@ const startServer = async () => {
   }
 
   server = createServer(app)
-  initSocket(server)
+  const io = initSocket(server)
+  app.set('io', io)
 
   server.listen(env.port, () => {
     logger.info(`[INFO]    🚀 Servidor escuchando en ${env.port}`)

@@ -46,21 +46,32 @@ app.use(cors({
 app.use(express.json())
 app.use(morgan('dev'))
 
-// Rutas de la API
-app.use('/api', routes)
-
-// Manejo de rutas de API no encontradas (responder con JSON, no con HTML)
-app.use('/api', (req, res) => {
-  res.status(404).json({ success: false, message: 'Ruta de API no encontrada' })
+// Rutas de la API (soporte estándar directo y bajo subruta)
+const apiPrefixes = ['/api', '/sisec_2026/api', '/sicec_2026/api']
+apiPrefixes.forEach((prefix) => {
+  app.use(prefix, routes)
+  app.use(prefix, (req, res) => {
+    res.status(404).json({ success: false, message: 'Ruta de API no encontrada' })
+  })
 })
 
 // Servir archivos estáticos del frontend (compilados en backend/public)
 const publicPath = path.join(__dirname, '../public')
-app.use(express.static(publicPath))
+app.use(express.static(publicPath, { redirect: false }))
+app.use('/sisec_2026', express.static(publicPath, { redirect: false }))
+app.use('/sicec_2026', express.static(publicPath, { redirect: false }))
 
-// Middleware fallback para soportar Vue Router en modo History (redirecciona peticiones GET a index.html)
+// Middleware fallback para soportar Vue Router en modo History
+// Protege explícitamente las rutas de /api y /socket.io para no entregarles index.html
 app.use((req, res, next) => {
-  if (req.method === 'GET' && !req.path.startsWith('/api') && req.headers.accept && req.headers.accept.includes('text/html')) {
+  if (
+    req.method === 'GET' &&
+    !req.path.startsWith('/api') &&
+    !req.path.includes('/api/') &&
+    !req.path.includes('/socket.io') &&
+    req.headers.accept &&
+    req.headers.accept.includes('text/html')
+  ) {
     return res.sendFile(path.join(publicPath, 'index.html'))
   }
   next()

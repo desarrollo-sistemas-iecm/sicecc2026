@@ -8,6 +8,7 @@ export const usuariosConectados = new Map() // idUsuario -> { socketId, username
 
 export const initSocket = (httpServer) => {
   io = new Server(httpServer, {
+    transports: ['polling', 'websocket'],
     cors: {
       origin: (origin, callback) => {
         // Permitir localhost en desarrollo o el origen de CORS configurado
@@ -54,6 +55,12 @@ export const initSocket = (httpServer) => {
       sesionId
     })
 
+    // Unir a sala privada y a salas por rol
+    socket.join(`usuario_${idUsuario}`)
+    if (Number(permiso) === 1) socket.join('operadores')
+    if (Number(permiso) === 2) socket.join('admins')
+    if (Number(permiso) === 3) socket.join('superadmins')
+
     logger.info(`[WS]       🔌 Usuario conectado: ${nombre} (Sede: ${idsede}) — Socket: ${socket.id}`)
 
     // Emitir presencia global a todos los clientes
@@ -85,6 +92,7 @@ const broadcastPresencia = () => {
   if (!io) return
   const conectados = Array.from(usuariosConectados.keys()).map(Number)
   io.emit('usuarios:estado', conectados)
+  io.to('superadmins').emit('sesiones_actualizadas', Array.from(usuariosConectados.values()))
 }
 
 // Desconecta físicamente a un usuario específico en tiempo real
@@ -95,6 +103,7 @@ export const desconectarUsuario = (idUsuario, mensaje = 'Tu sesión ha sido inva
       const socket = io.sockets.sockets.get(conectado.socketId)
       if (socket) {
         socket.emit('sesion:invalidada', { mensaje })
+        socket.emit('logout_forced', { reason: mensaje, mensaje })
         socket.disconnect(true)
       }
     } catch (err) {
