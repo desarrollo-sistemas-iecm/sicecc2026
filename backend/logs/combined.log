@@ -1487,3 +1487,68 @@
 2026-10-12 14:51:27 [INFO] ══════════════════════════════════════════
 2026-10-12 14:51:27 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
 2026-10-12 14:51:27 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 15:33:35 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 15:33:35 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 15:33:35 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 15:33:35 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 15:33:35 [INFO] 🌐 Ambiente     : development
+2026-10-12 15:33:35 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-10-12 15:33:35 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 15:33:35 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 15:33:35 [INFO] 📋 Versión API  : v1
+2026-10-12 15:33:35 [INFO] ⏰ Inicio       : 2026-10-12 21:33:35
+2026-10-12 15:33:35 [INFO] ══════════════════════════════════════════
+2026-10-12 15:33:35 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 15:33:35 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 15:33:59 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 15:33:59 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 15:33:59 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 15:33:59 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 15:33:59 [INFO] 🌐 Ambiente     : development
+2026-10-12 15:33:59 [INFO] 🚀 Servidor     : http://localhost:3005
+2026-10-12 15:33:59 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 15:33:59 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 15:33:59 [INFO] 📋 Versión API  : v1
+2026-10-12 15:33:59 [INFO] ⏰ Inicio       : 2026-10-12 21:33:59
+2026-10-12 15:33:59 [INFO] ══════════════════════════════════════════
+2026-10-12 15:33:59 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 15:33:59 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 15:34:45 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 15:34:45 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 15:34:45 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 15:34:45 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 15:34:45 [INFO] 🌐 Ambiente     : development
+2026-10-12 15:34:45 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 15:34:45 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 15:34:45 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 15:34:45 [INFO] 📋 Versión API  : v1
+2026-10-12 15:34:45 [INFO] ⏰ Inicio       : 2026-10-12 21:34:45
+2026-10-12 15:34:45 [INFO] ══════════════════════════════════════════
+2026-10-12 15:34:45 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 15:34:45 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 15:35:11 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 15:35:11 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 15:35:11 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 15:35:11 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 15:35:11 [INFO] 🌐 Ambiente     : development
+2026-10-12 15:35:11 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 15:35:11 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 15:35:11 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 15:35:11 [INFO] 📋 Versión API  : v1
+2026-10-12 15:35:11 [INFO] ⏰ Inicio       : 2026-10-12 21:35:11
+2026-10-12 15:35:11 [INFO] ══════════════════════════════════════════
+2026-10-12 15:35:11 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 15:35:11 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 15:42:16 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 15:42:16 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 15:42:16 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 15:42:16 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 15:42:16 [INFO] 🌐 Ambiente     : development
+2026-10-12 15:42:16 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 15:42:16 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 15:42:16 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 15:42:16 [INFO] 📋 Versión API  : v1
+2026-10-12 15:42:16 [INFO] ⏰ Inicio       : 2026-10-12 21:42:16
+2026-10-12 15:42:16 [INFO] ══════════════════════════════════════════
+2026-10-12 15:42:16 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 15:42:16 [INFO] [INFO]    🚀 Servidor escuchando en 3005
