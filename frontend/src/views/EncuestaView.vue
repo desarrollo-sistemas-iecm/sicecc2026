@@ -227,25 +227,25 @@ onMounted(() => {
 <template>
   <div ref="vistaRef" class="space-y-6 max-w-5xl mx-auto pb-12">
     <!-- Encabezado con Folio (Header banner) -->
-    <div class="rounded-2xl bg-gradient-iecm px-6 py-6 text-white shadow-iecm-sm flex flex-wrap items-center justify-between gap-6 relative overflow-hidden">
+    <div class="rounded-2xl bg-[#403166] dark:bg-[#231A38] px-6 py-6 text-white shadow-iecm-sm flex flex-wrap items-center justify-between gap-6 relative overflow-hidden">
       <!-- Decoración de fondo -->
-      <div class="absolute right-0 top-0 w-64 h-64 bg-white dark:bg-slate-900 opacity-5 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3"></div>
+      <div class="absolute right-0 top-0 w-64 h-64 bg-white/5 opacity-20 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3"></div>
       
       <div class="flex items-start gap-4 relative z-10">
-        <div class="p-3 bg-white dark:bg-slate-800 rounded-xl border border-white/20 dark:border-white/10 shadow-sm">
-          <FileText class="w-8 h-8 text-iecm-morado dark:text-iecm-morado-300" />
+        <div class="p-3 bg-white/15 rounded-xl border border-white/20 shadow-sm">
+          <FileText class="w-8 h-8 text-white" />
         </div>
         <div>
-          <h2 class="text-2xl font-bold tracking-tight">Encuesta de satisfacción</h2>
-          <p class="text-purple-100 text-sm mt-1 max-w-lg">
+          <h2 class="text-2xl font-bold tracking-tight text-white">Encuesta de satisfacción</h2>
+          <p class="text-purple-200 text-sm mt-1 max-w-lg">
             Captura de opiniones de los asistentes al taller o intervención educativa.
           </p>
         </div>
       </div>
 
-      <div class="rounded-xl bg-white dark:bg-slate-800 border border-white/20 dark:border-white/10 px-5 py-3 min-w-[140px] shadow-sm relative z-10">
-        <p class="text-xs uppercase text-iecm-morado-800 dark:text-iecm-dorado font-semibold tracking-wider mb-1">Folio Actual</p>
-        <p class="text-2xl font-bold font-mono text-slate-900 dark:text-white">{{ form.folio || '—' }}</p>
+      <div class="rounded-xl bg-white/15 border border-white/20 px-5 py-3 min-w-[140px] shadow-sm relative z-10">
+        <p class="text-xs uppercase text-purple-200 font-semibold tracking-wider mb-1">Folio Actual</p>
+        <p class="text-2xl font-bold font-mono text-white">{{ form.folio || '—' }}</p>
       </div>
     </div>
 

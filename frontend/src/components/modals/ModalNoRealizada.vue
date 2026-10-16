@@ -82,12 +82,12 @@ watch(
     <div class="space-y-6">
       
       <!-- Header -->
-      <div class="flex items-start gap-4 p-4 bg-red-50 rounded-xl border border-red-100">
-        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-red-500 text-sm font-bold text-white shadow-sm">
+      <div class="flex items-start gap-4 p-4 bg-red-50 dark:bg-red-950/40 rounded-xl border border-red-100 dark:border-red-900/40">
+        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-red-600 text-sm font-bold text-white shadow-sm">
           IECM
         </div>
         <div>
-          <p class="text-xs uppercase tracking-wider font-semibold text-red-600 mb-1">Cancelar Actividad</p>
+          <p class="text-xs uppercase tracking-wider font-semibold text-red-600 dark:text-red-400 mb-1">Cancelar Actividad</p>
           <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-tight">{{ titulo }}</h3>
         </div>
       </div>

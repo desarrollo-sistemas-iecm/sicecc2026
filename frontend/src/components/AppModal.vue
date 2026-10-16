@@ -8,11 +8,11 @@ const emit = defineEmits(['close'])
 </script>
 
 <template>
-  <div v-if="props.open" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-    <div class="w-full rounded-lg bg-white dark:bg-slate-900 p-6 shadow-xl" :class="props.maxWidth">
+  <div v-if="props.open" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+    <div class="w-full rounded-lg bg-white dark:bg-iecm-dark-card border border-iecm-gris-200 dark:border-iecm-dark-border p-6 shadow-2xl" :class="props.maxWidth">
       <div class="flex items-center justify-between">
-        <h3 class="text-lg font-semibold text-slate-900 dark:text-white">{{ props.title }}</h3>
-        <button class="text-slate-400 dark:text-slate-500" @click="emit('close')">Cerrar</button>
+        <h3 class="text-lg font-semibold text-iecm-texto dark:text-iecm-dark-text">{{ props.title }}</h3>
+        <button class="text-iecm-texto-muted hover:text-iecm-texto dark:text-iecm-dark-text-muted dark:hover:text-iecm-dark-text transition-colors" @click="emit('close')">Cerrar</button>
       </div>
       <div class="mt-4">
         <slot />

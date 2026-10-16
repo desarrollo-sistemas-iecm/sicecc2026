@@ -256,8 +256,8 @@ onUnmounted(() => {
       <AppCard>
         <template #header>
           <div class="flex justify-between items-center">
-            <h2 class="text-lg font-semibold text-slate-900 dark:text-white">Avance por Distrito Territorial</h2>
-            <span class="text-xs text-slate-400 dark:text-slate-500">Actualización en vivo</span>
+            <h2 class="text-lg font-semibold text-white">Avance por Distrito Territorial</h2>
+            <span class="text-xs text-purple-200 dark:text-slate-400">Actualización en vivo</span>
           </div>
         </template>
         <div class="h-[400px] p-4">
@@ -275,8 +275,8 @@ onUnmounted(() => {
       <AppCard>
         <template #header>
           <div class="flex items-center gap-2">
-            <FileText class="w-5 h-5 text-iecm-morado dark:text-iecm-morado-400" />
-            <h2 class="text-lg font-semibold text-slate-900 dark:text-white">Formatos y Documentos Oficiales</h2>
+            <FileText class="w-5 h-5 text-purple-200 dark:text-iecm-morado-400" />
+            <h2 class="text-lg font-semibold text-white">Formatos y Documentos Oficiales</h2>
           </div>
         </template>
 

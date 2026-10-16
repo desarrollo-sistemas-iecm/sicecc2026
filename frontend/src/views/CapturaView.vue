@@ -1,10 +1,11 @@
 <script setup>
 import { computed, onMounted, ref, watch, nextTick } from 'vue'
 import Swal from 'sweetalert2'
-import { CalendarRange, Search, ChevronUp, ChevronDown, CheckCircle, XCircle, CalendarClock } from '@lucide/vue'
+import { CalendarRange, Search, ChevronUp, ChevronDown, CheckCircle, XCircle, CalendarClock, Lock, AlertCircle, CalendarDays } from '@lucide/vue'
 import api from '../services/api.js'
 import { useToast } from '../composables/useToast.js'
 import { useGsapAnimations } from '../composables/useGsapAnimations.js'
+import { useDateRestrictions } from '../composables/useDateRestrictions.js'
 
 import AppCard from '../components/ui/AppCard.vue'
 import AppTable from '../components/ui/AppTable.vue'
@@ -19,17 +20,25 @@ import ModalRealizada from '../components/modals/ModalRealizada.vue'
 const toast = useToast()
 const { animarVista, animarFilasTabla } = useGsapAnimations()
 
-const vistaRef = ref(null)
-const loading = ref(false)
+const {
+  configs,
+  loading: loadingConfig,
+  loadRestrictions,
+  isDateEnabled,
+  isPastMonth,
+  isCurrentMonth,
+  isGlobalDisabled,
+  activeDistrictException,
+  currentMonthName,
+  currentYear,
+  alertPastMonthBlocked
+} = useDateRestrictions()
+
+// Estado principal de actividades
 const rows = ref([])
-
-const dateConfig = ref({
-  habilitado: true,
-  fecha_inicio: null,
-  fecha_fin: null
-})
-
-const loadingConfig = ref(true)
+const loading = ref(false)
+const vistaRef = ref(null)
+const dateConfig = computed(() => configs.value.find(c => c.modulo === 'programacion') || {})
 
 // Filtros
 const search = ref('')
@@ -66,93 +75,23 @@ const loadProgramacion = async () => {
   }
 }
 
-const loadDateConfig = async () => {
-  loadingConfig.value = true
-  try {
-    const { data } = await api.get('/admin/restricciones')
-    if (data.success && data.data) {
-      const configs = data.data.filter(c => c.modulo === 'captura')
-      const globalConfig = configs.find(c => Number(c.idsede) === 0)
-      const specificConfig = configs.find(c => Number(c.idsede) !== 0)
-      
-      let config = null
-      if (specificConfig && globalConfig) {
-        const globalTime = new Date(globalConfig.fecha_actualizado || 0).getTime()
-        const specificTime = new Date(specificConfig.fecha_actualizado || 0).getTime()
-        config = specificTime > globalTime ? specificConfig : globalConfig
-      } else {
-        config = specificConfig || globalConfig
-      }
-      
-      if (config) {
-        dateConfig.value = {
-          habilitado: Boolean(config.habilitado),
-          fecha_inicio: config.fecha_inicio,
-          fecha_fin: config.fecha_fin
-        }
-      }
-    }
-  } catch (error) {
-    console.error('Error cargando configuración de fechas')
-  } finally {
-    loadingConfig.value = false
+const checkCanActOnRow = async (row) => {
+  if (isDateEnabled(row.fecha, 'captura', row.idsede)) {
+    return true
   }
-}
 
-const solicitarExcepcion = async (row) => {
-  try {
-    const { data } = await api.post('/admin/restricciones/solicitar', {
-      fecha_solicitada: row.fecha || new Date().toISOString().split('T')[0],
-      modulo: 'captura'
-    })
-    if (data.success) {
-      Swal.fire('Solicitud enviada', 'El Super Administrador revisará tu solicitud.', 'success')
-    }
-  } catch (error) {
-    Swal.fire('Error', 'No se pudo enviar la solicitud.', 'error')
-  }
-}
-
-const checkRestrictions = async (row) => {
-  if (!dateConfig.value.habilitado) {
-    const { isConfirmed } = await Swal.fire({
+  if (isGlobalDisabled.value) {
+    Swal.fire({
       icon: 'warning',
       title: 'Sistema Cerrado',
-      text: 'El periodo de captura se encuentra inhabilitado. ¿Deseas solicitar una excepción al Super Administrador para esta actividad?',
-      showCancelButton: true,
-      confirmButtonText: 'Solicitar Excepción',
-      cancelButtonText: 'Cancelar',
+      text: 'El periodo de captura se encuentra inhabilitado globalmente en este momento.',
       confirmButtonColor: '#6B2D8B'
     })
-    
-    if (isConfirmed) {
-      await solicitarExcepcion(row)
-    }
     return false
   }
 
-  // Verificar rango
-  if (dateConfig.value.fecha_inicio && dateConfig.value.fecha_fin) {
-    const today = new Date().toISOString().split('T')[0] // Assuming checking against current date of capture attempt
-    // Si la regla dice que no puedes capturar hoy si hoy no está en rango:
-    if (today < dateConfig.value.fecha_inicio || today > dateConfig.value.fecha_fin) {
-      const { isConfirmed } = await Swal.fire({
-        icon: 'warning',
-        title: 'Fecha fuera de rango',
-        text: `Hoy (${today}) estás fuera del rango de captura habilitado (${dateConfig.value.fecha_inicio} a ${dateConfig.value.fecha_fin}). ¿Deseas solicitar una excepción?`,
-        showCancelButton: true,
-        confirmButtonText: 'Solicitar Excepción',
-        cancelButtonText: 'Cancelar',
-        confirmButtonColor: '#6B2D8B'
-      })
-      
-      if (isConfirmed) {
-        await solicitarExcepcion(row)
-      }
-      return false
-    }
-  }
-  return true
+  await alertPastMonthBlocked(row, 'captura')
+  return false
 }
 
 const formatHora = (row) => {
@@ -202,7 +141,34 @@ const sortedRows = computed(() => {
     return row[key] ?? ''
   }
 
+  const getTier = (row) => {
+    const isCurrent = isCurrentMonth(row.fecha)
+    const isPending = row.status === 1
+    const isPast = isPastMonth(row.fecha)
+
+    // 1) Mes vigente que faltan de capturar (al principio absoluto)
+    if (isCurrent && isPending) return 1
+    // 2) Mes vigente ya capturadas
+    if (isCurrent && !isPending) return 2
+    // 3) Meses pasados que faltan de capturar (después de todo el mes vigente)
+    if (isPast && isPending) return 3
+    // 4) Meses pasados ya capturadas
+    if (isPast && !isPending) return 4
+    // 5) Otras fechas (futuras pendientes)
+    if (isPending) return 5
+    // 6) Otras fechas (futuras ya capturadas)
+    return 6
+  }
+
   return [...filteredRows.value].sort((a, b) => {
+    // 1) Prioridad por grupos (Mes vigente primero con pendientes al inicio, meses pasados después)
+    const tierA = getTier(a)
+    const tierB = getTier(b)
+    if (tierA !== tierB) {
+      return tierA - tierB
+    }
+
+    // 2) Orden secundario por columna seleccionada (por defecto fecha)
     const valA = getValue(a)
     const valB = getValue(b)
     if (typeof valA === 'number' && typeof valB === 'number') {
@@ -210,8 +176,19 @@ const sortedRows = computed(() => {
     }
     const left = String(valA).toLowerCase()
     const right = String(valB).toLowerCase()
-    if (left < right) return -1 * dir
-    if (left > right) return 1 * dir
+    if (left !== right) {
+      return (left < right ? -1 : 1) * dir
+    }
+
+    // Desempate por hora si coinciden fechas
+    if (key === 'fecha') {
+      const horaA = formatHora(a)
+      const horaB = formatHora(b)
+      if (horaA !== horaB) {
+        return (horaA < horaB ? -1 : 1) * dir
+      }
+    }
+
     return 0
   })
 })
@@ -233,21 +210,21 @@ const toggleSort = (key) => {
 }
 
 const openReprogramar = async (row) => {
-  if (await checkRestrictions(row)) {
+  if (await checkCanActOnRow(row)) {
     activeRow.value = row
     reprogramarOpen.value = true
   }
 }
 
 const openNoRealizada = async (row) => {
-  if (await checkRestrictions(row)) {
+  if (await checkCanActOnRow(row)) {
     activeRow.value = row
     noRealizadaOpen.value = true
   }
 }
 
 const openRealizada = async (row) => {
-  if (await checkRestrictions(row)) {
+  if (await checkCanActOnRow(row)) {
     activeRow.value = row
     realizadaOpen.value = true
   }
@@ -274,7 +251,7 @@ watch(page, () => {
 
 onMounted(() => {
   loadProgramacion()
-  loadDateConfig()
+  loadRestrictions()
   if (vistaRef.value) animarVista(vistaRef.value)
 })
 </script>
@@ -282,48 +259,51 @@ onMounted(() => {
 <template>
   <div ref="vistaRef" class="space-y-6">
     <!-- Encabezado (Header banner) -->
-    <div class="rounded-2xl bg-gradient-iecm px-6 py-6 text-white shadow-iecm-sm flex flex-wrap items-center justify-between gap-6 relative overflow-hidden">
+    <div class="rounded-2xl bg-[#403166] dark:bg-[#231A38] px-6 py-6 text-white shadow-iecm-sm flex flex-wrap items-center justify-between gap-6 relative overflow-hidden">
       <!-- Decoración de fondo -->
-      <div class="absolute right-0 top-0 w-64 h-64 bg-white dark:bg-slate-900 opacity-5 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3"></div>
+      <div class="absolute right-0 top-0 w-64 h-64 bg-white/5 opacity-20 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3"></div>
       
       <div class="flex items-start gap-4 relative z-10">
-        <div class="p-3 bg-white dark:bg-slate-800 rounded-xl border border-white/20 dark:border-white/10 shadow-sm">
-          <CalendarRange class="w-8 h-8 text-iecm-morado dark:text-iecm-morado-300" />
+        <div class="p-3 bg-white/15 rounded-xl border border-white/20 shadow-sm">
+          <CalendarRange class="w-8 h-8 text-white" />
         </div>
         <div>
-          <h2 class="text-2xl font-bold tracking-tight">Captura de Actividades</h2>
-          <p class="text-purple-100 text-sm mt-1 max-w-lg">
+          <h2 class="text-2xl font-bold tracking-tight text-white">Captura de Actividades</h2>
+          <p class="text-purple-200 text-sm mt-1 max-w-lg">
             Listado y gestión de actividades programadas y realizadas.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- Alerta de Restricciones -->
-    <div v-if="!loadingConfig && !dateConfig.habilitado" class="bg-amber-50 dark:bg-amber-950/20 border-l-4 border-amber-500 p-4 rounded-r-lg max-w-4xl">
-      <div class="flex">
-        <div class="flex-shrink-0">
-          <svg class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-          </svg>
-        </div>
-        <div class="ml-3">
-          <p class="text-sm text-amber-700">
-            <strong>Aviso:</strong> El periodo de captura se encuentra inhabilitado. Si necesitas registrar, el sistema enviará una solicitud de excepción.
+    <!-- Alerta de Restricciones Inteligente (Mes Vigente y Excepciones) -->
+    <div v-if="!loadingConfig" class="max-w-4xl">
+      <!-- Caso 1: Sistema cerrado globalmente -->
+      <div v-if="isGlobalDisabled" class="bg-red-50 dark:bg-red-950/30 border-l-4 border-red-500 p-4 rounded-r-lg shadow-sm">
+        <div class="flex items-center gap-3">
+          <AlertCircle class="w-5 h-5 text-red-600 dark:text-red-400 shrink-0" />
+          <p class="text-sm text-slate-900 dark:text-red-100">
+            <strong class="font-bold text-red-900 dark:text-red-300">Sistema cerrado:</strong> El periodo de captura y edición se encuentra inhabilitado globalmente.
           </p>
         </div>
       </div>
-    </div>
-    <div v-else-if="!loadingConfig && dateConfig.fecha_inicio && dateConfig.fecha_fin" class="bg-blue-50 dark:bg-blue-950/20 border-l-4 border-blue-500 p-4 rounded-r-lg max-w-4xl">
-      <div class="flex">
-        <div class="flex-shrink-0">
-          <svg class="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
-          </svg>
+
+      <!-- Caso 2: Excepción específica de distrito activa -->
+      <div v-else-if="activeDistrictException" class="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-4 rounded-r-lg shadow-sm">
+        <div class="flex items-center gap-3">
+          <CalendarClock class="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0" />
+          <p class="text-sm text-slate-900 dark:text-amber-100">
+            <strong class="font-bold text-amber-900 dark:text-amber-300">Habilitación especial activa:</strong> Tu distrito cuenta con periodo autorizado para capturar y editar actividades del <strong class="font-semibold text-slate-900 dark:text-white">{{ activeDistrictException.fecha_inicio }}</strong> al <strong class="font-semibold text-slate-900 dark:text-white">{{ activeDistrictException.fecha_fin }}</strong>.
+          </p>
         </div>
-        <div class="ml-3">
-          <p class="text-sm text-blue-700">
-            <strong>Periodo habilitado:</strong> Sólo se pueden capturar actividades entre el {{ dateConfig.fecha_inicio }} y el {{ dateConfig.fecha_fin }}.
+      </div>
+
+      <!-- Caso 3: Operación regular en Mes Vigente -->
+      <div v-else class="bg-emerald-50 dark:bg-emerald-950/30 border-l-4 border-emerald-500 p-4 rounded-r-lg shadow-sm">
+        <div class="flex items-center gap-3">
+          <CalendarDays class="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+          <p class="text-sm text-slate-900 dark:text-emerald-100">
+            <strong class="font-bold text-emerald-900 dark:text-emerald-300">Mes vigente habilitado:</strong> Captura y edición abierta para actividades de <strong class="font-semibold text-slate-900 dark:text-white">{{ currentMonthName }} {{ currentYear }}</strong>. Las actividades de meses concluidos se muestran atenuadas y requieren habilitación del Super Administrador.
           </p>
         </div>
       </div>
@@ -362,28 +342,28 @@ onMounted(() => {
         <template #head>
           <th class="w-1.5 p-0 bg-transparent"></th>
           <th class="px-6 py-3">#</th>
-          <th class="px-6 py-3 cursor-pointer hover:bg-iecm-morado-100 dark:hover:bg-slate-700/50 transition-colors" @click="toggleSort('idcurso')">
+          <th class="px-6 py-3 cursor-pointer hover:bg-iecm-morado/15 dark:hover:bg-iecm-dark-elevated transition-colors" @click="toggleSort('idcurso')">
             <div class="flex items-center gap-2">
               ID
               <ChevronUp v-if="sortKey === 'idcurso' && sortDir === 'asc'" class="w-3 h-3" />
               <ChevronDown v-else-if="sortKey === 'idcurso' && sortDir === 'desc'" class="w-3 h-3" />
             </div>
           </th>
-          <th class="px-6 py-3 cursor-pointer hover:bg-iecm-morado-100 dark:hover:bg-slate-700/50 transition-colors" @click="toggleSort('curso')">
+          <th class="px-6 py-3 cursor-pointer hover:bg-iecm-morado/15 dark:hover:bg-iecm-dark-elevated transition-colors" @click="toggleSort('curso')">
             <div class="flex items-center gap-2">
               Curso
               <ChevronUp v-if="sortKey === 'curso' && sortDir === 'asc'" class="w-3 h-3" />
               <ChevronDown v-else-if="sortKey === 'curso' && sortDir === 'desc'" class="w-3 h-3" />
             </div>
           </th>
-          <th class="px-6 py-3 cursor-pointer hover:bg-iecm-morado-100 dark:hover:bg-slate-700/50 transition-colors" @click="toggleSort('institucion')">
+          <th class="px-6 py-3 cursor-pointer hover:bg-iecm-morado/15 dark:hover:bg-iecm-dark-elevated transition-colors" @click="toggleSort('institucion')">
             <div class="flex items-center gap-2">
               Institución
               <ChevronUp v-if="sortKey === 'institucion' && sortDir === 'asc'" class="w-3 h-3" />
               <ChevronDown v-else-if="sortKey === 'institucion' && sortDir === 'desc'" class="w-3 h-3" />
             </div>
           </th>
-          <th class="px-6 py-3 cursor-pointer hover:bg-iecm-morado-100 dark:hover:bg-slate-700/50 transition-colors" @click="toggleSort('fecha')">
+          <th class="px-6 py-3 cursor-pointer hover:bg-iecm-morado/15 dark:hover:bg-iecm-dark-elevated transition-colors" @click="toggleSort('fecha')">
             <div class="flex items-center gap-2">
               Prog.
               <ChevronUp v-if="sortKey === 'fecha' && sortDir === 'asc'" class="w-3 h-3" />
@@ -396,16 +376,33 @@ onMounted(() => {
         </template>
 
         <template #body>
-          <tr v-for="(row, index) in pagedRows" :key="row.idcurso" class="tr-row">
+          <tr 
+            v-for="(row, index) in pagedRows" 
+            :key="row.idcurso" 
+            class="tr-row transition-all duration-200"
+            :class="{
+              'opacity-65 bg-slate-100/80 dark:bg-iecm-dark-header/40': !isDateEnabled(row.fecha, 'captura', row.idsede)
+            }"
+          >
             <td class="w-1.5 p-0 cursor-help" :style="{ backgroundColor: row.color }" title="Color identificador del curso"></td>
-            <td class="px-6 py-4 font-medium text-slate-500 dark:text-slate-400">{{ (page - 1) * pageSize + index + 1 }}</td>
-            <td class="px-6 py-4 font-medium text-slate-500 dark:text-slate-400">{{ row.idcurso }}</td>
-            <td class="px-6 py-4 font-medium text-iecm-morado-800 dark:text-iecm-morado-300">{{ getCurso(row) }}</td>
+            <td class="px-6 py-4 font-medium text-iecm-texto-muted dark:text-iecm-dark-text-muted">{{ (page - 1) * pageSize + index + 1 }}</td>
+            <td class="px-6 py-4 font-medium text-iecm-texto-muted dark:text-iecm-dark-text-muted">{{ row.idcurso }}</td>
+            <td class="px-6 py-4 font-medium text-iecm-morado-900 dark:text-iecm-morado-300">{{ getCurso(row) }}</td>
             <td class="px-6 py-4">{{ getInstitucion(row) }}</td>
             <td class="px-6 py-4">
               <div class="flex flex-col">
-                <span class="font-medium text-slate-900 dark:text-white">{{ row.fecha }}</span>
-                <span class="text-xs text-slate-500 dark:text-slate-400">{{ formatHora(row) }}</span>
+                <div class="flex items-center gap-1.5">
+                  <span class="font-medium text-iecm-texto dark:text-iecm-dark-text">{{ row.fecha }}</span>
+                  <span 
+                    v-if="!isDateEnabled(row.fecha, 'captura', row.idsede)"
+                    class="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-red-100 dark:bg-red-950/50 text-red-800 dark:text-red-300 border border-red-200 dark:border-red-800/50"
+                    title="Periodo concluido para este mes"
+                  >
+                    <Lock class="w-2.5 h-2.5" />
+                    Mes cerrado
+                  </span>
+                </div>
+                <span class="text-xs text-iecm-texto-muted dark:text-iecm-dark-text-muted">{{ formatHora(row) }}</span>
               </div>
             </td>
             <td class="px-6 py-4 text-center">
@@ -413,8 +410,8 @@ onMounted(() => {
                 v-if="row.status === 1" 
                 variant="ghost" 
                 size="sm" 
-                class="text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 hover:text-red-600"
-                title="Marcar como no realizada"
+                :class="isDateEnabled(row.fecha, 'captura', row.idsede) ? 'text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 hover:text-red-700 dark:hover:text-red-300' : 'text-slate-400 dark:text-slate-600 opacity-60 hover:bg-slate-100 dark:hover:bg-iecm-dark-elevated'"
+                :title="isDateEnabled(row.fecha, 'captura', row.idsede) ? 'Marcar como no realizada' : 'Mes cerrado - Clic para solicitar habilitación'"
                 @click="openNoRealizada(row)"
               >
                 <template #icon><XCircle class="w-5 h-5" /></template>
@@ -425,8 +422,8 @@ onMounted(() => {
                 v-if="row.status === 1" 
                 variant="ghost" 
                 size="sm" 
-                class="text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-950/30 hover:text-amber-600"
-                title="Reprogramar fecha"
+                :class="isDateEnabled(row.fecha, 'captura', row.idsede) ? 'text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/40 hover:text-amber-700 dark:hover:text-amber-300' : 'text-slate-400 dark:text-slate-600 opacity-60 hover:bg-slate-100 dark:hover:bg-iecm-dark-elevated'"
+                :title="isDateEnabled(row.fecha, 'captura', row.idsede) ? 'Reprogramar fecha' : 'Mes cerrado - Clic para solicitar habilitación'"
                 @click="openReprogramar(row)"
               >
                 <template #icon><CalendarClock class="w-5 h-5" /></template>
@@ -435,21 +432,29 @@ onMounted(() => {
             <td class="px-6 py-4 text-center">
               <AppButton 
                 v-if="row.status === 1" 
-                variant="secondary" 
+                :variant="isDateEnabled(row.fecha, 'captura', row.idsede) ? 'secondary' : 'ghost'"
                 size="sm"
-                class="min-w-[100px]"
+                :class="isDateEnabled(row.fecha, 'captura', row.idsede) ? 'min-w-[100px]' : 'min-w-[100px] text-slate-400 opacity-60'"
+                :title="!isDateEnabled(row.fecha, 'captura', row.idsede) ? 'Mes cerrado - Clic para solicitar habilitación' : 'Capturar actividad'"
                 @click="openRealizada(row)"
               >
-                <template #icon><CheckCircle class="w-4 h-4 text-emerald-500" /></template>
+                <template #icon>
+                  <Lock v-if="!isDateEnabled(row.fecha, 'captura', row.idsede)" class="w-3.5 h-3.5 text-slate-400" />
+                  <CheckCircle v-else class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                </template>
                 Capturar
               </AppButton>
               <AppButton 
                 v-else-if="row.status === 3" 
                 variant="ghost" 
-                size="sm"
-                class="text-iecm-morado dark:text-iecm-morado-400 min-w-[100px]"
+                size="sm" 
+                :class="isDateEnabled(row.fecha, 'captura', row.idsede) ? 'text-iecm-morado dark:text-iecm-morado-300 min-w-[100px]' : 'text-slate-400 opacity-60 min-w-[100px]'"
+                :title="!isDateEnabled(row.fecha, 'captura', row.idsede) ? 'Mes cerrado - Clic para solicitar habilitación' : 'Editar actividad'"
                 @click="openRealizada(row)"
               >
+                <template #icon>
+                  <Lock v-if="!isDateEnabled(row.fecha, 'captura', row.idsede)" class="w-3.5 h-3.5 text-slate-400 mr-1" />
+                </template>
                 Editar
               </AppButton>
             </td>
@@ -460,14 +465,14 @@ onMounted(() => {
       <!-- Footer Paginación -->
       <template #footer>
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span class="text-sm text-slate-500 dark:text-slate-400 font-medium">
-            Mostrando <span class="text-slate-900 dark:text-white">{{ pagedRows.length }}</span> de <span class="text-slate-900 dark:text-white">{{ sortedRows.length }}</span> registros
+          <span class="text-sm text-iecm-texto-muted dark:text-iecm-dark-text-muted font-medium">
+            Mostrando <span class="text-iecm-texto dark:text-iecm-dark-text font-bold">{{ pagedRows.length }}</span> de <span class="text-iecm-texto dark:text-iecm-dark-text font-bold">{{ sortedRows.length }}</span> registros
           </span>
           <div class="flex items-center gap-2">
             <AppButton variant="secondary" size="sm" :disabled="page <= 1" @click="page = Math.max(1, page - 1)">
               Anterior
             </AppButton>
-            <span class="text-sm font-medium text-slate-700 dark:text-slate-300 px-2">
+            <span class="text-sm font-medium text-iecm-texto dark:text-iecm-dark-text px-2">
               Página {{ page }} de {{ totalPages }}
             </span>
             <AppButton variant="secondary" size="sm" :disabled="page >= totalPages" @click="page = Math.min(totalPages, page + 1)">

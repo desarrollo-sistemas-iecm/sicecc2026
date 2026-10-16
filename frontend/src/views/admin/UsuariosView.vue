@@ -11,6 +11,8 @@ import AppSelect from '../../components/ui/AppSelect.vue'
 import AppButton from '../../components/ui/AppButton.vue'
 import AppBadge from '../../components/ui/AppBadge.vue'
 import AppTable from '../../components/ui/AppTable.vue'
+import AppModal from '../../components/AppModal.vue'
+import ModalHabilitarFechas from '../../components/modals/ModalHabilitarFechas.vue'
 
 const authStore = useAuthStore()
 const usuarios = ref([])
@@ -19,6 +21,9 @@ const search = ref('')
 const saving = ref(false)
 const showForm = ref(false)
 const isEditing = ref(false)
+
+const modalHabilitarOpen = ref(false)
+const selectedUserForHabilitar = ref(null)
 
 const form = reactive({
   idusuario: null,
@@ -91,10 +96,85 @@ const loadUsuarios = async () => {
   }
 }
 
+const filterConexion = ref('')
+const filterPermiso = ref('')
+const filterSede = ref('')
+
+const hasActiveFilters = computed(() => {
+  return search.value.trim() !== '' || filterConexion.value !== '' || filterPermiso.value !== '' || filterSede.value !== ''
+})
+
+const clearFilters = () => {
+  search.value = ''
+  filterConexion.value = ''
+  filterPermiso.value = ''
+  filterSede.value = ''
+}
+
 const filteredUsuarios = computed(() => {
-  if (!search.value) return usuarios.value
-  const term = search.value.toLowerCase()
-  return usuarios.value.filter(u => u.usuario.toLowerCase().includes(term))
+  let list = [...usuarios.value]
+
+  // Filtro por texto
+  if (search.value.trim()) {
+    const term = search.value.trim().toLowerCase()
+    list = list.filter(u => {
+      const nameMatch = u.usuario?.toLowerCase().includes(term)
+      const idMatch = String(u.idusuario).includes(term)
+      const sedeMatch = `distrito ${u.idsede}`.includes(term) || (u.idsede === 0 && 'sede central'.includes(term))
+      const rolMatch = getPermisoName(u.idpermiso).toLowerCase().includes(term)
+      return nameMatch || idMatch || sedeMatch || rolMatch
+    })
+  }
+
+  // Filtro por Estado de Conexión
+  if (filterConexion.value === 'conectado') {
+    list = list.filter(u => u.conectado)
+  } else if (filterConexion.value === 'desconectado') {
+    list = list.filter(u => !u.conectado)
+  }
+
+  // Filtro por Nivel de Permiso / Rol
+  if (filterPermiso.value !== '') {
+    list = list.filter(u => Number(u.idpermiso) === Number(filterPermiso.value))
+  }
+
+  // Filtro por Distrito / Sede
+  if (filterSede.value !== '') {
+    list = list.filter(u => Number(u.idsede) === Number(filterSede.value))
+  }
+
+  // Ordenamiento por jerarquía de los conectados:
+  // 1. Conectados primero (true > false)
+  // 2. Jerarquía de rol (Super Admin [3] > Admin [2] > Operador [1])
+  // 3. Sede ascendente (0 = Sede Central, 1... 33)
+  // 4. Nombre de usuario alfabético
+  list.sort((a, b) => {
+    // 1) Conectados primero
+    const connA = a.conectado ? 1 : 0
+    const connB = b.conectado ? 1 : 0
+    if (connB !== connA) {
+      return connB - connA
+    }
+
+    // 2) Jerarquía de rol descendente (3 > 2 > 1)
+    const permA = Number(a.idpermiso) || 0
+    const permB = Number(b.idpermiso) || 0
+    if (permB !== permA) {
+      return permB - permA
+    }
+
+    // 3) Sede ascendente
+    const sedeA = Number(a.idsede) || 0
+    const sedeB = Number(b.idsede) || 0
+    if (sedeA !== sedeB) {
+      return sedeA - sedeB
+    }
+
+    // 4) Nombre alfabético
+    return String(a.usuario || '').localeCompare(String(b.usuario || ''))
+  })
+
+  return list
 })
 
 const getPermisoName = (id) => permisos.find(p => p.id === id)?.nombre || 'Desconocido'
@@ -170,51 +250,9 @@ const forceDisconnect = async (user) => {
   }
 }
 
-const habilitarFechas = async (user) => {
-  const { value: formValues } = await Swal.fire({
-    title: `Habilitar Fechas para Distrito ${user.idsede}`,
-    html:
-      '<div class="text-left space-y-4">' +
-      '<label class="block text-sm font-medium text-slate-700 dark:text-slate-300">Módulo</label>' +
-      '<select id="swal-modulo-admin" class="w-full rounded-lg border-slate-300 border px-3 py-2 text-sm">' +
-      '<option value="programacion">Programación</option>' +
-      '<option value="captura">Captura</option>' +
-      '</select>' +
-      '<div class="grid grid-cols-2 gap-4 mt-3">' +
-      '<div><label class="block text-sm font-medium text-slate-700 dark:text-slate-300">Inicio</label><input id="swal-inicio" type="date" class="w-full rounded-lg border-slate-300 border px-3 py-2 text-sm"></div>' +
-      '<div><label class="block text-sm font-medium text-slate-700 dark:text-slate-300">Fin</label><input id="swal-fin" type="date" class="w-full rounded-lg border-slate-300 border px-3 py-2 text-sm"></div>' +
-      '</div>' +
-      '</div>',
-    focusConfirm: false,
-    showCancelButton: true,
-    confirmButtonText: 'Habilitar',
-    cancelButtonText: 'Cancelar',
-    confirmButtonColor: '#10b981',
-    preConfirm: () => {
-      return {
-        modulo: document.getElementById('swal-modulo-admin').value,
-        fecha_inicio: document.getElementById('swal-inicio').value,
-        fecha_fin: document.getElementById('swal-fin').value,
-        habilitado: true,
-        idsede: user.idsede
-      }
-    }
-  })
-
-  if (formValues) {
-    if (!formValues.fecha_inicio || !formValues.fecha_fin) {
-      Swal.fire('Error', 'Ambas fechas son obligatorias', 'error')
-      return
-    }
-    try {
-      const { data } = await api.post('/admin/restricciones', formValues)
-      if (data.success) {
-        Swal.fire('Habilitado', 'Se han habilitado las fechas para este distrito.', 'success')
-      }
-    } catch (e) {
-      Swal.fire('Error', 'No se pudo aplicar la configuración', 'error')
-    }
-  }
+const habilitarFechas = (user) => {
+  selectedUserForHabilitar.value = user
+  modalHabilitarOpen.value = true
 }
 
 const onSubmit = async () => {
@@ -281,20 +319,19 @@ onUnmounted(() => {
           <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Administra los accesos y permisos del sistema.</p>
         </div>
       </div>
-      <AppButton @click="showForm = true" variant="primary" v-if="!showForm">
+      <AppButton @click="() => { resetForm(); showForm = true; }" variant="primary">
         <template #icon><UserPlus class="w-4 h-4" /></template>
         Nuevo Usuario
       </AppButton>
     </header>
 
-    <AppCard v-if="showForm" class="mb-6 border-iecm-morado-200 dark:border-iecm-morado-500/30 shadow-md">
-      <template #header>
-        <div class="flex items-center gap-2">
-          <Shield class="w-5 h-5 text-iecm-morado dark:text-iecm-morado-400" />
-          <h2 class="text-lg font-semibold text-slate-900 dark:text-white">{{ isEditing ? 'Editar Usuario' : 'Nuevo Usuario' }}</h2>
-        </div>
-      </template>
-
+    <!-- Modal Crear / Editar Usuario -->
+    <AppModal
+      :open="showForm"
+      :title="isEditing ? 'Editar Usuario' : 'Nuevo Usuario'"
+      max-width="max-w-2xl"
+      @close="resetForm"
+    >
       <form @submit.prevent="onSubmit" class="space-y-6">
         <div class="grid md:grid-cols-2 gap-6">
           <AppInput v-model="form.usuario" label="Nombre de Usuario (Login)" :disabled="isEditing" required />
@@ -314,7 +351,7 @@ onUnmounted(() => {
           <AppButton type="submit" variant="primary" :loading="saving">Guardar Usuario</AppButton>
         </div>
       </form>
-    </AppCard>
+    </AppModal>
 
     <!-- Resumen de Conexiones (Radiales) -->
     <AppCard class="mb-6">
@@ -425,12 +462,53 @@ onUnmounted(() => {
 
     <AppCard>
       <template #header>
-        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-          <h2 class="text-lg font-semibold text-slate-900 dark:text-white">Directorio de Usuarios</h2>
-          <div class="w-full sm:w-64">
-            <AppInput v-model="search" placeholder="Buscar usuario...">
+        <div class="space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-3 border-b border-[#5B3166]/40 dark:border-white/10">
+            <div class="flex items-center gap-2">
+              <Users class="w-5 h-5 text-purple-200 dark:text-iecm-morado-400" />
+              <h2 class="text-lg font-semibold text-white">Directorio de Usuarios</h2>
+              <span class="text-xs px-2.5 py-0.5 rounded-full bg-white/20 text-white font-medium">
+                {{ filteredUsuarios.length }} de {{ usuarios.length }} usuarios
+              </span>
+            </div>
+            <button
+              v-if="hasActiveFilters"
+              type="button"
+              @click="clearFilters"
+              class="text-xs font-semibold text-purple-200 hover:text-white underline transition-colors cursor-pointer"
+            >
+              Limpiar filtros
+            </button>
+          </div>
+
+          <!-- Filtros de la tabla -->
+          <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <AppInput
+              v-model="search"
+              placeholder="Buscar por usuario o ID..."
+              label="Búsqueda"
+            >
               <template #icon><Search class="w-4 h-4" /></template>
             </AppInput>
+
+            <AppSelect v-model="filterConexion" label="Estado de Conexión">
+              <option value="">Todos los estados</option>
+              <option value="conectado">🟢 Conectados (En línea)</option>
+              <option value="desconectado">⚪ Desconectados</option>
+            </AppSelect>
+
+            <AppSelect v-model="filterPermiso" label="Nivel de Permiso (Rol)">
+              <option value="">Todos los roles</option>
+              <option value="3">Super Administrador</option>
+              <option value="2">Administrador</option>
+              <option value="1">Operador</option>
+            </AppSelect>
+
+            <AppSelect v-model="filterSede" label="Distrito Territorial">
+              <option value="">Todas las sedes</option>
+              <option value="0">Sede Central (0)</option>
+              <option v-for="d in distritos" :key="d" :value="String(d)">Distrito {{ d }}</option>
+            </AppSelect>
           </div>
         </div>
       </template>
@@ -483,5 +561,14 @@ onUnmounted(() => {
         </template>
       </AppTable>
     </AppCard>
+
+    <!-- Modal Habilitar Fechas de Meses Pasados / Días Especiales -->
+    <ModalHabilitarFechas
+      :open="modalHabilitarOpen"
+      :initial-sede="selectedUserForHabilitar?.idsede ?? 0"
+      :allow-global="false"
+      @close="modalHabilitarOpen = false"
+      @saved="() => { modalHabilitarOpen = false; loadUsuarios(); }"
+    />
   </div>
 </template>

@@ -12,20 +12,20 @@
 /* ── Variables CSS IECM ────────────────────────────── */
 :root {
   --iecm-morado:        #6B2D8B;
-  --iecm-morado-oscuro: #4A1F6B;
-  --iecm-morado-claro:  #9B59C8;
-  --iecm-dorado:        #F5A623;
-  --iecm-gris:          #F4F4F6;
-  --iecm-texto:         #4A4A4A;
-  --iecm-borde:         #E0E0E0;
+  --iecm-morado-oscuro: #3E1857;
+  --iecm-morado-claro:  #944DB9;
+  --iecm-dorado:        #D97706;
+  --iecm-gris:          #E2D3F0;
+  --iecm-texto:         #2A2438;
+  --iecm-borde:         #E0D9EB;
 
   color-scheme: light;
 }
 
 .dark {
-  --iecm-texto:         #E2E8F0; /* slate-200 */
-  --iecm-gris:          #0F172A; /* slate-900 */
-  --iecm-borde:         #1E293B; /* slate-800 */
+  --iecm-texto:         #F1EEF7;
+  --iecm-gris:          #0F0C1B;
+  --iecm-borde:         #2E2648;
   color-scheme: dark;
 }
 
@@ -100,12 +100,15 @@ body {
 
   /* Gradiente morado IECM */
   .bg-gradient-iecm {
-    background: linear-gradient(135deg, #4A1F6B 0%, #6B2D8B 60%, #9B59C8 100%);
+    background: linear-gradient(135deg, #3E1857 0%, #6B2D8B 55%, #8E44AD 100%);
+  }
+  .dark .bg-gradient-iecm {
+    background: linear-gradient(135deg, #2A103D 0%, #4D1D6B 55%, #6B2D8B 100%);
   }
 
   /* Sombra morada IECM */
   .shadow-iecm {
-    box-shadow: 0 4px 16px 0 rgba(107, 45, 139, 0.15);
+    box-shadow: 0 4px 16px 0 rgba(107, 45, 139, 0.12);
   }
 }
 
@@ -114,35 +117,36 @@ body {
   /* Input / Select base */
   .input-iecm {
     @apply w-full rounded-lg border border-iecm-gris-200 bg-white px-3 py-2 text-sm text-iecm-texto
-           placeholder:text-gray-400
+           placeholder:text-iecm-texto-muted
            focus:border-iecm-morado focus:outline-none focus:ring-2 focus:ring-iecm-morado-100
            transition-colors duration-150
-           dark:bg-slate-900 dark:border-white/10 dark:text-slate-200 dark:focus:ring-iecm-morado-600/35;
+           dark:bg-iecm-dark-header dark:border-iecm-dark-border dark:text-iecm-dark-text dark:placeholder:text-slate-500 dark:focus:ring-iecm-morado-500/35;
   }
 
   /* Label base */
   .label-iecm {
-    @apply block text-xs font-semibold uppercase tracking-wide text-iecm-texto-suave mb-1;
+    @apply block text-xs font-semibold uppercase tracking-wide text-iecm-texto-suave mb-1 dark:text-iecm-dark-text-muted;
   }
 
   /* Botón primario */
   .btn-primario {
     @apply inline-flex items-center gap-2 rounded-lg bg-iecm-morado px-4 py-2 text-sm font-semibold text-white
            shadow-iecm-sm hover:bg-iecm-morado-800 active:scale-95 transition-all duration-150
-           disabled:opacity-60 disabled:cursor-not-allowed;
+           disabled:opacity-60 disabled:cursor-not-allowed
+           dark:bg-iecm-morado-500 dark:hover:bg-iecm-morado-600;
   }
 
   /* Botón secundario */
   .btn-secundario {
     @apply inline-flex items-center gap-2 rounded-lg border border-iecm-gris-200 bg-white px-4 py-2 text-sm font-medium text-iecm-texto
            hover:border-iecm-morado hover:text-iecm-morado active:scale-95 transition-all duration-150
-           dark:bg-slate-800 dark:border-white/10 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white;
+           dark:bg-iecm-dark-card dark:border-iecm-dark-border dark:text-iecm-dark-text dark:hover:bg-iecm-dark-elevated dark:hover:text-white dark:hover:border-iecm-morado-400;
   }
 
   /* Card base */
   .card-iecm {
-    @apply rounded-xl bg-white border border-iecm-gris-200 shadow-iecm-sm
-           dark:bg-slate-900 dark:border-white/10 dark:shadow-none;
+    @apply rounded-xl bg-white border border-iecm-gris-200 shadow-[0_4px_20px_-4px_rgba(107,45,139,0.06)]
+           dark:bg-iecm-dark-card dark:border-iecm-dark-border dark:shadow-[0_8px_30px_rgb(0,0,0,0.35)];
   }
 }
 
