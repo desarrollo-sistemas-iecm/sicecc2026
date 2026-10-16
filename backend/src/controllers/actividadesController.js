@@ -9,6 +9,7 @@ import {
   getAdminDashboardMetrics,
   getActividadContext
 } from '../models/actividadModel.js'
+import { isFechaHabilitada } from '../models/configFechasModel.js'
 import { logger, logAction, logQuery, userTag } from '../config/logger.js'
 
 export const getAdminStats = async (req, res, next) => {
@@ -42,8 +43,21 @@ export const listActividades = async (req, res, next) => {
 export const marcarRealizada = async (req, res, next) => {
   try {
     const idcurso = Number(req.params.id)
-    const archivos = await getArchivosActuales(idcurso)
+    const ctx = await getActividadContext(idcurso)
 
+    // Validar restricción de fecha para operadores (permiso = 1)
+    const userPermiso = Number(req.user.permiso || req.user.idpermiso)
+    if (userPermiso === 1 && ctx?.fecha) {
+      const habilitada = await isFechaHabilitada('captura', ctx.fecha, req.user.idsede)
+      if (!habilitada) {
+        return res.status(403).json({
+          success: false,
+          message: `La actividad con fecha ${ctx.fecha} corresponde a un periodo pasado cerrado. Solicita una excepción al Super Administrador.`
+        })
+      }
+    }
+
+    const archivos = await getArchivosActuales(idcurso)
 
     const anexo1 = req.files?.anexo1?.[0]?.filename || archivos.nombre_archivo || null
     const anexo2 = req.files?.anexo2?.[0]?.filename || archivos.nombre_archivo2 || null
@@ -75,7 +89,6 @@ export const marcarRealizada = async (req, res, next) => {
       nombre_archivo3: imagen
     }
 
-    const ctx = await getActividadContext(idcurso)
     const subType = ctx && ctx.idtipo === 4 ? 'intervenciones' : 'talleres'
 
     await updateRealizada(idcurso, payload)
@@ -98,6 +111,19 @@ export const marcarRealizada = async (req, res, next) => {
 export const marcarNoRealizada = async (req, res, next) => {
   try {
     const idcurso = Number(req.params.id)
+    const ctx = await getActividadContext(idcurso)
+
+    const userPermiso = Number(req.user.permiso || req.user.idpermiso)
+    if (userPermiso === 1 && ctx?.fecha) {
+      const habilitada = await isFechaHabilitada('captura', ctx.fecha, req.user.idsede)
+      if (!habilitada) {
+        return res.status(403).json({
+          success: false,
+          message: `La actividad con fecha ${ctx.fecha} corresponde a un periodo pasado cerrado. Solicita una excepción al Super Administrador.`
+        })
+      }
+    }
+
     const motivo = req.body.motivo_norealizada ?? req.body.motivo ?? ''
     if (!motivo || motivo.trim().length < 10) {
       return res.status(422).json({
@@ -117,6 +143,33 @@ export const marcarNoRealizada = async (req, res, next) => {
 export const reprogramarActividad = async (req, res, next) => {
   try {
     const idcurso = Number(req.params.id)
+    const ctx = await getActividadContext(idcurso)
+
+    const userPermiso = Number(req.user.permiso || req.user.idpermiso)
+    if (userPermiso === 1) {
+      // Validar si la actividad original estaba en periodo permitido
+      if (ctx?.fecha) {
+        const origenHabilitada = await isFechaHabilitada('captura', ctx.fecha, req.user.idsede)
+        if (!origenHabilitada) {
+          return res.status(403).json({
+            success: false,
+            message: `La actividad original (${ctx.fecha}) corresponde a un periodo pasado cerrado. Solicita una excepción al Super Administrador.`
+          })
+        }
+      }
+
+      // Validar si la nueva fecha de reprogramación está habilitada
+      if (req.body.fecha) {
+        const destinoHabilitada = await isFechaHabilitada('programacion', req.body.fecha, req.user.idsede)
+        if (!destinoHabilitada) {
+          return res.status(403).json({
+            success: false,
+            message: `La nueva fecha seleccionada (${req.body.fecha}) no se encuentra habilitada para este periodo.`
+          })
+        }
+      }
+    }
+
     const hora = req.body.hora_programada ?? req.body.hora
     await updateReprogramar(idcurso, req.body.fecha, hora)
     logAction(`📅 ACT REPROGRAMADA ➜ Actividad reprogramada — ID: ${idcurso} a ${req.body.fecha} ${hora} — ${userTag(req.user)}`)

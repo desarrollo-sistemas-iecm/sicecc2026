@@ -41,31 +41,63 @@ export const useAuthStore = defineStore('auth', {
     connectSocket() {
       if (this.socket) {
         this.socket.disconnect()
+        this.socket = null
       }
-      let socketUrl = import.meta.env.VITE_API_URL || 'http://localhost:3005'
-      socketUrl = socketUrl.replace('/api', '')
 
-      this.socket = io(socketUrl, {
+      let socketServer = window.location.origin
+      let socketPath = '/socket.io/'
+      const envApi = import.meta.env.VITE_API_URL
+      const isLocalhost = typeof window !== 'undefined' &&
+        (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+
+      if (envApi && /^https?:\/\//i.test(envApi)) {
+        try {
+          const urlObj = new URL(envApi)
+          socketServer = urlObj.origin
+          // Extrae el prefijo de la subcarpeta (ej. "/sisec_2026/api" -> "sisec_2026")
+          const prefix = urlObj.pathname.replace(/\/api\/?$/, '').replace(/^\/+|\/+$/g, '')
+          socketPath = prefix ? `/${prefix}/socket.io/` : '/socket.io/'
+        } catch (e) {
+          socketServer = envApi.replace(/\/api\/?$/, '')
+          socketPath = '/socket.io/'
+        }
+      } else if (isLocalhost) {
+        socketServer = 'http://localhost:3013'
+        socketPath = '/socket.io/'
+      }
+
+      this.socket = io(socketServer, {
+        path: socketPath,
         auth: { token: this.token },
+        transports: ['polling', 'websocket'], // Crucial para proxies institucionales
         reconnection: true,
         reconnectionAttempts: Infinity,
         reconnectionDelay: 1000,
         reconnectionDelayMax: 5000
       })
 
-      this.socket.on('sesion:invalidada', ({ mensaje }) => {
+      const handleForcedLogout = (mensaje) => {
         Swal.fire({
           icon: 'warning',
           title: 'Sesión Finalizada',
-          text: mensaje || 'Tu sesión ha sido cerrada porque se inició sesión en otro dispositivo o por el administrador.',
+          text: mensaje || 'Tu sesión ha sido cerrada en otro dispositivo o por el administrador.',
           confirmButtonColor: '#6B2D8B', // morado IECM
           confirmButtonText: 'Entendido',
           allowOutsideClick: false,
           allowEscapeKey: false
         }).then(() => {
           this.clearSession()
-          window.location.href = '/login'
+          const loginUrl = (import.meta.env.BASE_URL || '/').replace(/\/+$/, '') + '/login'
+          window.location.href = loginUrl
         })
+      }
+
+      this.socket.on('sesion:invalidada', ({ mensaje }) => {
+        handleForcedLogout(mensaje)
+      })
+
+      this.socket.on('logout_forced', (data) => {
+        handleForcedLogout(data?.reason || data?.mensaje)
       })
     },
     disconnectSocket() {

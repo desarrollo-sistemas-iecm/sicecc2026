@@ -1,4 +1,4 @@
-import { getNotificaciones, marcarComoLeida, getSolicitudesPendientes } from '../models/notificacionModel.js'
+import { getNotificaciones, marcarComoLeida, marcarTodasComoLeidas, getSolicitudesPendientes } from '../models/notificacionModel.js'
 
 export const listNotificaciones = async (req, res, next) => {
   try {
@@ -13,6 +13,15 @@ export const listNotificaciones = async (req, res, next) => {
 export const leerNotificacion = async (req, res, next) => {
   try {
     await marcarComoLeida(Number(req.params.id), req.user.idsede, req.user.idusuario)
+    return res.json({ success: true })
+  } catch (error) {
+    return next(error)
+  }
+}
+
+export const leerTodasNotificaciones = async (req, res, next) => {
+  try {
+    await marcarTodasComoLeidas(req.user.idsede, req.user.idusuario)
     return res.json({ success: true })
   } catch (error) {
     return next(error)

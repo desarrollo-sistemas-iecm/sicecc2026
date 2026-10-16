@@ -81,7 +81,7 @@ export const getActividadContext = async (idcurso) => {
   request.input('idcurso', sql.Int, idcurso)
 
   const result = await request.query(`
-    SELECT ti.idcurso, ti.idcatcurso, cc.idtipo
+    SELECT ti.idcurso, ti.idcatcurso, cc.idtipo, format(ti.fecha, 'yyyy-MM-dd') as fecha
     FROM sisecycc2024.dbo.sisec_talleres_intervenciones ti
     LEFT JOIN sisecycc2024.dbo.sisec_cat_cursos cc ON ti.idcatcurso = cc.idcurso
     WHERE ti.idcurso = @idcurso

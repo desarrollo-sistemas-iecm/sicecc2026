@@ -314,13 +314,13 @@ watch(
       <div class="space-y-8">
         
         <!-- Header -->
-        <div class="flex items-start gap-4 p-4 bg-iecm-morado-50 dark:bg-iecm-morado-950/10 rounded-xl border border-iecm-morado-100">
-          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-iecm-morado text-sm font-bold text-white shadow-sm">
+        <div class="flex items-start gap-4 p-4 bg-[#5B3166] text-white rounded-xl border border-[#5B3166]/30">
+          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/15 text-sm font-bold text-white shadow-sm border border-white/20">
             IECM
           </div>
           <div>
-            <p class="text-xs uppercase tracking-wider font-semibold text-iecm-morado-600 dark:text-iecm-morado-300 mb-1">Captura de Actividad</p>
-            <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-tight">{{ titulo }}</h3>
+            <p class="text-xs uppercase tracking-wider font-semibold text-purple-200 mb-1">Captura de Actividad</p>
+            <h3 class="text-lg font-bold text-white leading-tight">{{ titulo }}</h3>
           </div>
         </div>
 
@@ -379,59 +379,59 @@ watch(
           <div class="overflow-x-auto rounded-xl border border-iecm-gris-200 dark:border-white/10 shadow-sm">
             <table class="w-full text-sm">
               <thead>
-                <tr class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                <tr class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
                   <th class="border-b border-r border-slate-200 dark:border-white/10 px-3 py-2 text-left font-semibold uppercase tracking-wider text-xs" rowspan="3">Género</th>
                   <th class="border-b border-slate-200 dark:border-white/10 px-3 py-2 text-center font-semibold uppercase tracking-wider text-xs" colspan="9">Grupos de Edad</th>
                 </tr>
                 <tr class="text-slate-700 dark:text-slate-300">
-                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-emerald-50 dark:bg-emerald-950/20 px-2 py-1.5 text-center font-semibold text-emerald-800">Infantes</th>
-                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-sky-50 px-2 py-1.5 text-center font-semibold text-sky-800" colspan="2">Jóvenes</th>
-                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-amber-50 dark:bg-amber-950/20 px-2 py-1.5 text-center font-semibold text-amber-800" colspan="4">Adultos</th>
-                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-violet-50 px-2 py-1.5 text-center font-semibold text-violet-800">Adultos Mayores</th>
-                  <th class="border-b border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-slate-900/40 px-3 py-1.5 text-center font-semibold text-slate-800 dark:text-slate-200" rowspan="2">TOTAL</th>
+                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-emerald-100/60 dark:bg-emerald-950/50 px-2 py-1.5 text-center font-semibold text-emerald-900 dark:text-emerald-300">Infantes</th>
+                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-sky-100/60 dark:bg-sky-950/50 px-2 py-1.5 text-center font-semibold text-sky-900 dark:text-sky-300" colspan="2">Jóvenes</th>
+                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-amber-100/60 dark:bg-amber-950/50 px-2 py-1.5 text-center font-semibold text-amber-900 dark:text-amber-300" colspan="4">Adultos</th>
+                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-purple-100/60 dark:bg-purple-950/50 px-2 py-1.5 text-center font-semibold text-purple-900 dark:text-purple-300">Adultos Mayores</th>
+                  <th class="border-b border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-slate-800/80 px-3 py-1.5 text-center font-semibold text-slate-800 dark:text-slate-200" rowspan="2">TOTAL</th>
                 </tr>
                 <tr class="text-[11px] font-medium tracking-wide">
-                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-emerald-100 dark:bg-emerald-500/10/50 text-emerald-900 py-1.5">0-12</th>
-                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-sky-100/50 text-sky-900 py-1.5">13-16</th>
-                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-sky-100/50 text-sky-900 py-1.5">17-20</th>
-                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-amber-100/50 text-amber-900 py-1.5">21-30</th>
-                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-amber-100/50 text-amber-900 py-1.5">31-40</th>
-                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-amber-100/50 text-amber-900 py-1.5">41-50</th>
-                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-amber-100/50 text-amber-900 py-1.5">51-61</th>
-                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-violet-100/50 text-violet-900 py-1.5">&gt;62</th>
+                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-emerald-100/80 dark:bg-emerald-900/30 text-emerald-950 dark:text-emerald-200 py-1.5">0-12</th>
+                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-sky-100/80 dark:bg-sky-900/30 text-sky-950 dark:text-sky-200 py-1.5">13-16</th>
+                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-sky-100/80 dark:bg-sky-900/30 text-sky-950 dark:text-sky-200 py-1.5">17-20</th>
+                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-amber-100/80 dark:bg-amber-900/30 text-amber-950 dark:text-amber-200 py-1.5">21-30</th>
+                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-amber-100/80 dark:bg-amber-900/30 text-amber-950 dark:text-amber-200 py-1.5">31-40</th>
+                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-amber-100/80 dark:bg-amber-900/30 text-amber-950 dark:text-amber-200 py-1.5">41-50</th>
+                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-amber-100/80 dark:bg-amber-900/30 text-amber-950 dark:text-amber-200 py-1.5">51-61</th>
+                  <th class="border-b border-r border-slate-200 dark:border-white/10 bg-purple-100/80 dark:bg-purple-900/30 text-purple-950 dark:text-purple-200 py-1.5">&gt;62</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-slate-100 dark:divide-white/5 bg-white dark:bg-slate-900">
-                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50/50 transition-colors">
-                  <td class="border-r border-slate-100 dark:border-white/5 bg-rose-50/30 px-3 py-2 font-medium text-rose-900">Mujeres</td>
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+                  <td class="border-r border-slate-100 dark:border-white/5 bg-rose-50/70 dark:bg-rose-950/30 px-3 py-2 font-semibold text-rose-800 dark:text-rose-300">Mujeres</td>
                   <td v-for="(_, idx) in ageLabels" :key="`m-${idx}`" class="border-r border-slate-100 dark:border-white/5 px-1 py-1.5">
                     <input
                       v-model.number="mujeres[idx]"
                       type="number"
                       min="0"
-                      class="w-full min-w-[3.5rem] rounded-md border border-slate-200 dark:border-white/10 px-2 py-1.5 text-center text-sm font-medium text-slate-700 dark:text-slate-300 transition-colors focus:border-iecm-morado focus:ring-1 focus:ring-iecm-morado focus:outline-none hover:border-slate-300"
+                      class="w-full min-w-[3.5rem] rounded-md border border-slate-300 dark:border-white/15 bg-white dark:bg-slate-800 px-2 py-1.5 text-center text-sm font-semibold text-slate-800 dark:text-white transition-colors focus:border-iecm-morado focus:ring-1 focus:ring-iecm-morado focus:outline-none hover:border-slate-400 dark:hover:border-white/30"
                     />
                   </td>
-                  <td class="px-3 py-2 text-center font-bold text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-slate-900/40/50">{{ rowTotals.totalMujeres }}</td>
+                  <td class="px-3 py-2 text-center font-bold text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-slate-800/50">{{ rowTotals.totalMujeres }}</td>
                 </tr>
-                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50/50 transition-colors">
-                  <td class="border-r border-slate-100 dark:border-white/5 bg-blue-50 dark:bg-blue-950/20/30 px-3 py-2 font-medium text-blue-900">Hombres</td>
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+                  <td class="border-r border-slate-100 dark:border-white/5 bg-blue-50/70 dark:bg-blue-950/30 px-3 py-2 font-semibold text-blue-800 dark:text-blue-300">Hombres</td>
                   <td v-for="(_, idx) in ageLabels" :key="`h-${idx}`" class="border-r border-slate-100 dark:border-white/5 px-1 py-1.5">
                     <input
                       v-model.number="hombres[idx]"
                       type="number"
                       min="0"
-                      class="w-full min-w-[3.5rem] rounded-md border border-slate-200 dark:border-white/10 px-2 py-1.5 text-center text-sm font-medium text-slate-700 dark:text-slate-300 transition-colors focus:border-iecm-morado focus:ring-1 focus:ring-iecm-morado focus:outline-none hover:border-slate-300"
+                      class="w-full min-w-[3.5rem] rounded-md border border-slate-300 dark:border-white/15 bg-white dark:bg-slate-800 px-2 py-1.5 text-center text-sm font-semibold text-slate-800 dark:text-white transition-colors focus:border-iecm-morado focus:ring-1 focus:ring-iecm-morado focus:outline-none hover:border-slate-400 dark:hover:border-white/30"
                     />
                   </td>
-                  <td class="px-3 py-2 text-center font-bold text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-slate-900/40/50">{{ rowTotals.totalHombres }}</td>
+                  <td class="px-3 py-2 text-center font-bold text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-slate-800/50">{{ rowTotals.totalHombres }}</td>
                 </tr>
-                <tr class="bg-slate-50 dark:bg-slate-900/40 border-t-2 border-slate-200 dark:border-white/10">
+                <tr class="bg-slate-100 dark:bg-slate-800/80 border-t-2 border-slate-200 dark:border-white/10">
                   <td class="border-r border-slate-200 dark:border-white/10 px-3 py-3 font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider text-xs text-right">Totales</td>
-                  <td v-for="(total, idx) in colTotals" :key="`t-${idx}`" class="border-r border-slate-200 dark:border-white/10 px-2 py-3 text-center font-bold text-slate-700 dark:text-slate-300">
+                  <td v-for="(total, idx) in colTotals" :key="`t-${idx}`" class="border-r border-slate-200 dark:border-white/10 px-2 py-3 text-center font-bold text-slate-700 dark:text-slate-200">
                     {{ total }}
                   </td>
-                  <td class="px-3 py-3 text-center font-black text-iecm-morado dark:text-iecm-morado-400 bg-iecm-morado-50 dark:bg-iecm-morado-950/10 text-base">{{ rowTotals.totalGeneral }}</td>
+                  <td class="px-3 py-3 text-center font-black text-iecm-morado dark:text-purple-300 bg-iecm-morado-100/70 dark:bg-iecm-morado-950/50 text-base">{{ rowTotals.totalGeneral }}</td>
                 </tr>
               </tbody>
             </table>

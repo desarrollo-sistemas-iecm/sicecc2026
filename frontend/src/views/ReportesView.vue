@@ -18,7 +18,7 @@ const { animarVista } = useGsapAnimations()
 const vistaRef = ref(null)
 
 // ── Permiso del usuario en sesión ────────────────────────────────────────────
-const isAdmin = computed(() => Number(authStore.user?.permiso) === 2)
+const isAdmin = computed(() => Number(authStore.user?.permiso) >= 2)
 
 // ── Catálogo de tipos de reporte ─────────────────────────────────────────────
 const TIPOS_BASE = [
@@ -244,17 +244,17 @@ onMounted(() => {
 <template>
   <div ref="vistaRef" class="space-y-6 max-w-5xl mx-auto">
     <!-- Encabezado (Header banner) -->
-    <div class="rounded-2xl bg-gradient-iecm px-6 py-6 text-white shadow-iecm-sm flex flex-wrap items-center justify-between gap-6 relative overflow-hidden">
+    <div class="rounded-2xl bg-[#403166] dark:bg-[#231A38] px-6 py-6 text-white shadow-iecm-sm flex flex-wrap items-center justify-between gap-6 relative overflow-hidden">
       <!-- Decoración de fondo -->
-      <div class="absolute right-0 top-0 w-64 h-64 bg-white dark:bg-slate-900 opacity-5 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3"></div>
+      <div class="absolute right-0 top-0 w-64 h-64 bg-white/5 opacity-20 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3"></div>
       
       <div class="flex items-start gap-4 relative z-10">
-        <div class="p-3 bg-white dark:bg-slate-800 rounded-xl border border-white/20 dark:border-white/10 shadow-sm">
-          <FileSpreadsheet class="w-8 h-8 text-iecm-morado dark:text-iecm-morado-300" />
+        <div class="p-3 bg-white/15 rounded-xl border border-white/20 shadow-sm">
+          <FileSpreadsheet class="w-8 h-8 text-white" />
         </div>
         <div>
-          <h2 class="text-2xl font-bold tracking-tight">Generación de Reportes</h2>
-          <p class="text-purple-100 text-sm mt-1 max-w-lg">
+          <h2 class="text-2xl font-bold tracking-tight text-white">Generación de Reportes</h2>
+          <p class="text-purple-200 text-sm mt-1 max-w-lg">
             Configura los filtros y exporta la información en formato Excel (.xlsx).
           </p>
         </div>

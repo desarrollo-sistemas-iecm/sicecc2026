@@ -14,7 +14,7 @@ themeStore.applyTheme()
 </script>
 
 <template>
-  <div class="flex min-h-screen bg-iecm-gris dark:bg-slate-950 font-sans text-iecm-texto dark:text-slate-200 selection:bg-iecm-morado-100 selection:text-iecm-morado-800 transition-colors duration-200">
+  <div class="flex min-h-screen bg-iecm-gris dark:bg-iecm-dark-bg font-sans text-iecm-texto dark:text-iecm-dark-text selection:bg-iecm-morado-100 selection:text-iecm-morado-800 transition-colors duration-200">
     <!-- Sidebar -->
     <AppSidebar v-if="!isAuthRoute" />
     
@@ -25,9 +25,9 @@ themeStore.applyTheme()
       
       <!-- Área principal -->
       <main class="flex-1 p-4 sm:p-6 lg:p-8 overflow-x-hidden">
-        <router-view v-slot="{ Component }">
+        <router-view v-slot="{ Component, route }">
           <transition name="vista" mode="out-in">
-            <component :is="Component" />
+            <component :is="Component" :key="route.path" />
           </transition>
         </router-view>
       </main>

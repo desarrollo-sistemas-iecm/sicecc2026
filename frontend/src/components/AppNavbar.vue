@@ -17,14 +17,14 @@ const currentRouteName = computed(() => {
 </script>
 
 <template>
-  <header class="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-iecm-gris-200 bg-white/80 backdrop-blur-md px-6 shadow-sm lg:px-8 pl-16 lg:pl-8 dark:bg-slate-900 dark:border-white/10 dark:text-slate-200 transition-colors duration-200">
+  <header class="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-iecm-gris-200 bg-white/95 backdrop-blur-md px-6 shadow-[0_1px_4px_0_rgba(107,45,139,0.05)] lg:px-8 pl-16 lg:pl-8 dark:bg-iecm-dark-card/95 dark:border-iecm-dark-border dark:text-iecm-dark-text transition-colors duration-200">
     
     <!-- Breadcrumbs -->
-    <div class="flex items-center gap-2 text-sm text-iecm-texto dark:text-slate-400">
+    <div class="flex items-center gap-2 text-sm text-iecm-texto-suave dark:text-iecm-dark-text-muted">
       <!-- REEMPLAZAR: colocar logo-iecm-isotipo.png aquí si se desea un mini logo -->
-      <span class="font-medium text-iecm-morado-600 dark:text-iecm-morado-400">SISEC CC</span>
-      <ChevronRight class="w-4 h-4 text-slate-400 dark:text-slate-500" />
-      <span class="font-semibold text-slate-800 dark:text-white">{{ currentRouteName }}</span>
+      <span class="font-medium text-iecm-morado dark:text-iecm-morado-300">SISEC CC</span>
+      <ChevronRight class="w-4 h-4 text-iecm-texto-muted dark:text-slate-500" />
+      <span class="font-semibold text-iecm-texto dark:text-white">{{ currentRouteName }}</span>
     </div>
 
     <!-- Acciones Topbar -->
@@ -32,11 +32,11 @@ const currentRouteName = computed(() => {
       <!-- Botón de Alternar Tema -->
       <button 
         @click="themeStore.toggleTheme"
-        class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 hover:text-iecm-morado dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white transition-colors"
+        class="p-2 rounded-xl text-iecm-texto-suave hover:bg-iecm-gris-100 hover:text-iecm-morado dark:text-iecm-dark-text-muted dark:hover:bg-iecm-dark-elevated dark:hover:text-white transition-colors"
         title="Alternar tema claro/oscuro"
       >
         <Sun v-if="themeStore.isDark" class="w-5 h-5 text-amber-400" />
-        <Moon v-else class="w-5 h-5" />
+        <Moon v-else class="w-5 h-5 text-iecm-morado-700" />
       </button>
       
       <AppNotifications class="ml-1" />

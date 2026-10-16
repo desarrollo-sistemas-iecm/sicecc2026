@@ -28,9 +28,18 @@ export const getCatalogosReportes = async () => {
     ORDER BY idtipo, descripcion
   `)
 
+  // Catálogo de tipos de público (para intervenciones educativas)
+  const tiposPublico = await pool.request().query(`
+    SELECT idtipopublico, descripcion
+    FROM sisecycc2024.dbo.sisec_cat_tipos_publico
+    WHERE estatus = 1
+    ORDER BY idtipopublico
+  `)
+
   return {
     sedes: sedes.recordset,
     delegaciones: delegaciones.recordset,
-    cursos: cursos.recordset
+    cursos: cursos.recordset,
+    tiposPublico: tiposPublico.recordset
   }
 }

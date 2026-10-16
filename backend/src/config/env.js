@@ -23,7 +23,7 @@ const getLocalIp = () => {
 const ip = getLocalIp()
 
 // Resolver puerto configurado
-const resolvedPort = parseInt(process.env.PORT, 10) || ((ip === '145.0.40.48') ? 3005 : 3000)
+const resolvedPort = parseInt(process.env.PORT, 10) || ((ip === '145.0.40.48') ? 3013 : 3000)
 
 export const env = {
   nodeEnv: envName,

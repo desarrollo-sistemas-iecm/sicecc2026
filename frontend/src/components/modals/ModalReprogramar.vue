@@ -1,9 +1,10 @@
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { computed, ref, watch, onMounted } from 'vue'
 import { useToast } from 'vue-toastification'
 import Swal from 'sweetalert2'
 import api from '../../services/api.js'
 import AppModal from '../AppModal.vue'
+import { useDateRestrictions } from '../../composables/useDateRestrictions.js'
 
 const props = defineProps({
   open: { type: Boolean, default: false },
@@ -14,6 +15,8 @@ const props = defineProps({
 const emit = defineEmits(['close', 'saved'])
 
 const toast = useToast()
+const { isDateEnabled, alertPastMonthBlocked, loadRestrictions } = useDateRestrictions()
+
 const fecha = ref('')
 const horas = ref('')
 const minutos = ref('')
@@ -54,6 +57,12 @@ const onSubmit = async () => {
   touched.value = true
   if (!isValid.value || !props.actividad) return
 
+  // Validar si la nueva fecha está habilitada
+  if (!isDateEnabled(fecha.value, 'programacion')) {
+    await alertPastMonthBlocked(fecha.value, 'programacion')
+    return
+  }
+
   const result = await Swal.fire({
     title: '¿Reprogramar actividad?',
     text: `Nueva fecha: ${fecha.value} ${horaValue.value}`,
@@ -83,7 +92,7 @@ const onSubmit = async () => {
     await Swal.fire({
       icon: 'error',
       title: 'Error',
-      text: error?.message || 'No se pudo reprogramar la actividad.'
+      text: error?.response?.data?.message || error?.message || 'No se pudo reprogramar la actividad.'
     })
   } finally {
     saving.value = false
@@ -94,6 +103,7 @@ watch(
   () => props.open,
   (open) => {
     if (open) {
+      loadRestrictions()
       resetState()
     }
   }
@@ -105,12 +115,12 @@ watch(
     <div class="space-y-6">
       
       <!-- Header -->
-      <div class="flex items-start gap-4 p-4 bg-amber-50 dark:bg-amber-950/20 rounded-xl border border-amber-100">
+      <div class="flex items-start gap-4 p-4 bg-amber-50 dark:bg-amber-950/40 rounded-xl border border-amber-100 dark:border-amber-900/40">
         <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-500 text-sm font-bold text-white shadow-sm">
           IECM
         </div>
         <div>
-          <p class="text-xs uppercase tracking-wider font-semibold text-amber-700 mb-1">Reprogramar Actividad</p>
+          <p class="text-xs uppercase tracking-wider font-semibold text-amber-700 dark:text-amber-300 mb-1">Reprogramar Actividad</p>
           <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-tight">{{ titulo }}</h3>
         </div>
       </div>
@@ -123,8 +133,6 @@ watch(
             type="date" 
             class="input-iecm" 
             :class="{'border-red-400 focus:border-red-500 focus:ring-red-100': touched && !fechaValida}"
-            :min="props.dateConfig?.fecha_inicio"
-            :max="props.dateConfig?.fecha_fin"
             @blur="touched = true" 
           />
           <p v-if="touched && !fechaValida" class="mt-1.5 text-xs text-red-600 font-medium">La fecha es obligatoria y no puede ser menor a hoy.</p>

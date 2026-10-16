@@ -1552,3 +1552,945 @@
 2026-10-12 15:42:16 [INFO] ══════════════════════════════════════════
 2026-10-12 15:42:16 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
 2026-10-12 15:42:16 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 15:42:26 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 15:42:26 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 15:42:26 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 15:42:26 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 15:42:26 [INFO] 🌐 Ambiente     : development
+2026-10-12 15:42:26 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 15:42:26 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 15:42:26 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 15:42:26 [INFO] 📋 Versión API  : v1
+2026-10-12 15:42:26 [INFO] ⏰ Inicio       : 2026-10-12 21:42:26
+2026-10-12 15:42:26 [INFO] ══════════════════════════════════════════
+2026-10-12 15:42:26 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 15:42:26 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 16:04:20 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 16:04:20 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 16:04:20 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 16:04:20 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 16:04:20 [INFO] 🌐 Ambiente     : development
+2026-10-12 16:04:20 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 16:04:20 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 16:04:20 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 16:04:20 [INFO] 📋 Versión API  : v1
+2026-10-12 16:04:20 [INFO] ⏰ Inicio       : 2026-10-12 22:04:20
+2026-10-12 16:04:20 [INFO] ══════════════════════════════════════════
+2026-10-12 16:04:20 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 16:04:20 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 16:10:30 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 16:10:30 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 16:10:30 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 16:10:30 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 16:10:30 [INFO] 🌐 Ambiente     : development
+2026-10-12 16:10:30 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 16:10:30 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 16:10:30 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 16:10:30 [INFO] 📋 Versión API  : v1
+2026-10-12 16:10:30 [INFO] ⏰ Inicio       : 2026-10-12 22:10:30
+2026-10-12 16:10:30 [INFO] ══════════════════════════════════════════
+2026-10-12 16:10:30 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 16:10:30 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 16:33:19 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 16:33:19 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 16:33:19 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 16:33:19 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 16:33:19 [INFO] 🌐 Ambiente     : development
+2026-10-12 16:33:19 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 16:33:19 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 16:33:19 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 16:33:19 [INFO] 📋 Versión API  : v1
+2026-10-12 16:33:19 [INFO] ⏰ Inicio       : 2026-10-12 22:33:19
+2026-10-12 16:33:19 [INFO] ══════════════════════════════════════════
+2026-10-12 16:33:19 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 16:33:19 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 16:36:41 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 16:36:42 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 16:36:42 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 16:36:42 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 16:36:42 [INFO] 🌐 Ambiente     : development
+2026-10-12 16:36:42 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 16:36:42 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 16:36:42 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 16:36:42 [INFO] 📋 Versión API  : v1
+2026-10-12 16:36:42 [INFO] ⏰ Inicio       : 2026-10-12 22:36:42
+2026-10-12 16:36:42 [INFO] ══════════════════════════════════════════
+2026-10-12 16:36:42 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 16:36:42 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 16:41:17 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 16:41:17 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 16:41:17 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 16:41:17 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 16:41:17 [INFO] 🌐 Ambiente     : development
+2026-10-12 16:41:17 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 16:41:17 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 16:41:17 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 16:41:17 [INFO] 📋 Versión API  : v1
+2026-10-12 16:41:17 [INFO] ⏰ Inicio       : 2026-10-12 22:41:17
+2026-10-12 16:41:17 [INFO] ══════════════════════════════════════════
+2026-10-12 16:41:17 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 16:41:17 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 16:43:52 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 16:43:52 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 16:43:52 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 16:43:52 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 16:43:52 [INFO] 🌐 Ambiente     : development
+2026-10-12 16:43:52 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 16:43:52 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 16:43:52 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 16:43:52 [INFO] 📋 Versión API  : v1
+2026-10-12 16:43:52 [INFO] ⏰ Inicio       : 2026-10-12 22:43:52
+2026-10-12 16:43:52 [INFO] ══════════════════════════════════════════
+2026-10-12 16:43:52 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 16:43:52 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 16:44:13 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 16:44:13 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 16:44:13 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 16:44:13 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 16:44:13 [INFO] 🌐 Ambiente     : development
+2026-10-12 16:44:13 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 16:44:13 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 16:44:13 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 16:44:13 [INFO] 📋 Versión API  : v1
+2026-10-12 16:44:13 [INFO] ⏰ Inicio       : 2026-10-12 22:44:13
+2026-10-12 16:44:13 [INFO] ══════════════════════════════════════════
+2026-10-12 16:44:13 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 16:44:13 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 16:45:03 [SESSION] 🟢 LOGIN ➜ SUPERADMIN (SUPERADMIN) — Perfil 3 | Sede=1 — IP: ::1
+2026-10-12 16:45:03 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: CisgPG4GUSnVVC6jAAAB
+2026-10-12 16:47:04 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 23 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-12 16:57:29 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 23 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-12 16:59:31 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 23 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-12 17:01:30 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 17:01:30 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 17:01:30 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 17:01:30 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 17:01:30 [INFO] 🌐 Ambiente     : development
+2026-10-12 17:01:30 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 17:01:30 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 17:01:30 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 17:01:30 [INFO] 📋 Versión API  : v1
+2026-10-12 17:01:30 [INFO] ⏰ Inicio       : 2026-10-12 23:01:30
+2026-10-12 17:01:30 [INFO] ══════════════════════════════════════════
+2026-10-12 17:01:30 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 17:01:30 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 17:01:31 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: -Iq7HRsiy1-2dfxeAAAB
+2026-10-12 17:02:04 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 17:02:04 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 17:02:04 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 17:02:04 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 17:02:04 [INFO] 🌐 Ambiente     : development
+2026-10-12 17:02:04 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 17:02:04 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 17:02:04 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 17:02:04 [INFO] 📋 Versión API  : v1
+2026-10-12 17:02:04 [INFO] ⏰ Inicio       : 2026-10-12 23:02:04
+2026-10-12 17:02:04 [INFO] ══════════════════════════════════════════
+2026-10-12 17:02:04 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 17:02:04 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 17:02:05 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: _smO3lxYvZbeKYA6AAAB
+2026-10-12 17:02:39 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 17:02:39 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 17:02:39 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 17:02:39 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 17:02:39 [INFO] 🌐 Ambiente     : development
+2026-10-12 17:02:39 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 17:02:39 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 17:02:39 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 17:02:39 [INFO] 📋 Versión API  : v1
+2026-10-12 17:02:39 [INFO] ⏰ Inicio       : 2026-10-12 23:02:39
+2026-10-12 17:02:39 [INFO] ══════════════════════════════════════════
+2026-10-12 17:02:39 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 17:02:39 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 17:02:40 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: t8gFsE7de0slotPqAAAB
+2026-10-12 17:03:05 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 17:03:05 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 17:03:05 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 17:03:05 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 17:03:05 [INFO] 🌐 Ambiente     : development
+2026-10-12 17:03:05 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 17:03:05 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 17:03:05 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 17:03:05 [INFO] 📋 Versión API  : v1
+2026-10-12 17:03:05 [INFO] ⏰ Inicio       : 2026-10-12 23:03:05
+2026-10-12 17:03:05 [INFO] ══════════════════════════════════════════
+2026-10-12 17:03:05 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 17:03:05 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 17:03:08 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: lMebCZjUYQFyG4M6AAAB
+2026-10-12 17:03:41 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 17:03:41 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 17:03:41 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 17:03:41 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 17:03:41 [INFO] 🌐 Ambiente     : development
+2026-10-12 17:03:41 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 17:03:41 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 17:03:41 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 17:03:41 [INFO] 📋 Versión API  : v1
+2026-10-12 17:03:41 [INFO] ⏰ Inicio       : 2026-10-12 23:03:41
+2026-10-12 17:03:41 [INFO] ══════════════════════════════════════════
+2026-10-12 17:03:41 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 17:03:41 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 17:03:42 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: RgZTrT728DvhowuWAAAB
+2026-10-12 17:04:10 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 17:04:10 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 17:04:10 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 17:04:10 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 17:04:10 [INFO] 🌐 Ambiente     : development
+2026-10-12 17:04:10 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 17:04:10 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 17:04:10 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 17:04:10 [INFO] 📋 Versión API  : v1
+2026-10-12 17:04:10 [INFO] ⏰ Inicio       : 2026-10-12 23:04:10
+2026-10-12 17:04:10 [INFO] ══════════════════════════════════════════
+2026-10-12 17:04:10 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 17:04:10 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 17:04:11 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: SVRvVmHkWuNk5x5AAAAB
+2026-10-12 17:09:56 [INFO] [WS]       🔌 Usuario desconectado: SUPERADMIN — Socket: SVRvVmHkWuNk5x5AAAAB
+2026-10-12 17:19:52 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 17:19:52 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 17:19:52 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 17:19:52 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 17:19:52 [INFO] 🌐 Ambiente     : development
+2026-10-12 17:19:52 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 17:19:52 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 17:19:52 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 17:19:52 [INFO] 📋 Versión API  : v1
+2026-10-12 17:19:52 [INFO] ⏰ Inicio       : 2026-10-12 23:19:52
+2026-10-12 17:19:52 [INFO] ══════════════════════════════════════════
+2026-10-12 17:19:52 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 17:19:52 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 17:20:27 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 17:20:27 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 17:20:27 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 17:20:27 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 17:20:27 [INFO] 🌐 Ambiente     : development
+2026-10-12 17:20:27 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 17:20:27 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 17:20:27 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 17:20:27 [INFO] 📋 Versión API  : v1
+2026-10-12 17:20:27 [INFO] ⏰ Inicio       : 2026-10-12 23:20:27
+2026-10-12 17:20:27 [INFO] ══════════════════════════════════════════
+2026-10-12 17:20:27 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 17:20:27 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 17:20:32 [SESSION] 🟢 LOGIN ➜ SUPERADMIN (SUPERADMIN) — Perfil 3 | Sede=1 — IP: ::1
+2026-10-12 17:20:32 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: 7EsSnrqZg5VjFc6GAAAB
+2026-10-12 17:20:37 [INFO] [WS]       🔌 Usuario desconectado: SUPERADMIN — Socket: 7EsSnrqZg5VjFc6GAAAB
+2026-10-12 17:20:41 [SESSION] 🟢 LOGIN ➜ SUB01 (SUB01) — Operador | Sede=1 — IP: ::1
+2026-10-12 17:20:41 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: y92MR3T-tbnta07FAAAD
+2026-10-12 17:21:07 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: y92MR3T-tbnta07FAAAD
+2026-10-12 17:21:07 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: upnu9e6BLP86wG3RAAAF
+2026-10-12 17:21:25 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: upnu9e6BLP86wG3RAAAF
+2026-10-12 17:21:25 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: LT6uGDDc0S70zPxWAAAH
+2026-10-12 17:25:28 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 17:25:28 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 17:25:28 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 17:25:28 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 17:25:28 [INFO] 🌐 Ambiente     : development
+2026-10-12 17:25:28 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 17:25:28 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 17:25:28 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 17:25:28 [INFO] 📋 Versión API  : v1
+2026-10-12 17:25:28 [INFO] ⏰ Inicio       : 2026-10-12 23:25:28
+2026-10-12 17:25:28 [INFO] ══════════════════════════════════════════
+2026-10-12 17:25:28 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 17:25:28 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 17:36:21 [SESSION] 🟢 LOGIN ➜ SUPERADMIN (SUPERADMIN) — Perfil 3 | Sede=1 — IP: ::1
+2026-10-12 17:36:21 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: cLPgfRk6cm1BNtMnAAAB
+2026-10-12 17:36:42 [INFO] [WS]       🔌 Usuario desconectado: SUPERADMIN — Socket: cLPgfRk6cm1BNtMnAAAB
+2026-10-12 17:36:48 [SESSION] 🟢 LOGIN ➜ SUB23 (SUB23) — Operador | Sede=23 — IP: ::1
+2026-10-12 17:36:48 [INFO] [WS]       🔌 Usuario conectado: SUB23 (Sede: 23) — Socket: mHnPzbYTrvPzlpE7AAAD
+2026-10-12 17:36:57 [INFO] [WS]       🔌 Usuario desconectado: SUB23 — Socket: mHnPzbYTrvPzlpE7AAAD
+2026-10-12 17:36:57 [INFO] [WS]       🔌 Usuario conectado: SUB23 (Sede: 23) — Socket: WjvrrWAke8XPOnvbAAAF
+2026-10-12 17:37:00 [INFO] [WS]       🔌 Usuario desconectado: SUB23 — Socket: WjvrrWAke8XPOnvbAAAF
+2026-10-12 17:37:00 [INFO] [WS]       🔌 Usuario conectado: SUB23 (Sede: 23) — Socket: YI42-_JlzVCOR5dKAAAH
+2026-10-12 17:37:02 [INFO] [WS]       🔌 Usuario desconectado: SUB23 — Socket: YI42-_JlzVCOR5dKAAAH
+2026-10-12 17:37:02 [INFO] [WS]       🔌 Usuario conectado: SUB23 (Sede: 23) — Socket: XxJxOY8zPQcyvJ5PAAAJ
+2026-10-12 17:37:06 [INFO] [WS]       🔌 Usuario desconectado: SUB23 — Socket: XxJxOY8zPQcyvJ5PAAAJ
+2026-10-12 17:37:07 [INFO] [WS]       🔌 Usuario conectado: SUB23 (Sede: 23) — Socket: jz_0T2R0U3JOM5NlAAAL
+2026-10-12 17:38:16 [INFO] [WS]       🔌 Usuario desconectado: SUB23 — Socket: jz_0T2R0U3JOM5NlAAAL
+2026-10-12 17:38:28 [SESSION] 🟢 LOGIN ➜ SUPERADMIN (SUPERADMIN) — Perfil 3 | Sede=1 — IP: ::1
+2026-10-12 17:38:28 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: tN2m46Tlp1mpmeK5AAAN
+2026-10-12 17:47:41 [INFO] [WS]       🔌 Usuario desconectado: SUPERADMIN — Socket: tN2m46Tlp1mpmeK5AAAN
+2026-10-12 17:47:41 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: m-LAt9KY-gcHXAtEAAAP
+2026-10-12 17:51:29 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 17:51:29 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 17:51:29 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 17:51:29 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 17:51:29 [INFO] 🌐 Ambiente     : development
+2026-10-12 17:51:29 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 17:51:29 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 17:51:29 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 17:51:29 [INFO] 📋 Versión API  : v1
+2026-10-12 17:51:29 [INFO] ⏰ Inicio       : 2026-10-12 23:51:29
+2026-10-12 17:51:29 [INFO] ══════════════════════════════════════════
+2026-10-12 17:51:29 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 17:51:29 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 17:51:30 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: qwRTVMdWBSeET6lLAAAB
+2026-10-12 17:55:53 [INFO] [WS]       🔌 Usuario desconectado: SUPERADMIN — Socket: qwRTVMdWBSeET6lLAAAB
+2026-10-12 17:55:54 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: QjV7IQubFymwiMn2AAAD
+2026-10-12 17:55:57 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 23 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-12 18:00:10 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-10-12 18:03:00 [INFO] [INFO]    ✅ App inicializada
+2026-10-12 18:03:00 [INFO] ╔══════════════════════════════════════╗
+2026-10-12 18:03:00 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-12 18:03:00 [INFO] ╚══════════════════════════════════════╝
+2026-10-12 18:03:00 [INFO] 🌐 Ambiente     : development
+2026-10-12 18:03:00 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-12 18:03:00 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-12 18:03:00 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-12 18:03:00 [INFO] 📋 Versión API  : v1
+2026-10-12 18:03:00 [INFO] ⏰ Inicio       : 2026-10-13 00:03:00
+2026-10-12 18:03:00 [INFO] ══════════════════════════════════════════
+2026-10-12 18:03:00 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-12 18:03:00 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-12 18:03:01 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: hN9Yj2g_2edGkNf9AAAB
+2026-10-12 18:05:31 [ACTION] 📋 PROGRAMA NUEVO ➜ Programación creada — Curso: 33 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-12 18:05:35 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 24 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-12 18:08:03 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 24 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-12 18:08:21 [INFO] [WS]       🔌 Usuario desconectado: SUPERADMIN — Socket: hN9Yj2g_2edGkNf9AAAB
+2026-10-13 09:00:05 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-10-13 11:04:25 [SESSION] 🟢 LOGIN ➜ SUB01 (SUB01) — Operador | Sede=1 — IP: ::1
+2026-10-13 11:04:25 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: u_odCifcWehcOl-pAAAD
+2026-10-13 11:13:40 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 24 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-13 11:52:29 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: u_odCifcWehcOl-pAAAD
+2026-10-13 11:52:36 [WARN] [AUTH]    ❌ Login fallido — Usuario: SUPERADMIN (credenciales incorrectas)
+2026-10-13 11:52:37 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-10-13 11:52:40 [WARN] [AUTH]    ❌ Login fallido — Usuario: SUPERADMIN (credenciales incorrectas)
+2026-10-13 11:52:41 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-10-13 11:52:44 [WARN] [AUTH]    ❌ Login fallido — Usuario: SUPERADMIN (credenciales incorrectas)
+2026-10-13 11:52:44 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-10-13 11:52:48 [SESSION] 🟢 LOGIN ➜ SUPERADMIN (SUPERADMIN) — Perfil 3 | Sede=1 — IP: ::1
+2026-10-13 11:52:48 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: TJ3edmT47C7kFJDPAAAF
+2026-10-13 12:02:24 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 12:02:24 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 12:02:24 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 12:02:24 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 12:02:24 [INFO] 🌐 Ambiente     : development
+2026-10-13 12:02:24 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 12:02:24 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 12:02:24 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 12:02:24 [INFO] 📋 Versión API  : v1
+2026-10-13 12:02:24 [INFO] ⏰ Inicio       : 2026-10-13 18:02:24
+2026-10-13 12:02:24 [INFO] ══════════════════════════════════════════
+2026-10-13 12:02:24 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 12:02:24 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 12:02:29 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: GJP2Ua7xG2RMduz8AAAB
+2026-10-13 12:12:38 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 24 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-13 12:13:19 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 24 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-13 12:13:45 [INFO] [WS]       🔌 Usuario desconectado: SUPERADMIN — Socket: GJP2Ua7xG2RMduz8AAAB
+2026-10-13 12:13:47 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 12:13:47 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 12:13:47 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 12:13:47 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 12:13:47 [INFO] 🌐 Ambiente     : development
+2026-10-13 12:13:47 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 12:13:47 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 12:13:47 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 12:13:47 [INFO] 📋 Versión API  : v1
+2026-10-13 12:13:47 [INFO] ⏰ Inicio       : 2026-10-13 18:13:47
+2026-10-13 12:13:47 [INFO] ══════════════════════════════════════════
+2026-10-13 12:13:47 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 12:13:47 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 12:14:10 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 12:14:10 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 12:14:10 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 12:14:10 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 12:14:10 [INFO] 🌐 Ambiente     : development
+2026-10-13 12:14:10 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 12:14:10 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 12:14:10 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 12:14:10 [INFO] 📋 Versión API  : v1
+2026-10-13 12:14:10 [INFO] ⏰ Inicio       : 2026-10-13 18:14:10
+2026-10-13 12:14:10 [INFO] ══════════════════════════════════════════
+2026-10-13 12:14:10 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 12:14:10 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 12:14:17 [SESSION] 🟢 LOGIN ➜ SUB01 (SUB01) — Operador | Sede=1 — IP: ::1
+2026-10-13 12:14:17 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: _2N_t3pwP_YPqNrpAAAB
+2026-10-13 12:14:25 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 24 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-13 12:14:34 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 24 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-13 12:24:29 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: _2N_t3pwP_YPqNrpAAAB
+2026-10-13 12:24:30 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: f8DBF-hRYR5dwB1HAAAD
+2026-10-13 12:24:33 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: f8DBF-hRYR5dwB1HAAAD
+2026-10-13 12:24:33 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: vUHygTqnduNmg0fwAAAF
+2026-10-13 12:24:35 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: vUHygTqnduNmg0fwAAAF
+2026-10-13 12:24:35 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: sY5UdV__ThtYzF6zAAAH
+2026-10-13 12:24:36 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: sY5UdV__ThtYzF6zAAAH
+2026-10-13 12:24:37 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: V8189tOjXioQagHyAAAJ
+2026-10-13 12:24:44 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 12:24:44 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 12:24:44 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 12:24:44 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 12:24:44 [INFO] 🌐 Ambiente     : development
+2026-10-13 12:24:44 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 12:24:44 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 12:24:44 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 12:24:44 [INFO] 📋 Versión API  : v1
+2026-10-13 12:24:44 [INFO] ⏰ Inicio       : 2026-10-13 18:24:44
+2026-10-13 12:24:44 [INFO] ══════════════════════════════════════════
+2026-10-13 12:24:44 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 12:24:44 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 12:24:44 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: IX0f3CNmLWlVW6RvAAAB
+2026-10-13 12:24:49 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: IX0f3CNmLWlVW6RvAAAB
+2026-10-13 12:24:49 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: DCedgYas-tWQxkJ0AAAD
+2026-10-13 12:24:53 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: DCedgYas-tWQxkJ0AAAD
+2026-10-13 12:24:53 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: Xoz01V5yPH7pfutfAAAF
+2026-10-13 12:25:38 [SESSION] 🟢 LOGIN ➜ SUPERADMIN (SUPERADMIN) — Perfil 3 | Sede=1 — IP: ::1
+2026-10-13 12:25:38 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: ueriLHqdWqRRHc4SAAAH
+2026-10-13 12:26:09 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: Xoz01V5yPH7pfutfAAAF
+2026-10-13 12:26:09 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: UlkTczMTbXiyPdY6AAAJ
+2026-10-13 12:26:16 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 24 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-13 12:30:33 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 12:30:33 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 12:30:33 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 12:30:33 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 12:30:33 [INFO] 🌐 Ambiente     : development
+2026-10-13 12:30:33 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 12:30:33 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 12:30:33 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 12:30:33 [INFO] 📋 Versión API  : v1
+2026-10-13 12:30:33 [INFO] ⏰ Inicio       : 2026-10-13 18:30:33
+2026-10-13 12:30:33 [INFO] ══════════════════════════════════════════
+2026-10-13 12:30:33 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 12:30:33 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 12:30:33 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: CK77TPm763TBQAzpAAAB
+2026-10-13 12:30:34 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: SB69c3Ggz4ATKSdJAAAD
+2026-10-13 12:30:45 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: CK77TPm763TBQAzpAAAB
+2026-10-13 12:30:45 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: YhENr3bT5mapMtIxAAAF
+2026-10-13 12:31:05 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: YhENr3bT5mapMtIxAAAF
+2026-10-13 12:31:05 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: YEinVDPI3FGV_BiTAAAH
+2026-10-13 12:33:01 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 12:33:01 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 12:33:01 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 12:33:01 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 12:33:01 [INFO] 🌐 Ambiente     : development
+2026-10-13 12:33:01 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 12:33:01 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 12:33:01 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 12:33:01 [INFO] 📋 Versión API  : v1
+2026-10-13 12:33:01 [INFO] ⏰ Inicio       : 2026-10-13 18:33:01
+2026-10-13 12:33:01 [INFO] ══════════════════════════════════════════
+2026-10-13 12:33:01 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 12:33:01 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 12:33:02 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: XJKXAMLkbFaDf5qNAAAB
+2026-10-13 12:33:02 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: oW5-P6vmv0VdzIVkAAAD
+2026-10-13 12:33:15 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 12:33:15 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 12:33:15 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 12:33:15 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 12:33:15 [INFO] 🌐 Ambiente     : development
+2026-10-13 12:33:15 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 12:33:15 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 12:33:15 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 12:33:15 [INFO] 📋 Versión API  : v1
+2026-10-13 12:33:15 [INFO] ⏰ Inicio       : 2026-10-13 18:33:15
+2026-10-13 12:33:15 [INFO] ══════════════════════════════════════════
+2026-10-13 12:33:15 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 12:33:15 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 12:33:15 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: egTHCilGw2eicFbBAAAB
+2026-10-13 12:33:15 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: cPyZsyvmveK0znKcAAAD
+2026-10-13 12:33:29 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 12:33:29 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 12:33:29 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 12:33:29 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 12:33:29 [INFO] 🌐 Ambiente     : development
+2026-10-13 12:33:29 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 12:33:29 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 12:33:29 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 12:33:29 [INFO] 📋 Versión API  : v1
+2026-10-13 12:33:29 [INFO] ⏰ Inicio       : 2026-10-13 18:33:29
+2026-10-13 12:33:29 [INFO] ══════════════════════════════════════════
+2026-10-13 12:33:29 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 12:33:29 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 12:33:30 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: vRIJFdPq7FTmVScBAAAB
+2026-10-13 12:33:30 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: zV5VEFyTjWQhL_A7AAAD
+2026-10-13 12:34:39 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 12:34:39 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 12:34:39 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 12:34:39 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 12:34:39 [INFO] 🌐 Ambiente     : development
+2026-10-13 12:34:39 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 12:34:39 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 12:34:39 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 12:34:39 [INFO] 📋 Versión API  : v1
+2026-10-13 12:34:39 [INFO] ⏰ Inicio       : 2026-10-13 18:34:39
+2026-10-13 12:34:39 [INFO] ══════════════════════════════════════════
+2026-10-13 12:34:39 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 12:34:39 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 12:34:39 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: uDP2ogl8hE5cCNFDAAAB
+2026-10-13 12:34:40 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: 1ERt4fpzDYpcD_FVAAAD
+2026-10-13 12:43:06 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 12:43:06 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 12:43:06 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 12:43:06 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 12:43:06 [INFO] 🌐 Ambiente     : development
+2026-10-13 12:43:06 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 12:43:06 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 12:43:06 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 12:43:06 [INFO] 📋 Versión API  : v1
+2026-10-13 12:43:06 [INFO] ⏰ Inicio       : 2026-10-13 18:43:06
+2026-10-13 12:43:06 [INFO] ══════════════════════════════════════════
+2026-10-13 12:43:06 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 12:43:06 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 12:43:07 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: SwKel1cJnfOUebYVAAAB
+2026-10-13 12:43:07 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: dJ0vjx-OphsisLF2AAAD
+2026-10-13 12:44:41 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 12:44:41 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 12:44:41 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 12:44:41 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 12:44:41 [INFO] 🌐 Ambiente     : development
+2026-10-13 12:44:41 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 12:44:41 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 12:44:41 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 12:44:41 [INFO] 📋 Versión API  : v1
+2026-10-13 12:44:41 [INFO] ⏰ Inicio       : 2026-10-13 18:44:41
+2026-10-13 12:44:41 [INFO] ══════════════════════════════════════════
+2026-10-13 12:44:41 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 12:44:41 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 12:44:42 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: FeOQix8sKugSob7ZAAAB
+2026-10-13 12:44:43 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: sn84apqcjErvU3BYAAAD
+2026-10-13 12:44:56 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: FeOQix8sKugSob7ZAAAB
+2026-10-13 12:44:56 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: MdtK-MgWhGqSRytLAAAF
+2026-10-13 12:46:54 [ACTION] 📋 PROGRAMA NUEVO ➜ Programación creada — Curso: 24 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-13 12:46:57 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-13 12:47:49 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: MdtK-MgWhGqSRytLAAAF
+2026-10-13 12:47:49 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-13 12:47:49 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: RbIInLrpnL7otd0PAAAH
+2026-10-13 12:48:28 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-13 12:48:42 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 12:48:42 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 12:48:42 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 12:48:42 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 12:48:42 [INFO] 🌐 Ambiente     : development
+2026-10-13 12:48:42 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 12:48:42 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 12:48:42 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 12:48:42 [INFO] 📋 Versión API  : v1
+2026-10-13 12:48:42 [INFO] ⏰ Inicio       : 2026-10-13 18:48:42
+2026-10-13 12:48:42 [INFO] ══════════════════════════════════════════
+2026-10-13 12:48:42 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 12:48:42 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 12:48:43 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: G4F134mEYHzh09oBAAAB
+2026-10-13 12:48:43 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: 1FiHki6VsKL8V4N9AAAD
+2026-10-13 12:48:50 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: 1FiHki6VsKL8V4N9AAAD
+2026-10-13 12:48:50 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-13 12:48:50 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: 62DkGF8EAJA2XGo5AAAF
+2026-10-13 13:06:11 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 13:06:11 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 13:06:11 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 13:06:11 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 13:06:11 [INFO] 🌐 Ambiente     : development
+2026-10-13 13:06:11 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 13:06:11 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 13:06:11 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 13:06:11 [INFO] 📋 Versión API  : v1
+2026-10-13 13:06:11 [INFO] ⏰ Inicio       : 2026-10-13 19:06:11
+2026-10-13 13:06:11 [INFO] ══════════════════════════════════════════
+2026-10-13 13:06:11 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 13:06:11 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 13:06:13 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: RTwgXRtckX81O8eyAAAB
+2026-10-13 13:06:13 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: NUAYgg7at8OY87HEAAAD
+2026-10-13 13:07:17 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-13 13:10:23 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 13:10:23 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 13:10:23 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 13:10:23 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 13:10:23 [INFO] 🌐 Ambiente     : development
+2026-10-13 13:10:23 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 13:10:23 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 13:10:23 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 13:10:23 [INFO] 📋 Versión API  : v1
+2026-10-13 13:10:23 [INFO] ⏰ Inicio       : 2026-10-13 19:10:23
+2026-10-13 13:10:23 [INFO] ══════════════════════════════════════════
+2026-10-13 13:10:23 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 13:10:23 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 13:10:24 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: fsISwOKMdb3vKaZ_AAAB
+2026-10-13 13:10:24 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: TEiBoN2gaqM27oj-AAAD
+2026-10-13 13:11:24 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: fsISwOKMdb3vKaZ_AAAB
+2026-10-13 13:11:30 [INFO] [WS]       🔌 Usuario desconectado: SUPERADMIN — Socket: TEiBoN2gaqM27oj-AAAD
+2026-10-13 13:17:37 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 13:17:37 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 13:17:37 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 13:17:37 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 13:17:37 [INFO] 🌐 Ambiente     : development
+2026-10-13 13:17:37 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 13:17:37 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 13:17:37 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 13:17:37 [INFO] 📋 Versión API  : v1
+2026-10-13 13:17:37 [INFO] ⏰ Inicio       : 2026-10-13 19:17:37
+2026-10-13 13:17:37 [INFO] ══════════════════════════════════════════
+2026-10-13 13:17:37 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 13:17:37 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 13:18:12 [SESSION] 🟢 LOGIN ➜ SUPERADMIN (SUPERADMIN) — Perfil 3 | Sede=1 — IP: ::1
+2026-10-13 13:18:12 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: oJK5PHbX9RWkp4unAAAB
+2026-10-13 13:20:31 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 13:20:31 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 13:20:31 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 13:20:31 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 13:20:31 [INFO] 🌐 Ambiente     : development
+2026-10-13 13:20:31 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 13:20:31 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 13:20:31 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 13:20:31 [INFO] 📋 Versión API  : v1
+2026-10-13 13:20:31 [INFO] ⏰ Inicio       : 2026-10-13 19:20:31
+2026-10-13 13:20:31 [INFO] ══════════════════════════════════════════
+2026-10-13 13:20:31 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 13:20:31 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 13:20:34 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: tcUiq3VUTryz5_ZIAAAB
+2026-10-13 13:20:39 [INFO] [WS]       🔌 Usuario desconectado: SUPERADMIN — Socket: tcUiq3VUTryz5_ZIAAAB
+2026-10-13 13:20:39 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: I9RW4AeyN3c-iMpPAAAD
+2026-10-13 13:22:10 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-13 13:24:42 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-13 13:25:12 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 13:25:12 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 13:25:12 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 13:25:12 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 13:25:12 [INFO] 🌐 Ambiente     : development
+2026-10-13 13:25:12 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 13:25:12 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 13:25:12 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 13:25:12 [INFO] 📋 Versión API  : v1
+2026-10-13 13:25:12 [INFO] ⏰ Inicio       : 2026-10-13 19:25:12
+2026-10-13 13:25:12 [INFO] ══════════════════════════════════════════
+2026-10-13 13:25:12 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 13:25:12 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 13:25:13 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: JAywZydNoqioC0XBAAAB
+2026-10-13 13:27:16 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 13:27:16 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 13:27:16 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 13:27:16 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 13:27:16 [INFO] 🌐 Ambiente     : development
+2026-10-13 13:27:16 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 13:27:16 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 13:27:16 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 13:27:16 [INFO] 📋 Versión API  : v1
+2026-10-13 13:27:16 [INFO] ⏰ Inicio       : 2026-10-13 19:27:16
+2026-10-13 13:27:16 [INFO] ══════════════════════════════════════════
+2026-10-13 13:27:16 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 13:27:16 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 13:27:19 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: RffanGhS5dkF_zkxAAAB
+2026-10-13 13:28:02 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-13 13:29:21 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-13 13:33:21 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-13 13:33:52 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 13:33:52 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 13:33:52 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 13:33:52 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 13:33:52 [INFO] 🌐 Ambiente     : development
+2026-10-13 13:33:52 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 13:33:52 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 13:33:52 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 13:33:52 [INFO] 📋 Versión API  : v1
+2026-10-13 13:33:52 [INFO] ⏰ Inicio       : 2026-10-13 19:33:52
+2026-10-13 13:33:52 [INFO] ══════════════════════════════════════════
+2026-10-13 13:33:52 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 13:33:52 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 13:33:52 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: axSjjESY6pcLhMR5AAAB
+2026-10-13 13:34:17 [INFO] [WS]       🔌 Usuario desconectado: SUPERADMIN — Socket: axSjjESY6pcLhMR5AAAB
+2026-10-13 13:34:19 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: 4FBMPUUmn9K0DfyXAAAD
+2026-10-13 13:35:37 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-13 13:37:34 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-13 13:40:02 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 13:40:03 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 13:40:03 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 13:40:03 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 13:40:03 [INFO] 🌐 Ambiente     : development
+2026-10-13 13:40:03 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 13:40:03 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 13:40:03 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 13:40:03 [INFO] 📋 Versión API  : v1
+2026-10-13 13:40:03 [INFO] ⏰ Inicio       : 2026-10-13 19:40:03
+2026-10-13 13:40:03 [INFO] ══════════════════════════════════════════
+2026-10-13 13:40:03 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 13:40:03 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 13:40:04 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: bMpYSAkKeMsauHXUAAAB
+2026-10-13 13:43:56 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 13:43:56 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 13:43:56 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 13:43:56 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 13:43:56 [INFO] 🌐 Ambiente     : development
+2026-10-13 13:43:56 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 13:43:56 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 13:43:56 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 13:43:56 [INFO] 📋 Versión API  : v1
+2026-10-13 13:43:56 [INFO] ⏰ Inicio       : 2026-10-13 19:43:56
+2026-10-13 13:43:56 [INFO] ══════════════════════════════════════════
+2026-10-13 13:43:56 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 13:43:56 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 13:43:58 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: YZPt13uYJGMffGXuAAAB
+2026-10-13 13:44:05 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-13 13:47:23 [INFO] [WS]       🔌 Usuario desconectado: SUPERADMIN — Socket: YZPt13uYJGMffGXuAAAB
+2026-10-13 13:47:34 [WARN] [AUTH]    ❌ Login fallido — Usuario: SUB01 (credenciales incorrectas)
+2026-10-13 13:47:35 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-10-13 13:47:38 [SESSION] 🟢 LOGIN ➜ SUB01 (SUB01) — Operador | Sede=1 — IP: ::1
+2026-10-13 13:47:38 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: 15q93pNcZ7wgmL7aAAAD
+2026-10-13 13:47:48 [SESSION] 🟢 LOGIN ➜ SUPERADMIN (SUPERADMIN) — Perfil 3 | Sede=1 — IP: ::1
+2026-10-13 13:47:48 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: KsiwkucbE6_3kIzqAAAF
+2026-10-13 13:49:42 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-13 13:50:27 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-13 13:53:05 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 13:53:06 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 13:53:06 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 13:53:06 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 13:53:06 [INFO] 🌐 Ambiente     : development
+2026-10-13 13:53:06 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 13:53:06 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 13:53:06 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 13:53:06 [INFO] 📋 Versión API  : v1
+2026-10-13 13:53:06 [INFO] ⏰ Inicio       : 2026-10-13 19:53:06
+2026-10-13 13:53:06 [INFO] ══════════════════════════════════════════
+2026-10-13 13:53:06 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 13:53:06 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 13:53:07 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: peHlv2zm_Eh-QUADAAAB
+2026-10-13 13:53:08 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: rU-7W6CEq8axilvYAAAD
+2026-10-13 13:57:33 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-13 13:58:00 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 13:58:00 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 13:58:00 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 13:58:00 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 13:58:00 [INFO] 🌐 Ambiente     : development
+2026-10-13 13:58:00 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 13:58:00 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 13:58:00 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 13:58:00 [INFO] 📋 Versión API  : v1
+2026-10-13 13:58:00 [INFO] ⏰ Inicio       : 2026-10-13 19:58:00
+2026-10-13 13:58:00 [INFO] ══════════════════════════════════════════
+2026-10-13 13:58:00 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 13:58:00 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 13:58:00 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: QOVtkduTZGxFdRv2AAAB
+2026-10-13 13:58:01 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: UuTeaku_dmArASsDAAAD
+2026-10-13 14:00:12 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-13 14:00:14 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 14:00:14 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 14:00:14 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 14:00:14 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 14:00:14 [INFO] 🌐 Ambiente     : development
+2026-10-13 14:00:14 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 14:00:14 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 14:00:14 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 14:00:14 [INFO] 📋 Versión API  : v1
+2026-10-13 14:00:14 [INFO] ⏰ Inicio       : 2026-10-13 20:00:14
+2026-10-13 14:00:14 [INFO] ══════════════════════════════════════════
+2026-10-13 14:00:14 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 14:00:14 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 14:00:15 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: rNseAygFv1TpdVioAAAB
+2026-10-13 14:00:17 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: cIZQqu_1ksBzqnZdAAAD
+2026-10-13 14:03:17 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-13 14:07:45 [INFO] [WS]       🔌 Usuario desconectado: SUPERADMIN — Socket: cIZQqu_1ksBzqnZdAAAD
+2026-10-13 14:07:45 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-13 14:07:45 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: R2mv_e2RaZh-OHWKAAAF
+2026-10-13 14:07:50 [INFO] [WS]       🔌 Usuario desconectado: SUPERADMIN — Socket: R2mv_e2RaZh-OHWKAAAF
+2026-10-13 14:07:50 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-13 14:07:50 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: Oep-rs_mOGo-HZzKAAAH
+2026-10-13 14:07:58 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-13 14:07:58 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-13 14:08:49 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-13 14:08:49 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-13 14:09:54 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 14:09:54 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 14:09:54 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 14:09:54 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 14:09:54 [INFO] 🌐 Ambiente     : development
+2026-10-13 14:09:54 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 14:09:54 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 14:09:54 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 14:09:54 [INFO] 📋 Versión API  : v1
+2026-10-13 14:09:54 [INFO] ⏰ Inicio       : 2026-10-13 20:09:54
+2026-10-13 14:09:54 [INFO] ══════════════════════════════════════════
+2026-10-13 14:09:54 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 14:09:54 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 14:09:55 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: svB_Qnj_x_5bcfMiAAAB
+2026-10-13 14:09:56 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: bSqxWblKFX986d_UAAAD
+2026-10-13 14:56:19 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 14:56:19 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 14:56:19 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 14:56:19 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 14:56:19 [INFO] 🌐 Ambiente     : development
+2026-10-13 14:56:19 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 14:56:19 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 14:56:19 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 14:56:19 [INFO] 📋 Versión API  : v1
+2026-10-13 14:56:19 [INFO] ⏰ Inicio       : 2026-10-13 20:56:19
+2026-10-13 14:56:19 [INFO] ══════════════════════════════════════════
+2026-10-13 14:56:19 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 14:56:19 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 14:56:22 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: 7x0xqW3-Yp0qWDM6AAAB
+2026-10-13 14:56:24 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: auGYvCNyxjwUXf4sAAAD
+2026-10-13 14:56:27 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: 7x0xqW3-Yp0qWDM6AAAB
+2026-10-13 14:56:28 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-13 14:56:28 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: pGKTXOO4GArFPNVNAAAF
+2026-10-13 14:59:49 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 14:59:49 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 14:59:49 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 14:59:49 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 14:59:49 [INFO] 🌐 Ambiente     : development
+2026-10-13 14:59:49 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 14:59:49 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 14:59:49 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 14:59:49 [INFO] 📋 Versión API  : v1
+2026-10-13 14:59:49 [INFO] ⏰ Inicio       : 2026-10-13 20:59:49
+2026-10-13 14:59:49 [INFO] ══════════════════════════════════════════
+2026-10-13 14:59:49 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 14:59:49 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 14:59:50 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: DlQ1oT7n0btXxUtAAAAC
+2026-10-13 14:59:50 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: jJ9gsWZ5qC8WeDH6AAAD
+2026-10-13 15:04:51 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 15:04:51 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 15:04:51 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 15:04:51 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 15:04:51 [INFO] 🌐 Ambiente     : development
+2026-10-13 15:04:51 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 15:04:51 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 15:04:51 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 15:04:51 [INFO] 📋 Versión API  : v1
+2026-10-13 15:04:51 [INFO] ⏰ Inicio       : 2026-10-13 21:04:51
+2026-10-13 15:04:51 [INFO] ══════════════════════════════════════════
+2026-10-13 15:04:51 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 15:04:51 [INFO] [INFO]    🚀 Servidor escuchando en 3005
+2026-10-13 15:04:53 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: e1GaFacOJm4z0OjiAAAC
+2026-10-13 15:04:53 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: f9SCWkTV96ZyIALTAAAD
+2026-10-13 15:19:06 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 15:19:06 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 15:19:06 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 15:19:06 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 15:19:06 [INFO] 🌐 Ambiente     : development
+2026-10-13 15:19:06 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 15:19:06 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 15:19:06 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 15:19:06 [INFO] 📋 Versión API  : v1
+2026-10-13 15:19:06 [INFO] ⏰ Inicio       : 2026-10-13 21:19:06
+2026-10-13 15:19:06 [INFO] ══════════════════════════════════════════
+2026-10-13 15:19:06 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 15:19:06 [INFO] [INFO]    🚀 Servidor escuchando en 3013
+2026-10-13 15:19:52 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 15:19:52 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 15:19:52 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 15:19:52 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 15:19:52 [INFO] 🌐 Ambiente     : development
+2026-10-13 15:19:52 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 15:19:52 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 15:19:52 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 15:19:52 [INFO] 📋 Versión API  : v1
+2026-10-13 15:19:52 [INFO] ⏰ Inicio       : 2026-10-13 21:19:52
+2026-10-13 15:19:52 [INFO] ══════════════════════════════════════════
+2026-10-13 15:19:52 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 15:19:52 [INFO] [INFO]    🚀 Servidor escuchando en 3013
+2026-10-13 15:20:21 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 15:20:21 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 15:20:21 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 15:20:21 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 15:20:21 [INFO] 🌐 Ambiente     : development
+2026-10-13 15:20:21 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 15:20:21 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 15:20:21 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 15:20:21 [INFO] 📋 Versión API  : v1
+2026-10-13 15:20:21 [INFO] ⏰ Inicio       : 2026-10-13 21:20:21
+2026-10-13 15:20:21 [INFO] ══════════════════════════════════════════
+2026-10-13 15:20:21 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 15:20:21 [INFO] [INFO]    🚀 Servidor escuchando en 3013
+2026-10-13 15:22:56 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 15:22:56 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 15:22:56 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 15:22:56 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 15:22:56 [INFO] 🌐 Ambiente     : development
+2026-10-13 15:22:56 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 15:22:56 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 15:22:56 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 15:22:56 [INFO] 📋 Versión API  : v1
+2026-10-13 15:22:56 [INFO] ⏰ Inicio       : 2026-10-13 21:22:56
+2026-10-13 15:22:56 [INFO] ══════════════════════════════════════════
+2026-10-13 15:22:56 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 15:22:56 [INFO] [INFO]    🚀 Servidor escuchando en 3013
+2026-10-13 15:23:03 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: 5IY6tBiwa9Xoq21eAAAB
+2026-10-13 15:23:07 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-13 15:29:14 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: 5IY6tBiwa9Xoq21eAAAB
+2026-10-13 15:29:14 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 25 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-13 15:29:15 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: yBuey111dtK8d-ZWAAAD
+2026-10-13 15:29:17 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: yBuey111dtK8d-ZWAAAD
+2026-10-13 15:29:25 [INFO] [INFO]    ✅ App inicializada
+2026-10-13 15:29:25 [INFO] ╔══════════════════════════════════════╗
+2026-10-13 15:29:25 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-13 15:29:25 [INFO] ╚══════════════════════════════════════╝
+2026-10-13 15:29:25 [INFO] 🌐 Ambiente     : development
+2026-10-13 15:29:25 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-13 15:29:25 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-13 15:29:25 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-13 15:29:25 [INFO] 📋 Versión API  : v1
+2026-10-13 15:29:25 [INFO] ⏰ Inicio       : 2026-10-13 21:29:25
+2026-10-13 15:29:25 [INFO] ══════════════════════════════════════════
+2026-10-13 15:29:25 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-13 15:29:25 [INFO] [INFO]    🚀 Servidor escuchando en 3013
+2026-10-14 12:13:35 [INFO] [INFO]    ✅ App inicializada
+2026-10-14 12:13:35 [INFO] ╔══════════════════════════════════════╗
+2026-10-14 12:13:35 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-14 12:13:35 [INFO] ╚══════════════════════════════════════╝
+2026-10-14 12:13:35 [INFO] 🌐 Ambiente     : development
+2026-10-14 12:13:35 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-14 12:13:35 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-14 12:13:35 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-14 12:13:35 [INFO] 📋 Versión API  : v1
+2026-10-14 12:13:35 [INFO] ⏰ Inicio       : 2026-10-14 18:13:35
+2026-10-14 12:13:35 [INFO] ══════════════════════════════════════════
+2026-10-14 12:13:35 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-14 12:13:35 [INFO] [INFO]    🚀 Servidor escuchando en 3013
+2026-10-14 12:36:41 [SESSION] 🟢 LOGIN ➜ SUB01 (SUB01) — Operador | Sede=1 — IP: ::1
+2026-10-14 12:36:41 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: UQof22iKRuuWVqeuAAAB
+2026-10-14 12:38:23 [ACTION] 📋 PROGRAMA NUEVO ➜ Programación creada — Curso: 21 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-14 12:38:27 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 26 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-14 12:40:17 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 26 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-14 12:40:41 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: UQof22iKRuuWVqeuAAAB
+2026-10-14 12:40:45 [SESSION] 🟢 LOGIN ➜ SUPERADMIN (SUPERADMIN) — Perfil 3 | Sede=1 — IP: ::1
+2026-10-14 12:40:45 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: Dx3y9Is9ctuxF1m1AAAD
+2026-10-14 12:42:44 [INFO] [WS]       🔌 Usuario desconectado: SUPERADMIN — Socket: Dx3y9Is9ctuxF1m1AAAD
+2026-10-14 12:43:40 [SESSION] 🟢 LOGIN ➜ SUB01 (SUB01) — Operador | Sede=1 — IP: ::1
+2026-10-14 12:43:40 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: L61ijPlkjrUlNXw-AAAF
+2026-10-14 13:11:31 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: L61ijPlkjrUlNXw-AAAF
+2026-10-14 13:11:38 [SESSION] 🟢 LOGIN ➜ SUPERADMIN (SUPERADMIN) — Perfil 3 | Sede=1 — IP: ::1
+2026-10-14 13:11:38 [INFO] [WS]       🔌 Usuario conectado: SUPERADMIN (Sede: 1) — Socket: lyWxRUz6SyCX3g8AAAAH
+2026-10-14 13:11:52 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 26 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-14 13:15:03 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 26 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-14 13:15:47 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 26 — [id=84 | SUPERADMIN | Perfil 3 | Sede=1]
+2026-10-14 13:17:17 [INFO] [WS]       🔌 Usuario desconectado: SUPERADMIN — Socket: lyWxRUz6SyCX3g8AAAAH
+2026-10-14 18:00:03 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-10-15 09:00:01 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-10-15 13:41:15 [INFO] [INFO]    ✅ App inicializada
+2026-10-15 13:41:15 [INFO] ╔══════════════════════════════════════╗
+2026-10-15 13:41:15 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-15 13:41:15 [INFO] ╚══════════════════════════════════════╝
+2026-10-15 13:41:15 [INFO] 🌐 Ambiente     : development
+2026-10-15 13:41:15 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-15 13:41:15 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-15 13:41:15 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-15 13:41:15 [INFO] 📋 Versión API  : v1
+2026-10-15 13:41:15 [INFO] ⏰ Inicio       : 2026-10-15 19:41:15
+2026-10-15 13:41:15 [INFO] ══════════════════════════════════════════
+2026-10-15 13:41:15 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-15 13:41:15 [INFO] [INFO]    🚀 Servidor escuchando en 3013
+2026-10-15 13:42:10 [INFO] [INFO]    ✅ App inicializada
+2026-10-15 13:42:10 [INFO] ╔══════════════════════════════════════╗
+2026-10-15 13:42:10 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-15 13:42:10 [INFO] ╚══════════════════════════════════════╝
+2026-10-15 13:42:10 [INFO] 🌐 Ambiente     : development
+2026-10-15 13:42:10 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-15 13:42:10 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-15 13:42:10 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-15 13:42:10 [INFO] 📋 Versión API  : v1
+2026-10-15 13:42:10 [INFO] ⏰ Inicio       : 2026-10-15 19:42:10
+2026-10-15 13:42:10 [INFO] ══════════════════════════════════════════
+2026-10-15 13:42:10 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-15 13:42:10 [INFO] [INFO]    🚀 Servidor escuchando en 3013
+2026-10-15 18:00:16 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-10-16 09:00:14 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-10-16 09:00:14 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-10-16 14:50:53 [INFO] [INFO]    ✅ App inicializada
+2026-10-16 14:50:54 [INFO] ╔══════════════════════════════════════╗
+2026-10-16 14:50:54 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-16 14:50:54 [INFO] ╚══════════════════════════════════════╝
+2026-10-16 14:50:54 [INFO] 🌐 Ambiente     : development
+2026-10-16 14:50:54 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-16 14:50:54 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-16 14:50:54 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-16 14:50:54 [INFO] 📋 Versión API  : v1
+2026-10-16 14:50:54 [INFO] ⏰ Inicio       : 2026-10-16 20:50:54
+2026-10-16 14:50:54 [INFO] ══════════════════════════════════════════
+2026-10-16 14:50:54 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-16 14:50:54 [INFO] [INFO]    🚀 Servidor escuchando en 3013

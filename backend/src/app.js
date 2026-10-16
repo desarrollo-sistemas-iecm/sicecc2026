@@ -47,7 +47,7 @@ app.use(express.json())
 app.use(morgan('dev'))
 
 // Rutas de la API (soporte estándar directo y bajo subruta)
-const apiPrefixes = ['/api', '/sisec_2026/api', '/sicec_2026/api']
+const apiPrefixes = ['/api', '/sisec_2026/api', '/sisec_2026/api']
 apiPrefixes.forEach((prefix) => {
   app.use(prefix, routes)
   app.use(prefix, (req, res) => {
@@ -59,7 +59,7 @@ apiPrefixes.forEach((prefix) => {
 const publicPath = path.join(__dirname, '../public')
 app.use(express.static(publicPath, { redirect: false }))
 app.use('/sisec_2026', express.static(publicPath, { redirect: false }))
-app.use('/sicec_2026', express.static(publicPath, { redirect: false }))
+app.use('/sisec_2026', express.static(publicPath, { redirect: false }))
 
 // Middleware fallback para soportar Vue Router en modo History
 // Protege explícitamente las rutas de /api y /socket.io para no entregarles index.html
