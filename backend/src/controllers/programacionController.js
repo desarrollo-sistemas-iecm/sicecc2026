@@ -1,5 +1,6 @@
 // Programacion controller for SISEC CC 2026
 import { listProgramacionBySede, createProgramacion as createProgramacionModel } from '../models/programacionModel.js'
+import { isFechaHabilitada } from '../models/configFechasModel.js'
 import { logger, logAction, userTag } from '../config/logger.js'
 
 export const listProgramacion = async (req, res, next) => {
@@ -47,6 +48,18 @@ export const createProgramacion = async (req, res, next) => {
       idusuario: req.user.idUsuario,
       id_distrito: req.user.idsede,
       status: 1
+    }
+
+    // Validar restricción de fecha para operadores (permiso = 1)
+    const userPermiso = Number(req.user.permiso || req.user.idpermiso)
+    if (userPermiso === 1 && payload.fecha) {
+      const habilitada = await isFechaHabilitada('programacion', payload.fecha, req.user.idsede)
+      if (!habilitada) {
+        return res.status(403).json({
+          success: false,
+          message: `La fecha ${payload.fecha} corresponde a un periodo pasado cerrado. Solicita una habilitación al Super Administrador.`
+        })
+      }
     }
 
     const idcurso = await createProgramacionModel(payload)

@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import { auth } from '../middlewares/auth.js'
 import multer from 'multer'
-import { listConfigFechas, saveConfigFechas, requestFechaExcepcion, getManualConfig, saveManualConfig, getAlertaLoginConfig, saveAlertaLoginConfig, getUltimaActualizacionConfig, saveUltimaActualizacionConfig, listCursosAdmin, updateCursoColor } from '../controllers/adminController.js'
+import { listConfigFechas, saveConfigFechas, deleteConfigFecha, requestFechaExcepcion, getManualConfig, saveManualConfig, getAlertaLoginConfig, saveAlertaLoginConfig, getUltimaActualizacionConfig, saveUltimaActualizacionConfig, listCursosAdmin, updateCursoColor } from '../controllers/adminController.js'
 import { getUsuarios, postUsuario, putUsuario, delUsuario, desconectarUsuarioEndpoint } from '../controllers/usuariosController.js'
 import { getArchivosTree, deleteArchivo, replaceArchivo } from '../controllers/archivosController.js'
 import { listAdminFormatos, uploadAdminFormato, deleteAdminFormato } from '../controllers/adminFormatosController.js'
@@ -22,6 +22,7 @@ const isSuperAdmin = (req, res, next) => {
 // Rutas de Restricciones
 router.get('/restricciones', auth, listConfigFechas)
 router.post('/restricciones', auth, isSuperAdmin, saveConfigFechas)
+router.delete('/restricciones/:id', auth, isSuperAdmin, deleteConfigFecha)
 router.post('/restricciones/solicitar', auth, requestFechaExcepcion)
 
 // Configuración del Manual de Usuario

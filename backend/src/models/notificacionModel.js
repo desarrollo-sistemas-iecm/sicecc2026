@@ -57,6 +57,21 @@ export const marcarComoLeida = async (id, idsede, idusuario) => {
   `)
 }
 
+export const marcarTodasComoLeidas = async (idsede, idusuario) => {
+  const pool = await getPool()
+  const request = pool.request()
+
+  request.input('idsede', sql.Int, idsede)
+  request.input('idusuario', sql.Int, idusuario)
+
+  await request.query(`
+    UPDATE sisec_notificaciones
+    SET leida = 1
+    WHERE (idsede_destino = 0 OR idsede_destino = @idsede)
+      AND (idusuario_destino = 0 OR idusuario_destino = @idusuario)
+  `)
+}
+
 export const crearNotificacion = async (payload) => {
   const pool = await getPool()
   const request = pool.request()

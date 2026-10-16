@@ -1,4 +1,4 @@
-import { getConfigFechas, updateConfigFechas } from '../models/configFechasModel.js'
+import { getConfigFechas, updateConfigFechas, deleteConfigFechasById } from '../models/configFechasModel.js'
 import { crearNotificacion } from '../models/notificacionModel.js'
 
 export const listConfigFechas = async (req, res, next) => {
@@ -6,10 +6,6 @@ export const listConfigFechas = async (req, res, next) => {
     const allData = await getConfigFechas()
     const data = allData.filter(d => d.modulo !== 'manual' && d.modulo !== 'alerta_login' && d.modulo !== 'ultima_actualizacion')
 
-
-    // Si es superadmin o admin, pueden ver todas (o al menos las que necesiten administrar)
-    // Para simplificar: el frontend de admin asume que devuelve las globales si no se dice nada, o todas.
-    // Pero para los operadores (idpermiso = 1), solo devolvemos las aplicables a su idsede.
     const userPermiso = Number(req.user.permiso || req.user.idpermiso)
     const userSede = Number(req.user.idsede)
 
@@ -35,23 +31,41 @@ export const listConfigFechas = async (req, res, next) => {
 
 export const saveConfigFechas = async (req, res, next) => {
   try {
-    const { modulo, fecha_inicio, fecha_fin, habilitado, idsede = 0 } = req.body
+    const { modulo, fecha_inicio, fecha_fin, fecha_limite, habilitado, idsede = 0 } = req.body
     
-    // Guardamos para ambos ya que el requerimiento dicta que comparten la habilitación
-    await updateConfigFechas('programacion', fecha_inicio, fecha_fin, habilitado, idsede, req.user.idusuario)
-    await updateConfigFechas('captura', fecha_inicio, fecha_fin, habilitado, idsede, req.user.idusuario)
+    // Si se especifica un módulo en particular o ambos
+    if (modulo === 'programacion') {
+      await updateConfigFechas('programacion', fecha_inicio, fecha_fin, habilitado, idsede, req.user.idusuario, fecha_limite)
+    } else if (modulo === 'captura') {
+      await updateConfigFechas('captura', fecha_inicio, fecha_fin, habilitado, idsede, req.user.idusuario, fecha_limite)
+    } else {
+      // 'ambos' o global por defecto
+      await updateConfigFechas('programacion', fecha_inicio, fecha_fin, habilitado, idsede, req.user.idusuario, fecha_limite)
+      await updateConfigFechas('captura', fecha_inicio, fecha_fin, habilitado, idsede, req.user.idusuario, fecha_limite)
+    }
     
     // Notificamos: Si idsede es 0, es a todos. Si no, a la sede específica.
+    const vigenciaTexto = fecha_limite ? ` (Disponible hasta el ${fecha_limite})` : ''
     await crearNotificacion({
       tipo: 'fecha_habilitada',
-      titulo: idsede === 0 ? 'Nuevo periodo de captura/programación habilitado' : `Fechas habilitadas (Distrito ${idsede})`,
-      mensaje: `Se ha habilitado el periodo del ${fecha_inicio} al ${fecha_fin}.`,
+      titulo: Number(idsede) === 0 ? 'Nuevo periodo de captura/programación habilitado' : `Fechas habilitadas (Distrito ${idsede})`,
+      mensaje: `Se ha habilitado el periodo del ${fecha_inicio} al ${fecha_fin}${vigenciaTexto}.`,
       idsede_origen: 0,
-      idsede_destino: idsede,
+      idsede_destino: Number(idsede),
       idusuario_destino: 0
     })
 
-    return res.json({ success: true, message: 'Configuración actualizada' })
+    return res.json({ success: true, message: 'Configuración actualizada con éxito' })
+  } catch (error) {
+    return next(error)
+  }
+}
+
+export const deleteConfigFecha = async (req, res, next) => {
+  try {
+    const id = Number(req.params.id)
+    await deleteConfigFechasById(id)
+    return res.json({ success: true, message: 'Excepción de distrito eliminada' })
   } catch (error) {
     return next(error)
   }
