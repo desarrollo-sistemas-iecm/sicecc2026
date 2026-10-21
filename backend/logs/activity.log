@@ -2494,3 +2494,220 @@
 2026-10-16 14:50:54 [INFO] ══════════════════════════════════════════
 2026-10-16 14:50:54 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
 2026-10-16 14:50:54 [INFO] [INFO]    🚀 Servidor escuchando en 3013
+2026-10-16 15:03:44 [INFO] [INFO]    ✅ App inicializada
+2026-10-16 15:03:44 [INFO] ╔══════════════════════════════════════╗
+2026-10-16 15:03:44 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-16 15:03:44 [INFO] ╚══════════════════════════════════════╝
+2026-10-16 15:03:44 [INFO] 🌐 Ambiente     : development
+2026-10-16 15:03:44 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-16 15:03:44 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-16 15:03:44 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-16 15:03:44 [INFO] 📋 Versión API  : v1
+2026-10-16 15:03:44 [INFO] ⏰ Inicio       : 2026-10-16 21:03:44
+2026-10-16 15:03:44 [INFO] ══════════════════════════════════════════
+2026-10-16 15:03:44 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-16 15:03:44 [INFO] [INFO]    🚀 Servidor escuchando en 3013
+2026-10-16 15:03:54 [INFO] [INFO]    ✅ App inicializada
+2026-10-16 15:03:54 [INFO] ╔══════════════════════════════════════╗
+2026-10-16 15:03:54 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-16 15:03:54 [INFO] ╚══════════════════════════════════════╝
+2026-10-16 15:03:54 [INFO] 🌐 Ambiente     : development
+2026-10-16 15:03:54 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-16 15:03:54 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-16 15:03:54 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-16 15:03:54 [INFO] 📋 Versión API  : v1
+2026-10-16 15:03:54 [INFO] ⏰ Inicio       : 2026-10-16 21:03:54
+2026-10-16 15:03:54 [INFO] ══════════════════════════════════════════
+2026-10-16 15:03:54 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-16 15:03:54 [INFO] [INFO]    🚀 Servidor escuchando en 3013
+2026-10-16 15:05:30 [INFO] [INFO]    ✅ App inicializada
+2026-10-16 15:05:30 [INFO] ╔══════════════════════════════════════╗
+2026-10-16 15:05:30 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-16 15:05:30 [INFO] ╚══════════════════════════════════════╝
+2026-10-16 15:05:30 [INFO] 🌐 Ambiente     : development
+2026-10-16 15:05:30 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-16 15:05:30 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-16 15:05:30 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-16 15:05:30 [INFO] 📋 Versión API  : v1
+2026-10-16 15:05:30 [INFO] ⏰ Inicio       : 2026-10-16 21:05:30
+2026-10-16 15:05:30 [INFO] ══════════════════════════════════════════
+2026-10-16 15:05:30 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-16 15:05:30 [INFO] [INFO]    🚀 Servidor escuchando en 3013
+2026-10-16 15:12:48 [INFO] [INFO]    ✅ App inicializada
+2026-10-16 15:12:48 [INFO] ╔══════════════════════════════════════╗
+2026-10-16 15:12:48 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-16 15:12:48 [INFO] ╚══════════════════════════════════════╝
+2026-10-16 15:12:48 [INFO] 🌐 Ambiente     : development
+2026-10-16 15:12:48 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-16 15:12:48 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-16 15:12:48 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-16 15:12:48 [INFO] 📋 Versión API  : v1
+2026-10-16 15:12:48 [INFO] ⏰ Inicio       : 2026-10-16 21:12:48
+2026-10-16 15:12:48 [INFO] ══════════════════════════════════════════
+2026-10-16 15:12:48 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-16 15:12:48 [ERROR] [UNCAUGHT_EXCEPTION] listen EADDRINUSE: address already in use :::3013
+Error: listen EADDRINUSE: address already in use :::3013
+    at Server.setupListenHandle [as _listen2] (node:net:2008:16)
+    at listenInCluster (node:net:2065:12)
+    at Server.listen (node:net:2170:7)
+    at startServer (file:///./src/server.js:67:10)
+2026-10-16 15:12:48 [ERROR] ❌ Proceso Node.js (uncaughtException) — listen EADDRINUSE: address already in use :::3013
+   Error: listen EADDRINUSE: address already in use :::3013
+       at Server.setupListenHandle [as _listen2] (node:net:2008:16)
+       at listenInCluster (node:net:2065:12)
+       at Server.listen (node:net:2170:7)
+2026-10-16 15:12:48 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-10-16 15:13:37 [INFO] [INFO]    ✅ App inicializada
+2026-10-16 15:13:37 [INFO] ╔══════════════════════════════════════╗
+2026-10-16 15:13:37 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-16 15:13:37 [INFO] ╚══════════════════════════════════════╝
+2026-10-16 15:13:37 [INFO] 🌐 Ambiente     : development
+2026-10-16 15:13:37 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-16 15:13:37 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-16 15:13:37 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-16 15:13:37 [INFO] 📋 Versión API  : v1
+2026-10-16 15:13:37 [INFO] ⏰ Inicio       : 2026-10-16 21:13:37
+2026-10-16 15:13:37 [INFO] ══════════════════════════════════════════
+2026-10-16 15:13:37 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-16 15:13:37 [ERROR] [UNCAUGHT_EXCEPTION] listen EADDRINUSE: address already in use :::3013
+Error: listen EADDRINUSE: address already in use :::3013
+    at Server.setupListenHandle [as _listen2] (node:net:2008:16)
+    at listenInCluster (node:net:2065:12)
+    at Server.listen (node:net:2170:7)
+    at startServer (file:///./src/server.js:67:10)
+2026-10-16 15:13:37 [ERROR] ❌ Proceso Node.js (uncaughtException) — listen EADDRINUSE: address already in use :::3013
+   Error: listen EADDRINUSE: address already in use :::3013
+       at Server.setupListenHandle [as _listen2] (node:net:2008:16)
+       at listenInCluster (node:net:2065:12)
+       at Server.listen (node:net:2170:7)
+2026-10-16 15:13:38 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-10-16 15:19:22 [INFO] [INFO]    ✅ App inicializada
+2026-10-16 15:19:22 [INFO] [INFO]    ✅ App inicializada
+2026-10-16 15:19:22 [INFO] ╔══════════════════════════════════════╗
+2026-10-16 15:19:22 [INFO] ╔══════════════════════════════════════╗
+2026-10-16 15:19:22 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-16 15:19:22 [INFO] ╚══════════════════════════════════════╝
+2026-10-16 15:19:22 [INFO] 🌐 Ambiente     : development
+2026-10-16 15:19:22 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-16 15:19:22 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-16 15:19:22 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-16 15:19:22 [INFO] 📋 Versión API  : v1
+2026-10-16 15:19:22 [INFO] ⏰ Inicio       : 2026-10-16 21:19:22
+2026-10-16 15:19:22 [INFO] ══════════════════════════════════════════
+2026-10-16 15:19:22 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-16 15:19:22 [INFO] [INFO]    🚀 Servidor escuchando en 3014
+2026-10-16 15:19:22 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-16 15:19:22 [INFO] ╚══════════════════════════════════════╝
+2026-10-16 15:19:22 [INFO] 🌐 Ambiente     : development
+2026-10-16 15:19:22 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-16 15:19:22 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-16 15:19:22 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-16 15:19:22 [INFO] 📋 Versión API  : v1
+2026-10-16 15:19:22 [INFO] ⏰ Inicio       : 2026-10-16 21:19:22
+2026-10-16 15:19:22 [INFO] ══════════════════════════════════════════
+2026-10-16 15:19:22 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-16 15:19:22 [ERROR] [UNCAUGHT_EXCEPTION] listen EADDRINUSE: address already in use :::3014
+Error: listen EADDRINUSE: address already in use :::3014
+    at Server.setupListenHandle [as _listen2] (node:net:2008:16)
+    at listenInCluster (node:net:2065:12)
+    at Server.listen (node:net:2170:7)
+    at startServer (file:///./src/server.js:67:10)
+2026-10-16 15:19:22 [ERROR] ❌ Proceso Node.js (uncaughtException) — listen EADDRINUSE: address already in use :::3014
+   Error: listen EADDRINUSE: address already in use :::3014
+       at Server.setupListenHandle [as _listen2] (node:net:2008:16)
+       at listenInCluster (node:net:2065:12)
+       at Server.listen (node:net:2170:7)
+2026-10-16 15:19:22 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-10-16 15:20:02 [INFO] [INFO]    ✅ App inicializada
+2026-10-16 15:20:02 [INFO] ╔══════════════════════════════════════╗
+2026-10-16 15:20:02 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-16 15:20:02 [INFO] ╚══════════════════════════════════════╝
+2026-10-16 15:20:02 [INFO] 🌐 Ambiente     : development
+2026-10-16 15:20:02 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-16 15:20:02 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-16 15:20:02 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-16 15:20:02 [INFO] 📋 Versión API  : v1
+2026-10-16 15:20:02 [INFO] ⏰ Inicio       : 2026-10-16 21:20:02
+2026-10-16 15:20:02 [INFO] ══════════════════════════════════════════
+2026-10-16 15:20:02 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-16 15:20:02 [ERROR] [UNCAUGHT_EXCEPTION] listen EADDRINUSE: address already in use :::3014
+Error: listen EADDRINUSE: address already in use :::3014
+    at Server.setupListenHandle [as _listen2] (node:net:2008:16)
+    at listenInCluster (node:net:2065:12)
+    at Server.listen (node:net:2170:7)
+    at startServer (file:///./src/server.js:67:10)
+2026-10-16 15:20:02 [ERROR] ❌ Proceso Node.js (uncaughtException) — listen EADDRINUSE: address already in use :::3014
+   Error: listen EADDRINUSE: address already in use :::3014
+       at Server.setupListenHandle [as _listen2] (node:net:2008:16)
+       at listenInCluster (node:net:2065:12)
+       at Server.listen (node:net:2170:7)
+2026-10-16 15:20:03 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-10-16 15:21:41 [WARN] [AUTH]    ❌ Login fallido — Usuario: admin (credenciales incorrectas)
+2026-10-16 15:21:42 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-10-16 15:21:49 [SESSION] 🟢 LOGIN ➜ admin (admin) — Administrador | Sede=1 — IP: ::1
+2026-10-16 15:21:49 [INFO] [WS]       🔌 Usuario conectado: admin (Sede: 1) — Socket: Mo517-dkiNOANEueAAAB
+2026-10-16 15:28:29 [INFO] [INFO]    ✅ App inicializada
+2026-10-16 15:28:29 [INFO] ╔══════════════════════════════════════╗
+2026-10-16 15:28:29 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-16 15:28:29 [INFO] ╚══════════════════════════════════════╝
+2026-10-16 15:28:29 [INFO] 🌐 Ambiente     : development
+2026-10-16 15:28:29 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-16 15:28:29 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-16 15:28:29 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-16 15:28:29 [INFO] 📋 Versión API  : v1
+2026-10-16 15:28:29 [INFO] ⏰ Inicio       : 2026-10-16 21:28:29
+2026-10-16 15:28:29 [INFO] ══════════════════════════════════════════
+2026-10-16 15:28:29 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-16 15:28:29 [INFO] [INFO]    🚀 Servidor escuchando en 3014
+2026-10-16 15:28:31 [INFO] [WS]       🔌 Usuario conectado: admin (Sede: 1) — Socket: X1AVf3KlP7tz_kdHAAAB
+2026-10-16 15:29:02 [INFO] [INFO]    ✅ App inicializada
+2026-10-16 15:29:03 [INFO] ╔══════════════════════════════════════╗
+2026-10-16 15:29:03 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-16 15:29:03 [INFO] ╚══════════════════════════════════════╝
+2026-10-16 15:29:03 [INFO] 🌐 Ambiente     : development
+2026-10-16 15:29:03 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-16 15:29:03 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-16 15:29:03 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-16 15:29:03 [INFO] 📋 Versión API  : v1
+2026-10-16 15:29:03 [INFO] ⏰ Inicio       : 2026-10-16 21:29:03
+2026-10-16 15:29:03 [INFO] ══════════════════════════════════════════
+2026-10-16 15:29:03 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-16 15:29:03 [INFO] [INFO]    🚀 Servidor escuchando en 3014
+2026-10-16 15:29:03 [INFO] [WS]       🔌 Usuario conectado: admin (Sede: 1) — Socket: eNHvJqUxxKTT2mbYAAAB
+2026-10-16 18:00:06 [INFO] [TELEGRAM] Mensaje enviado correctamente
+2026-10-20 14:32:49 [INFO] [INFO]    ✅ App inicializada
+2026-10-20 14:32:49 [INFO] ╔══════════════════════════════════════╗
+2026-10-20 14:32:49 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-20 14:32:49 [INFO] ╚══════════════════════════════════════╝
+2026-10-20 14:32:49 [INFO] 🌐 Ambiente     : development
+2026-10-20 14:32:49 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-20 14:32:49 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-20 14:32:49 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-20 14:32:49 [INFO] 📋 Versión API  : v1
+2026-10-20 14:32:49 [INFO] ⏰ Inicio       : 2026-10-20 20:32:49
+2026-10-20 14:32:49 [INFO] ══════════════════════════════════════════
+2026-10-20 14:32:49 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-20 14:50:11 [INFO] [INFO]    ✅ App inicializada
+2026-10-20 14:50:11 [INFO] ╔══════════════════════════════════════╗
+2026-10-20 14:50:11 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-20 14:50:11 [INFO] ╚══════════════════════════════════════╝
+2026-10-20 14:50:11 [INFO] 🌐 Ambiente     : development
+2026-10-20 14:50:11 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-20 14:50:11 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-20 14:50:11 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-20 14:50:11 [INFO] 📋 Versión API  : v1
+2026-10-20 14:50:11 [INFO] ⏰ Inicio       : 2026-10-20 20:50:11
+2026-10-20 14:50:11 [INFO] ══════════════════════════════════════════
+2026-10-20 14:50:11 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-20 14:50:11 [INFO] [INFO]    🚀 Servidor escuchando en 3014
+2026-10-20 14:50:13 [INFO] [WS]       🔌 Usuario conectado: admin (Sede: 1) — Socket: I6GLxo7MMpYsQ3d_AAAB
+2026-10-20 14:51:44 [SESSION] 🟢 LOGIN ➜ superadmin (SUPERADMIN) — Perfil 3 | Sede=1 — IP: ::1
+2026-10-20 14:51:44 [INFO] [WS]       🔌 Usuario conectado: superadmin (Sede: 1) — Socket: VtNXNqyiyOCagl7ZAAAD
+2026-10-20 14:52:05 [INFO] [WS]       🔌 Usuario desconectado: superadmin — Socket: VtNXNqyiyOCagl7ZAAAD
+2026-10-20 14:52:17 [SESSION] 🟢 LOGIN ➜ SUB01 (SUB01) — Operador | Sede=1 — IP: ::1
+2026-10-20 14:52:17 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: lBVDfHj4UdyNaT3kAAAF
+2026-10-20 14:52:35 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: lBVDfHj4UdyNaT3kAAAF
+2026-10-20 14:52:41 [SESSION] 🟢 LOGIN ➜ superadmin (SUPERADMIN) — Perfil 3 | Sede=1 — IP: ::1
+2026-10-20 14:52:41 [INFO] [WS]       🔌 Usuario conectado: superadmin (Sede: 1) — Socket: YgF5Svopdr9TyXtvAAAH
+2026-10-20 14:52:59 [INFO] [WS]       🔌 Usuario desconectado: superadmin — Socket: YgF5Svopdr9TyXtvAAAH
+2026-10-20 14:53:06 [INFO] [WS]       🔌 Usuario desconectado: admin — Socket: I6GLxo7MMpYsQ3d_AAAB

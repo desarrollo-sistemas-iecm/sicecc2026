@@ -29,6 +29,10 @@ export const postUsuario = async (req, res, next) => {
 
 export const putUsuario = async (req, res, next) => {
   try {
+    const userPermiso = Number(req.user?.permiso || req.user?.idpermiso)
+    if (userPermiso !== 3 && Number(req.body.idpermiso) === 3) {
+      return res.status(403).json({ success: false, message: 'Acceso denegado. Solo un Super Administrador puede asignar el rol de Super Administrador.' })
+    }
     await updateUsuario(Number(req.params.id), req.body)
     return res.json({ success: true, message: 'Usuario actualizado exitosamente' })
   } catch (error) {
@@ -47,6 +51,11 @@ export const delUsuario = async (req, res, next) => {
 
 export const desconectarUsuarioEndpoint = async (req, res, next) => {
   try {
+    const userPermiso = Number(req.user?.permiso || req.user?.idpermiso)
+    if (userPermiso !== 3) {
+      return res.status(403).json({ success: false, message: 'Acceso denegado. Únicamente el Super Administrador puede desconectar sesiones.' })
+    }
+
     const idUsuario = Number(req.params.id)
 
     // 1. Invalidar en base de datos: poner sesion_id = NULL

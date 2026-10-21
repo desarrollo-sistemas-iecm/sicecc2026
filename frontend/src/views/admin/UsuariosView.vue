@@ -40,6 +40,11 @@ const permisos = [
   { id: 3, nombre: 'Super Administrador' }
 ]
 
+const permisosDisponibles = computed(() => {
+  if (authStore.isSuperAdmin) return permisos
+  return permisos.filter(p => p.id !== 3)
+})
+
 // --- KPIs de Conexión y Animación GSAP ---
 const circleConectados = ref(null)
 const circleDesconectados = ref(null)
@@ -195,6 +200,10 @@ const resetForm = () => {
 }
 
 const editUser = (user) => {
+  if (user.idpermiso === 3 && !authStore.isSuperAdmin) {
+    Swal.fire('Acceso Restringido', 'Solo un Super Administrador puede editar cuentas de Super Administrador.', 'warning')
+    return
+  }
   form.idusuario = user.idusuario
   form.usuario = user.usuario
   form.password = '' // Don't fill password
@@ -205,6 +214,10 @@ const editUser = (user) => {
 }
 
 const deleteUser = async (id) => {
+  if (!authStore.isSuperAdmin) {
+    Swal.fire('Acceso denegado', 'No cuentas con permisos para eliminar usuarios.', 'warning')
+    return
+  }
   const result = await Swal.fire({
     title: '¿Eliminar usuario?',
     text: "Esta acción no se puede deshacer.",
@@ -228,6 +241,11 @@ const deleteUser = async (id) => {
 }
 
 const forceDisconnect = async (user) => {
+  if (!authStore.isSuperAdmin) {
+    Swal.fire('Acceso denegado', 'Únicamente el Super Administrador puede desconectar usuarios.', 'warning')
+    return
+  }
+
   const result = await Swal.fire({
     title: `¿Desconectar a ${user.usuario}?`,
     text: "Se cerrará su sesión de inmediato en todos sus dispositivos en tiempo real.",
@@ -256,6 +274,10 @@ const habilitarFechas = (user) => {
 }
 
 const onSubmit = async () => {
+  if (!isEditing.value && !authStore.isSuperAdmin) {
+    Swal.fire('Acceso denegado', 'No cuentas con permisos para crear nuevos usuarios.', 'warning')
+    return
+  }
   saving.value = true
   try {
     if (form.idpermiso === 3) {
@@ -319,7 +341,7 @@ onUnmounted(() => {
           <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Administra los accesos y permisos del sistema.</p>
         </div>
       </div>
-      <AppButton @click="() => { resetForm(); showForm = true; }" variant="primary">
+      <AppButton v-if="authStore.isSuperAdmin" @click="() => { resetForm(); showForm = true; }" variant="primary">
         <template #icon><UserPlus class="w-4 h-4" /></template>
         Nuevo Usuario
       </AppButton>
@@ -338,7 +360,7 @@ onUnmounted(() => {
           <AppInput v-model="form.password" type="password" :label="isEditing ? 'Nueva Contraseña (dejar en blanco si no cambia)' : 'Contraseña'" :required="!isEditing" />
           
           <AppSelect v-model.number="form.idpermiso" label="Nivel de Permiso" required>
-            <option v-for="p in permisos" :key="p.id" :value="p.id">{{ p.nombre }}</option>
+            <option v-for="p in permisosDisponibles" :key="p.id" :value="p.id">{{ p.nombre }}</option>
           </AppSelect>
           
           <AppSelect v-model.number="form.idsede" label="Distrito Territorial (Sede)" required :disabled="form.idpermiso === 3">
@@ -546,13 +568,13 @@ onUnmounted(() => {
                     <CalendarRange class="w-4 h-4" />
                   </button>
                 </template>
-                <button v-if="row.conectado && row.idusuario !== authStore.user?.idUsuario" @click="forceDisconnect(row)" class="p-1.5 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-950/30 rounded-lg transition-colors" title="Desconectar Forzosamente">
+                <button v-if="authStore.isSuperAdmin && row.conectado && row.idusuario !== authStore.user?.idUsuario" @click="forceDisconnect(row)" class="p-1.5 text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-950/30 rounded-lg transition-colors" title="Desconectar Forzosamente">
                   <Zap class="w-4 h-4" />
                 </button>
-                <button @click="editUser(row)" class="p-1.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" title="Editar">
+                <button v-if="authStore.isSuperAdmin || row.idpermiso !== 3" @click="editUser(row)" class="p-1.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" title="Editar">
                   <Edit class="w-4 h-4" />
                 </button>
-                <button @click="deleteUser(row.idusuario)" class="p-1.5 text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors" title="Eliminar">
+                <button v-if="authStore.isSuperAdmin" @click="deleteUser(row.idusuario)" class="p-1.5 text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors" title="Eliminar">
                   <Trash2 class="w-4 h-4" />
                 </button>
               </div>
