@@ -12,16 +12,16 @@ import NotificacionesView from '../views/NotificacionesView.vue'
 const routes = [
   { path: '/login', name: 'login', component: LoginView, meta: { requiresAuth: false } },
   { path: '/', name: 'dashboard', component: DashboardView, meta: { requiresAuth: true, roles: [1, 2, 3] } },
-  { path: '/programacion', name: 'programacion', component: ProgramacionView, meta: { requiresAuth: true, roles: [1, 3] } },
-  { path: '/captura', name: 'captura', component: CapturaView, meta: { requiresAuth: true, roles: [1, 3] } },
-  { path: '/encuesta', name: 'encuesta', component: EncuestaView, meta: { requiresAuth: true, roles: [1, 3] } },
+  { path: '/programacion', name: 'programacion', component: ProgramacionView, meta: { requiresAuth: true, roles: [1, 2, 3] } },
+  { path: '/captura', name: 'captura', component: CapturaView, meta: { requiresAuth: true, roles: [1, 2, 3] } },
+  { path: '/encuesta', name: 'encuesta', component: EncuestaView, meta: { requiresAuth: true, roles: [1, 2, 3] } },
   { path: '/reportes', name: 'reportes', component: ReportesView, meta: { requiresAuth: true, roles: [1, 2, 3] } },
   { path: '/notificaciones', name: 'notificaciones', component: NotificacionesView, meta: { requiresAuth: true, roles: [1, 2, 3] } },
   { 
     path: '/administracion', 
     name: 'administracion', 
     component: AdministracionView, 
-    meta: { requiresAuth: true, roles: [3] },
+    meta: { requiresAuth: true, roles: [2, 3] },
     redirect: '/administracion/usuarios',
     children: [
       { path: 'usuarios', name: 'admin-usuarios', component: () => import('../views/admin/UsuariosView.vue') },

@@ -5,6 +5,9 @@ import api from '../../services/api'
 import AppCard from '../../components/ui/AppCard.vue'
 import ModalHabilitarFechas from '../../components/modals/ModalHabilitarFechas.vue'
 import Swal from 'sweetalert2'
+import { useAuthStore } from '../../stores/authStore.js'
+
+const authStore = useAuthStore()
 
 const restricciones = ref([])
 const solicitudes = ref([])
@@ -127,9 +130,11 @@ const handleRechazarSolicitud = async (solicitud) => {
 onMounted(async () => {
   await fetchRestricciones()
   await fetchSolicitudes()
-  await fetchManualStatus()
-  await fetchAlertaLoginStatus()
-  await fetchUltimaActStatus()
+  if (authStore.isSuperAdmin) {
+    await fetchManualStatus()
+    await fetchAlertaLoginStatus()
+    await fetchUltimaActStatus()
+  }
   
   if (restricciones.value.length === 0) {
     // Valores por defecto
@@ -355,8 +360,8 @@ watch(restricciones, () => {
           </form>
         </AppCard>
 
-        <!-- Manual de Usuario Config -->
-        <AppCard>
+        <!-- Manual de Usuario Config (Solo Super Administrador) -->
+        <AppCard v-if="authStore.isSuperAdmin">
           <template #header>
             <h2 class="text-lg font-semibold text-slate-900 dark:text-white">Manual de Usuario y Alertas</h2>
           </template>

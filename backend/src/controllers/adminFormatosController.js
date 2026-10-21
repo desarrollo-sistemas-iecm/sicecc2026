@@ -15,7 +15,7 @@ export const listAdminFormatos = (req, res, next) => {
     const files = fs.readdirSync(basePath)
       .filter(file => file.endsWith('.docx'))
       .filter(file => fs.statSync(path.join(basePath, file)).isFile())
-
+  
     return res.json({ success: true, data: files })
   } catch (error) {
     return next(error)

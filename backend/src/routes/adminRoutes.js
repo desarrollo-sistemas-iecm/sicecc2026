@@ -10,13 +10,20 @@ const upload = multer({ dest: 'uploads/temp/' })
 
 const router = Router()
 
-// Middleware básico para proteger rutas de Super Admin (idpermiso = 3)
+// Middleware para permitir tanto Administrador (2) como Super Admin (3)
 const isSuperAdmin = (req, res, next) => {
   if (req.user && Number(req.user.permiso || req.user.idpermiso) >= 2) {
-    // Actually, allowing admins (2) and superadmins (3)
     return next()
   }
   return res.status(403).json({ success: false, message: 'Acceso denegado. Se requiere nivel de Administrador.' })
+}
+
+// Middleware exclusivo para Super Admin (idpermiso = 3)
+const onlySuperAdmin = (req, res, next) => {
+  if (req.user && Number(req.user.permiso || req.user.idpermiso) === 3) {
+    return next()
+  }
+  return res.status(403).json({ success: false, message: 'Acceso denegado. Se requiere nivel de Super Administrador.' })
 }
 
 // Rutas de Restricciones
@@ -27,25 +34,25 @@ router.post('/restricciones/solicitar', auth, requestFechaExcepcion)
 
 // Configuración del Manual de Usuario
 router.get('/manual-config', auth, getManualConfig)
-router.post('/manual-config', auth, isSuperAdmin, saveManualConfig)
+router.post('/manual-config', auth, onlySuperAdmin, saveManualConfig)
 
 // Configuración de la Alerta del Manual en el Login
 router.get('/alerta-login-config', auth, getAlertaLoginConfig)
-router.post('/alerta-login-config', auth, isSuperAdmin, saveAlertaLoginConfig)
+router.post('/alerta-login-config', auth, onlySuperAdmin, saveAlertaLoginConfig)
 
 // Configuración de la Última Actualización del Código
 router.get('/ultima-actualizacion-config', getUltimaActualizacionConfig)
-router.post('/ultima-actualizacion-config', auth, isSuperAdmin, saveUltimaActualizacionConfig)
+router.post('/ultima-actualizacion-config', auth, onlySuperAdmin, saveUltimaActualizacionConfig)
 
 
 
 
 // Rutas de Usuarios
 router.get('/usuarios', auth, isSuperAdmin, getUsuarios)
-router.post('/usuarios', auth, isSuperAdmin, postUsuario)
+router.post('/usuarios', auth, onlySuperAdmin, postUsuario)
 router.put('/usuarios/:id', auth, isSuperAdmin, putUsuario)
-router.delete('/usuarios/:id', auth, isSuperAdmin, delUsuario)
-router.put('/usuarios/:id/desconectar', auth, isSuperAdmin, desconectarUsuarioEndpoint)
+router.delete('/usuarios/:id', auth, onlySuperAdmin, delUsuario)
+router.put('/usuarios/:id/desconectar', auth, onlySuperAdmin, desconectarUsuarioEndpoint)
 
 // Rutas de Archivos
 router.get('/archivos', auth, isSuperAdmin, getArchivosTree)
