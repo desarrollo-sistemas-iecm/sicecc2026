@@ -60,7 +60,7 @@ const onSubmit = async () => {
     await Swal.fire({
       icon: 'error',
       title: 'Error',
-      text: error?.message || 'No se pudo actualizar la actividad.'
+      text: error?.response?.data?.message || error?.message || 'No se pudo actualizar la actividad.'
     })
   } finally {
     saving.value = false

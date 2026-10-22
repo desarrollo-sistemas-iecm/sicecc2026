@@ -24,7 +24,7 @@ export const prepareUploadContext = async (req, res, next) => {
       return res.status(404).json({ success: false, message: 'Actividad no encontrada.' })
     }
 
-    const distrito = req.user.idsede
+    const distrito = context.id_distrito || context.idsede || req.user?.idsede || 0
     const baseDir = path.resolve(env.uploadPath, `DTO-${distrito}`)
     const folderName = buildFolderName(context.idcurso, context.idtipo)
     const destDir = path.join(baseDir, folderName)
