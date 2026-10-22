@@ -290,7 +290,7 @@ const onSubmit = async () => {
     await Swal.fire({
       icon: 'error',
       title: 'Error al guardar',
-      text: error?.message || 'No se pudo guardar la actividad.'
+      text: error?.response?.data?.message || error?.message || 'No se pudo guardar la actividad.'
     })
   } finally {
     saving.value = false

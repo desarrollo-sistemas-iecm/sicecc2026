@@ -2711,3 +2711,53 @@ Error: listen EADDRINUSE: address already in use :::3014
 2026-10-20 14:52:41 [INFO] [WS]       🔌 Usuario conectado: superadmin (Sede: 1) — Socket: YgF5Svopdr9TyXtvAAAH
 2026-10-20 14:52:59 [INFO] [WS]       🔌 Usuario desconectado: superadmin — Socket: YgF5Svopdr9TyXtvAAAH
 2026-10-20 14:53:06 [INFO] [WS]       🔌 Usuario desconectado: admin — Socket: I6GLxo7MMpYsQ3d_AAAB
+2026-10-21 15:01:17 [INFO] [INFO]    ✅ App inicializada
+2026-10-21 15:01:17 [INFO] ╔══════════════════════════════════════╗
+2026-10-21 15:01:17 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-21 15:01:17 [INFO] ╚══════════════════════════════════════╝
+2026-10-21 15:01:17 [INFO] 🌐 Ambiente     : development
+2026-10-21 15:01:17 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-21 15:01:17 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-21 15:01:17 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-21 15:01:17 [INFO] 📋 Versión API  : v1
+2026-10-21 15:01:17 [INFO] ⏰ Inicio       : 2026-10-21 21:01:17
+2026-10-21 15:01:17 [INFO] ══════════════════════════════════════════
+2026-10-21 15:01:17 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-21 15:01:17 [INFO] [INFO]    🚀 Servidor escuchando en 3013
+2026-10-21 15:19:16 [INFO] [INFO]    ✅ App inicializada
+2026-10-21 15:19:16 [INFO] ╔══════════════════════════════════════╗
+2026-10-21 15:19:16 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-21 15:19:16 [INFO] ╚══════════════════════════════════════╝
+2026-10-21 15:19:16 [INFO] 🌐 Ambiente     : development
+2026-10-21 15:19:16 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-21 15:19:16 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-21 15:19:16 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-21 15:19:16 [INFO] 📋 Versión API  : v1
+2026-10-21 15:19:16 [INFO] ⏰ Inicio       : 2026-10-21 21:19:16
+2026-10-21 15:19:16 [INFO] ══════════════════════════════════════════
+2026-10-21 15:19:16 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-21 15:19:16 [INFO] [INFO]    🚀 Servidor escuchando en 3013
+2026-10-21 15:19:29 [INFO] [INFO]    ✅ App inicializada
+2026-10-21 15:19:29 [INFO] ╔══════════════════════════════════════╗
+2026-10-21 15:19:29 [INFO] ║     SISEC CC 2026 — Backend API      ║
+2026-10-21 15:19:29 [INFO] ╚══════════════════════════════════════╝
+2026-10-21 15:19:29 [INFO] 🌐 Ambiente     : development
+2026-10-21 15:19:29 [INFO] 🚀 Servidor     : https://aplicaciones2qa.iecm.mx/sisec_2026
+2026-10-21 15:19:29 [INFO] 📦 Base de datos: sisecycc2024 @ [db_host]
+2026-10-21 15:19:29 [INFO] ✅ Conexión BD  : Exitosa
+2026-10-21 15:19:29 [INFO] 📋 Versión API  : v1
+2026-10-21 15:19:29 [INFO] ⏰ Inicio       : 2026-10-21 21:19:29
+2026-10-21 15:19:29 [INFO] ══════════════════════════════════════════
+2026-10-21 15:19:29 [INFO] [INFO]    🔌 Servidor Socket.io inicializado correctamente
+2026-10-21 15:19:29 [INFO] [INFO]    🚀 Servidor escuchando en 3013
+2026-10-21 15:47:06 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: _h3uE3-e6u07J6GQAAAB
+2026-10-21 15:47:08 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: _h3uE3-e6u07J6GQAAAB
+2026-10-21 15:47:08 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 29 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-21 15:47:09 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: SeF6b_u7uAk6cBpCAAAD
+2026-10-21 15:47:10 [INFO] [WS]       🔌 Usuario desconectado: SUB01 — Socket: SeF6b_u7uAk6cBpCAAAD
+2026-10-21 15:47:10 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 29 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-21 15:47:11 [INFO] [WS]       🔌 Usuario conectado: SUB01 (Sede: 1) — Socket: DVJQNwno_K2oO4vHAAAF
+2026-10-21 15:47:50 [ACTION] ✔️ ACT COMPLETA ➜ Actividad realizada — ID: 2037 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-21 15:47:52 [QUERY] 📋 ACTIVIDADES CARGADAS ➜ Sede: 1 | Total: 29 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-21 15:49:02 [ACTION] 📅 ACT REPROGRAMADA ➜ Actividad reprogramada — ID: 2021 a 2026-10-28 08:00 — [id=1 | SUB01 | Operador | Sede=1]
+2026-10-21 18:00:13 [INFO] [TELEGRAM] Mensaje enviado correctamente

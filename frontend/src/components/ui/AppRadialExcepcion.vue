@@ -13,6 +13,59 @@ const rawConfigs = ref([])
 const showMesVigenteTooltip = ref(false)
 const showExcepcionTooltip = ref(false)
 
+// Estados de expansión (colapsado por defecto a solo el círculo)
+const isMesVigenteHovered = ref(false)
+const isMesVigentePinned = ref(false)
+const isMesVigenteExpanded = computed(() => isMesVigenteHovered.value || isMesVigentePinned.value)
+
+const onMesVigenteEnter = () => {
+  isMesVigenteHovered.value = true
+  showMesVigenteTooltip.value = true
+}
+
+const onMesVigenteLeave = () => {
+  isMesVigenteHovered.value = false
+  if (!isMesVigentePinned.value) {
+    showMesVigenteTooltip.value = false
+  }
+}
+
+const toggleMesVigente = () => {
+  if (isMesVigentePinned.value) {
+    isMesVigentePinned.value = false
+    showMesVigenteTooltip.value = false
+  } else {
+    isMesVigentePinned.value = true
+    showMesVigenteTooltip.value = true
+  }
+}
+
+const isExcepcionHovered = ref(false)
+const isExcepcionPinned = ref(false)
+const isExcepcionExpanded = computed(() => isExcepcionHovered.value || isExcepcionPinned.value)
+
+const onExcepcionEnter = () => {
+  isExcepcionHovered.value = true
+  showExcepcionTooltip.value = true
+}
+
+const onExcepcionLeave = () => {
+  isExcepcionHovered.value = false
+  if (!isExcepcionPinned.value) {
+    showExcepcionTooltip.value = false
+  }
+}
+
+const toggleExcepcion = () => {
+  if (isExcepcionPinned.value) {
+    isExcepcionPinned.value = false
+    showExcepcionTooltip.value = false
+  } else {
+    isExcepcionPinned.value = true
+    showExcepcionTooltip.value = true
+  }
+}
+
 // Refs de elementos para animación GSAP
 const mesVigenteRef = ref(null)
 const excepcionRef = ref(null)
@@ -301,11 +354,21 @@ onUnmounted(() => {
       <!-- Botón Flotante Radial Amarillo -->
       <div 
         ref="excepcionRef"
-        class="w-[216px] bg-white/95 text-slate-800 border-amber-300 shadow-xl shadow-amber-900/10 dark:bg-[#1A152B]/95 dark:text-white dark:border-amber-400/40 dark:shadow-2xl dark:shadow-black/60 backdrop-blur-md border rounded-2xl p-2.5 flex items-center gap-2.5 cursor-pointer transition-all duration-300 hover:border-amber-400 hover:-translate-y-0.5"
-        @mouseenter="showExcepcionTooltip = true"
-        @mouseleave="showExcepcionTooltip = false"
-        @click="showExcepcionTooltip = !showExcepcionTooltip"
+        class="relative h-14 bg-white/95 text-slate-800 border-amber-300 shadow-xl shadow-amber-900/10 dark:bg-[#1A152B]/95 dark:text-white dark:border-amber-400/40 dark:shadow-2xl dark:shadow-black/60 backdrop-blur-md border flex items-center cursor-pointer transition-all duration-300 ease-out hover:border-amber-400 hover:-translate-y-0.5 overflow-hidden"
+        :class="[
+          isExcepcionExpanded ? 'w-[224px] rounded-2xl px-2.5 gap-2.5' : 'w-14 rounded-full justify-center p-0'
+        ]"
+        title="Habilitación Especial: Pasa el cursor o da clic para más información"
+        @mouseenter="onExcepcionEnter"
+        @mouseleave="onExcepcionLeave"
+        @click="toggleExcepcion"
       >
+        <!-- Badge ping en modo círculo colapsado -->
+        <span 
+          v-if="!isExcepcionExpanded" 
+          class="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full ring-2 ring-white dark:ring-[#1A152B] bg-amber-400 pointer-events-none"
+        ></span>
+
         <!-- SVG Radial Amarillo -->
         <div class="relative w-12 h-12 shrink-0 flex items-center justify-center">
           <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
@@ -329,17 +392,20 @@ onUnmounted(() => {
           </div>
         </div>
 
-        <div class="flex flex-col pr-1 text-left min-w-0">
+        <div 
+          class="flex flex-col pr-1 text-left min-w-0 transition-all duration-300"
+          :class="isExcepcionExpanded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2 pointer-events-none w-0 overflow-hidden'"
+        >
           <div class="flex items-center gap-1">
             <span class="w-1.5 h-1.5 rounded-full bg-amber-500 dark:bg-amber-400 animate-ping"></span>
-            <span class="text-[9px] font-black uppercase tracking-wider text-amber-600 dark:text-amber-400">
+            <span class="text-[9px] font-black uppercase tracking-wider text-amber-600 dark:text-amber-400 whitespace-nowrap">
               Habilitado
             </span>
           </div>
           <span class="text-xs font-black text-slate-900 dark:text-white mt-0.5 leading-tight truncate">
             {{ activeSpecialException.tituloMes }}
           </span>
-          <span class="text-[9px] font-semibold text-slate-500 dark:text-slate-400 mt-0.5">
+          <span class="text-[9px] font-semibold text-slate-500 dark:text-slate-400 mt-0.5 whitespace-nowrap">
             {{ activeSpecialException.daysRemaining }} d restantes
           </span>
         </div>
@@ -409,12 +475,23 @@ onUnmounted(() => {
       <!-- Botón Flotante Radial Mes Vigente -->
       <div 
         ref="mesVigenteRef" 
-        class="w-[216px] bg-white/95 text-slate-800 shadow-xl shadow-purple-950/5 border-slate-200 dark:bg-[#1A152B]/95 dark:text-white dark:border-[#2E2648] dark:shadow-2xl dark:shadow-black/60 backdrop-blur-md border rounded-2xl p-2.5 flex items-center gap-2.5 cursor-pointer transition-all duration-300 hover:-translate-y-0.5 group"
-        :class="mesVigenteInfo.borderClass"
-        @mouseenter="showMesVigenteTooltip = true"
-        @mouseleave="showMesVigenteTooltip = false"
-        @click="showMesVigenteTooltip = !showMesVigenteTooltip"
+        class="relative h-14 bg-white/95 text-slate-800 shadow-xl shadow-purple-950/10 border-slate-200 dark:bg-[#1A152B]/95 dark:text-white dark:border-[#2E2648] dark:shadow-2xl dark:shadow-black/60 backdrop-blur-md border flex items-center cursor-pointer transition-all duration-300 ease-out hover:-translate-y-0.5 group overflow-hidden"
+        :class="[
+          mesVigenteInfo.borderClass,
+          isMesVigenteExpanded ? 'w-[224px] rounded-2xl px-2.5 gap-2.5' : 'w-14 rounded-full justify-center p-0'
+        ]"
+        title="Mes Vigente: Pasa el cursor o da clic para más información"
+        @mouseenter="onMesVigenteEnter"
+        @mouseleave="onMesVigenteLeave"
+        @click="toggleMesVigente"
       >
+        <!-- Badge ping en modo círculo colapsado -->
+        <span 
+          v-if="!isMesVigenteExpanded" 
+          class="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full ring-2 ring-white dark:ring-[#1A152B] pointer-events-none"
+          :class="mesVigenteInfo.pingClass"
+        ></span>
+
         <!-- SVG Radial Dinámico -->
         <div class="relative w-12 h-12 shrink-0 flex items-center justify-center">
           <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
@@ -438,17 +515,21 @@ onUnmounted(() => {
           </div>
         </div>
 
-        <div class="flex flex-col pr-1 text-left min-w-0">
+        <!-- Contenido expandido -->
+        <div 
+          class="flex flex-col pr-1 text-left min-w-0 transition-all duration-300"
+          :class="isMesVigenteExpanded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2 pointer-events-none w-0 overflow-hidden'"
+        >
           <div class="flex items-center gap-1">
             <span class="w-1.5 h-1.5 rounded-full animate-ping" :class="mesVigenteInfo.pingClass"></span>
-            <span class="text-[9px] font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">
+            <span class="text-[9px] font-black uppercase tracking-wider text-slate-500 dark:text-slate-400 whitespace-nowrap">
               Mes Vigente
             </span>
           </div>
           <span class="text-xs font-bold text-slate-900 dark:text-slate-200 mt-0.5 leading-tight truncate">
             {{ mesVigenteInfo.monthName }}
           </span>
-          <span class="text-[9px] font-semibold mt-0.5" :class="mesVigenteInfo.textClass">
+          <span class="text-[9px] font-semibold mt-0.5 whitespace-nowrap" :class="mesVigenteInfo.textClass">
             {{ mesVigenteInfo.daysRemaining }} días restantes
           </span>
         </div>

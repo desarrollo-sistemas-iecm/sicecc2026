@@ -1,7 +1,7 @@
 <script setup>
 import { computed, onMounted, reactive, ref, watch } from 'vue'
 import Swal from 'sweetalert2'
-import { FileSpreadsheet, Loader2, Download, AlertCircle } from '@lucide/vue'
+import { FileSpreadsheet, Loader2, Download, AlertCircle, Construction, Clock, Sparkles } from '@lucide/vue'
 import api from '../services/api.js'
 import { useAuthStore } from '../stores/authStore.js'
 import { useToast } from '../composables/useToast.js'
@@ -261,174 +261,229 @@ onMounted(() => {
       </div>
     </div>
 
-    <!-- Formulario Principal en AppCard -->
-    <AppCard>
-      <form @submit.prevent="onGenerate" class="space-y-8">
-        
-        <!-- Bloque Principal: Tipo de Reporte -->
-        <div class="bg-iecm-gris dark:bg-slate-950 p-5 rounded-xl border border-iecm-gris-200 dark:border-white/10">
-          <AppSelect
-            v-model="form.tipo"
-            label="1. Tipo de reporte"
-            required
-            :error="errors.tipo"
-          >
-            <option value="" disabled>— Selecciona el reporte a generar —</option>
-            <optgroup label="Reportes generales (Todos)">
-              <option v-for="t in TIPOS_BASE" :key="t.id" :value="t.id">{{ t.label }}</option>
-            </optgroup>
-            <optgroup v-if="isAdmin" label="Reportes de administrador">
-              <option v-for="t in TIPOS_ADMIN" :key="t.id" :value="t.id">{{ t.label }}</option>
-            </optgroup>
-          </AppSelect>
+    <!-- ═════════════════════════════════════════════════════════════════════ -->
+    <!-- ESTADO: EN CONSTRUCCIÓN / PRÓXIMAMENTE                              -->
+    <!-- ═════════════════════════════════════════════════════════════════════ -->
+    <div class="rounded-2xl border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-[#1A152B]/80 backdrop-blur-md p-10 md:p-14 text-center shadow-iecm-sm relative overflow-hidden">
+      <!-- Decoración de fondo suave -->
+      <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-purple-500/10 dark:bg-purple-600/15 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div class="relative z-10 max-w-xl mx-auto flex flex-col items-center">
+        <!-- Badge animado -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-xs font-semibold mb-6 tracking-wide">
+          <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
+          <span>En Construcción</span>
         </div>
 
-        <!-- Bloque 2: Filtros Dinámicos (solo si hay tipo seleccionado) -->
-        <div v-if="tipoN > 0" class="px-2">
-          <h3 class="text-sm font-semibold text-slate-800 dark:text-slate-200 uppercase tracking-wider mb-4 border-b border-slate-200 dark:border-white/10 pb-2">
-            2. Filtros Específicos
-          </h3>
+        <!-- Icono central -->
+        <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-[#403166] to-[#6b4fa8] dark:from-[#2e1d52] dark:to-[#4f3285] text-white flex items-center justify-center shadow-lg shadow-purple-900/20 mb-6 border border-white/15">
+          <Construction class="w-10 h-10 text-amber-300" />
+        </div>
+
+        <!-- Título y descripción -->
+        <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Módulo en Construcción
+        </h3>
+        
+        <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base mt-3 leading-relaxed">
+          Esta sección se encuentra en actualización para optimizar la generación y exportación de reportes institucionales.
+        </p>
+
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 font-medium">
+          Estará disponible próximamente con nuevas métricas e informes detallados del ejercicio 2026.
+        </p>
+
+        <!-- Pills de características futuras -->
+        <div class="flex flex-wrap items-center justify-center gap-2.5 mt-8 pt-6 border-t border-slate-200 dark:border-white/10 w-full">
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-white/5 text-xs font-medium text-slate-700 dark:text-slate-300">
+            <FileSpreadsheet class="w-3.5 h-3.5 text-emerald-500" />
+            <span>Formatos XLSX</span>
+          </div>
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-white/5 text-xs font-medium text-slate-700 dark:text-slate-300">
+            <Clock class="w-3.5 h-3.5 text-purple-400" />
+            <span>Histórico de Actividades</span>
+          </div>
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-white/5 text-xs font-medium text-slate-700 dark:text-slate-300">
+            <Sparkles class="w-3.5 h-3.5 text-amber-400" />
+            <span>Indicadores Consolidados</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═════════════════════════════════════════════════════════════════════ -->
+    <!-- FORMULARIO DE REPORTES (TEMPORALMENTE COMENTADO / INACTIVO)          -->
+    <!-- ═════════════════════════════════════════════════════════════════════ -->
+    <template v-if="false">
+      <!-- Formulario Principal en AppCard -->
+      <AppCard>
+        <form @submit.prevent="onGenerate" class="space-y-8">
           
-          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Bloque Principal: Tipo de Reporte -->
+          <div class="bg-iecm-gris dark:bg-slate-950 p-5 rounded-xl border border-iecm-gris-200 dark:border-white/10">
+            <AppSelect
+              v-model="form.tipo"
+              label="1. Tipo de reporte"
+              required
+              :error="errors.tipo"
+            >
+              <option value="" disabled>— Selecciona el reporte a generar —</option>
+              <optgroup label="Reportes generales (Todos)">
+                <option v-for="t in TIPOS_BASE" :key="t.id" :value="t.id">{{ t.label }}</option>
+              </optgroup>
+              <optgroup v-if="isAdmin" label="Reportes de administrador">
+                <option v-for="t in TIPOS_ADMIN" :key="t.id" :value="t.id">{{ t.label }}</option>
+              </optgroup>
+            </AppSelect>
+          </div>
+
+          <!-- Bloque 2: Filtros Dinámicos (solo si hay tipo seleccionado) -->
+          <div v-if="tipoN > 0" class="px-2">
+            <h3 class="text-sm font-semibold text-slate-800 dark:text-slate-200 uppercase tracking-wider mb-4 border-b border-slate-200 dark:border-white/10 pb-2">
+              2. Filtros Específicos
+            </h3>
             
-            <!-- Vertiente -->
-            <AppSelect
-              v-if="showVertiente"
-              v-model="form.vertiente"
-              label="Vertiente"
-            >
-              <option v-for="v in vertientes" :key="v.id" :value="v.id">{{ v.label }}</option>
-            </AppSelect>
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              
+              <!-- Vertiente -->
+              <AppSelect
+                v-if="showVertiente"
+                v-model="form.vertiente"
+                label="Vertiente"
+              >
+                <option v-for="v in vertientes" :key="v.id" :value="v.id">{{ v.label }}</option>
+              </AppSelect>
 
-            <!-- Taller / Intervención -->
-            <AppSelect
-              v-if="showTaller"
-              v-model="form.taller"
-              label="Intervención educativa"
-            >
-              <option :value="0">Todas las intervenciones</option>
-              <option v-for="c in cursosFiltrados" :key="c.idcurso" :value="c.idcurso">
-                {{ c.descripcion }}
-              </option>
-            </AppSelect>
+              <!-- Taller / Intervención -->
+              <AppSelect
+                v-if="showTaller"
+                v-model="form.taller"
+                label="Intervención educativa"
+              >
+                <option :value="0">Todas las intervenciones</option>
+                <option v-for="c in cursosFiltrados" :key="c.idcurso" :value="c.idcurso">
+                  {{ c.descripcion }}
+                </option>
+              </AppSelect>
 
-            <!-- Convenio -->
-            <AppSelect
-              v-if="showConvenio"
-              v-model="form.convenio"
-              label="Convenio"
-            >
-              <option v-for="c in convenios" :key="c.id" :value="c.id">{{ c.label }}</option>
-            </AppSelect>
+              <!-- Convenio -->
+              <AppSelect
+                v-if="showConvenio"
+                v-model="form.convenio"
+                label="Convenio"
+              >
+                <option v-for="c in convenios" :key="c.id" :value="c.id">{{ c.label }}</option>
+              </AppSelect>
 
-            <!-- Criterio Admin -->
-            <div v-if="showCriterio" class="lg:col-span-3 bg-slate-50 dark:bg-slate-900/40 p-4 rounded-xl border border-slate-200 dark:border-white/10">
-              <label class="label-iecm !mb-3">Alcance geográfico</label>
-              <div class="flex gap-8">
-                <label v-for="c in criterios" :key="c.id" class="flex items-center gap-2.5 cursor-pointer group">
-                  <div class="relative flex items-center justify-center">
-                    <input v-model="form.criterio" type="radio" :value="c.id" class="peer sr-only" />
-                    <div class="w-5 h-5 rounded-full border-2 border-slate-300 peer-checked:border-iecm-morado peer-checked:bg-iecm-morado transition-all"></div>
-                    <div class="absolute w-2 h-2 rounded-full bg-white dark:bg-slate-900 opacity-0 peer-checked:opacity-100 transition-opacity"></div>
-                  </div>
-                  <span class="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-iecm-morado transition-colors">{{ c.label }}</span>
-                </label>
+              <!-- Criterio Admin -->
+              <div v-if="showCriterio" class="lg:col-span-3 bg-slate-50 dark:bg-slate-900/40 p-4 rounded-xl border border-slate-200 dark:border-white/10">
+                <label class="label-iecm !mb-3">Alcance geográfico</label>
+                <div class="flex gap-8">
+                  <label v-for="c in criterios" :key="c.id" class="flex items-center gap-2.5 cursor-pointer group">
+                    <div class="relative flex items-center justify-center">
+                      <input v-model="form.criterio" type="radio" :value="c.id" class="peer sr-only" />
+                      <div class="w-5 h-5 rounded-full border-2 border-slate-300 peer-checked:border-iecm-morado peer-checked:bg-iecm-morado transition-all"></div>
+                      <div class="absolute w-2 h-2 rounded-full bg-white dark:bg-slate-900 opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                    </div>
+                    <span class="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-iecm-morado transition-colors">{{ c.label }}</span>
+                  </label>
+                </div>
+
+                <!-- Select dependiente del criterio -->
+                <div class="mt-4 grid md:grid-cols-2 gap-4">
+                  <AppSelect
+                    v-if="showDistrito"
+                    v-model="form.distrito"
+                    label="Distrito"
+                    required
+                    :error="errors.distrito"
+                  >
+                    <option :value="0" disabled>— Todos los distritos —</option>
+                    <option v-for="s in catalogos.sedes" :key="s.idsede" :value="s.idsede">
+                      {{ s.idsede }} — {{ s.descripcion }}
+                    </option>
+                  </AppSelect>
+
+                  <AppSelect
+                    v-if="showDelegacion"
+                    v-model="form.delegacion"
+                    label="Delegación"
+                    required
+                    :error="errors.delegacion"
+                  >
+                    <option :value="0" disabled>— Todas las delegaciones —</option>
+                    <option v-for="d in catalogos.delegaciones" :key="d.iddelegacion" :value="d.iddelegacion">
+                      {{ d.descripcion }}
+                    </option>
+                  </AppSelect>
+                </div>
               </div>
 
-              <!-- Select dependiente del criterio -->
-              <div class="mt-4 grid md:grid-cols-2 gap-4">
-                <AppSelect
-                  v-if="showDistrito"
-                  v-model="form.distrito"
-                  label="Distrito"
+              <!-- Fechas -->
+              <template v-if="showFechas">
+                <AppInput
+                  v-model="form.fechaInic"
+                  type="date"
+                  label="Fecha inicial"
                   required
-                  :error="errors.distrito"
-                >
-                  <option :value="0" disabled>— Todos los distritos —</option>
-                  <option v-for="s in catalogos.sedes" :key="s.idsede" :value="s.idsede">
-                    {{ s.idsede }} — {{ s.descripcion }}
-                  </option>
-                </AppSelect>
-
-                <AppSelect
-                  v-if="showDelegacion"
-                  v-model="form.delegacion"
-                  label="Delegación"
+                  :error="errors.fechaInic"
+                />
+                <AppInput
+                  v-model="form.fechaFin"
+                  type="date"
+                  label="Fecha final"
                   required
-                  :error="errors.delegacion"
-                >
-                  <option :value="0" disabled>— Todas las delegaciones —</option>
-                  <option v-for="d in catalogos.delegaciones" :key="d.iddelegacion" :value="d.iddelegacion">
-                    {{ d.descripcion }}
-                  </option>
-                </AppSelect>
+                  :error="errors.fechaFin"
+                  :min="form.fechaInic || undefined"
+                />
+              </template>
+
+              <!-- Badge Informativo si no lleva fechas -->
+              <div v-else-if="tipoN > 0" class="lg:col-span-3 flex items-start gap-3 p-4 bg-iecm-dorado-100/50 border border-iecm-dorado-100 rounded-xl text-amber-800">
+                <AlertCircle class="w-5 h-5 shrink-0 text-amber-600 mt-0.5" />
+                <div class="text-sm">
+                  <p class="font-medium">Sin filtro de fechas</p>
+                  <p class="opacity-90 mt-0.5">Este tipo de reporte se genera contemplando todo el histórico de registros. No es necesario seleccionar un rango de fechas.</p>
+                </div>
               </div>
+
             </div>
-
-            <!-- Fechas -->
-            <template v-if="showFechas">
-              <AppInput
-                v-model="form.fechaInic"
-                type="date"
-                label="Fecha inicial"
-                required
-                :error="errors.fechaInic"
-              />
-              <AppInput
-                v-model="form.fechaFin"
-                type="date"
-                label="Fecha final"
-                required
-                :error="errors.fechaFin"
-                :min="form.fechaInic || undefined"
-              />
-            </template>
-
-            <!-- Badge Informativo si no lleva fechas -->
-            <div v-else-if="tipoN > 0" class="lg:col-span-3 flex items-start gap-3 p-4 bg-iecm-dorado-100/50 border border-iecm-dorado-100 rounded-xl text-amber-800">
-              <AlertCircle class="w-5 h-5 shrink-0 text-amber-600 mt-0.5" />
-              <div class="text-sm">
-                <p class="font-medium">Sin filtro de fechas</p>
-                <p class="opacity-90 mt-0.5">Este tipo de reporte se genera contemplando todo el histórico de registros. No es necesario seleccionar un rango de fechas.</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Footer Actions -->
-        <div class="flex items-center justify-between pt-6 border-t border-slate-100 dark:border-white/5">
-          <div class="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-2">
-            <template v-if="loadingCatalogos">
-              <Loader2 class="w-4 h-4 animate-spin text-iecm-morado dark:text-iecm-morado-400" />
-              Cargando catálogos...
-            </template>
-            <template v-else-if="!form.tipo">
-              <AlertCircle class="w-4 h-4 text-slate-400 dark:text-slate-500" />
-              Selecciona el tipo de reporte primero.
-            </template>
-            <template v-else>
-              <span class="inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
-              Listo para generar
-            </template>
           </div>
 
-          <AppButton
-            type="submit"
-            variant="primary"
-            size="lg"
-            :loading="generating || loadingCatalogos"
-            :disabled="!form.tipo"
-            class="min-w-[200px]"
-          >
-            <template #icon v-if="!generating">
-              <Download class="w-5 h-5" />
-            </template>
-            Generar Excel
-          </AppButton>
-        </div>
-        
-      </form>
-    </AppCard>
+          <!-- Footer Actions -->
+          <div class="flex items-center justify-between pt-6 border-t border-slate-100 dark:border-white/5">
+            <div class="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-2">
+              <template v-if="loadingCatalogos">
+                <Loader2 class="w-4 h-4 animate-spin text-iecm-morado dark:text-iecm-morado-400" />
+                Cargando catálogos...
+              </template>
+              <template v-else-if="!form.tipo">
+                <AlertCircle class="w-4 h-4 text-slate-400 dark:text-slate-500" />
+                Selecciona el tipo de reporte primero.
+              </template>
+              <template v-else>
+                <span class="inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                Listo para generar
+              </template>
+            </div>
+
+            <AppButton
+              type="submit"
+              variant="primary"
+              size="lg"
+              :loading="generating || loadingCatalogos"
+              :disabled="!form.tipo"
+              class="min-w-[200px]"
+            >
+              <template #icon v-if="!generating">
+                <Download class="w-5 h-5" />
+              </template>
+              Generar Excel
+            </AppButton>
+          </div>
+          
+        </form>
+      </AppCard>
+    </template>
   </div>
 </template>

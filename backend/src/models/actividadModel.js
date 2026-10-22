@@ -81,13 +81,27 @@ export const getActividadContext = async (idcurso) => {
   request.input('idcurso', sql.Int, idcurso)
 
   const result = await request.query(`
-    SELECT ti.idcurso, ti.idcatcurso, cc.idtipo, format(ti.fecha, 'yyyy-MM-dd') as fecha
+    SELECT ti.idcurso, ti.idcatcurso, cc.idtipo, ti.fecha, ti.id_distrito, u.idsede
     FROM sisecycc2024.dbo.sisec_talleres_intervenciones ti
     LEFT JOIN sisecycc2024.dbo.sisec_cat_cursos cc ON ti.idcatcurso = cc.idcurso
+    LEFT JOIN sisec_usuarios u ON ti.idusuario = u.idusuario
     WHERE ti.idcurso = @idcurso
   `)
 
-  return result.recordset[0]
+  const row = result.recordset[0]
+  if (!row) return null
+
+  let fechaStr = row.fecha
+  if (fechaStr instanceof Date) {
+    fechaStr = fechaStr.toISOString().slice(0, 10)
+  } else if (typeof fechaStr === 'string') {
+    fechaStr = fechaStr.slice(0, 10)
+  }
+
+  return {
+    ...row,
+    fecha: fechaStr
+  }
 }
 
 export const getArchivosActuales = async (idcurso) => {
@@ -110,7 +124,7 @@ export const marcarNoRealizada = async (idcurso, motivo) => {
   const request = pool.request()
 
   request.input('idcurso', sql.Int, idcurso)
-  request.input('motivo', sql.VarChar(250), motivo)
+  request.input('motivo', sql.VarChar(250), motivo ? motivo.slice(0, 250) : '')
 
   await request.query(`
     UPDATE sisecycc2024.dbo.sisec_talleres_intervenciones
@@ -125,7 +139,7 @@ export const reprogramarActividad = async (idcurso, fecha, hora) => {
 
   request.input('idcurso', sql.Int, idcurso)
   request.input('fecha', sql.VarChar(10), fecha)
-  request.input('hora', sql.VarChar(5), hora)
+  request.input('hora', sql.VarChar(10), hora)
 
   await request.query(`
     UPDATE sisecycc2024.dbo.sisec_talleres_intervenciones
@@ -142,7 +156,7 @@ export const marcarRealizada = async (idcurso, payload) => {
   request.input('modalidad', sql.Bit, payload.modalidad)
   request.input('duracionhrs', sql.Int, payload.duracionhrs)
   request.input('duracionmin', sql.Int, payload.duracionmin)
-  request.input('comentarios', sql.VarChar(250), payload.comentarios)
+  request.input('comentarios', sql.VarChar(250), payload.comentarios ? payload.comentarios.slice(0, 250) : '')
   request.input('pmujeres1', sql.Int, payload.pmujeres1)
   request.input('pmujeres2', sql.Int, payload.pmujeres2)
   request.input('pmujeres3', sql.Int, payload.pmujeres3)
